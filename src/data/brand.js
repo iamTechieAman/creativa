@@ -1,5 +1,5 @@
 export const BRAND_PALETTES = [
-  { name: 'Canva Modern', colors: ['#7D2AE8', '#00C4CC', '#1e293b', '#f8fafc', '#ec4899'] },
+  { name: 'Creativa Modern', colors: ['#7D2AE8', '#00C4CC', '#1e293b', '#f8fafc', '#ec4899'] },
   { name: 'Vibrant Sunset', colors: ['#ff7e5f', '#feb47b', '#2b5876', '#4e4376', '#f59e0b'] },
   { name: 'Emerald Forest', colors: ['#064e3b', '#047857', '#10b981', '#34d399', '#f0fdf4'] },
   { name: 'Cyberpunk Neon', colors: ['#f72585', '#7209b7', '#3a0ca3', '#4361ee', '#4cc9f0'] },

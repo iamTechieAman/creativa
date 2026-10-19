@@ -116,7 +116,7 @@ export const BRAND_LOGOS = [
   { name: 'Amazon', symbol: 'a', color: '#FF9900', bg: '#131921', textColor: '#FF9900' },
   { name: 'Netflix', symbol: 'N', color: '#E50914', bg: '#000000', textColor: '#E50914' },
   { name: 'Spotify', symbol: '♫', color: '#1DB954', bg: '#121212', textColor: '#1DB954' },
-  { name: 'Canva', symbol: 'C', color: '#7D2AE8', bg: '#00C4CC', textColor: '#ffffff' },
+  { name: 'Creativa', symbol: 'C', color: '#7D2AE8', bg: '#00C4CC', textColor: '#ffffff' },
   { name: 'OpenAI', symbol: '✳', color: '#10A37F', bg: '#000000', textColor: '#ffffff' },
   { name: 'YouTube', symbol: '▶', color: '#FF0000', bg: '#ffffff', textColor: '#FF0000' },
   { name: 'GitHub', symbol: '⌥', color: '#24292e', bg: '#ffffff', textColor: '#24292e' },

@@ -41,7 +41,7 @@ function sanitizeAssetUrl(url, fallback = 'https://images.unsplash.com/photo-161
 
 /**
  * Auto-Scraper Engine for Creativa
- * Continuously indexes and synchronizes real-time templates and creators from Canva
+ * Continuously indexes and synchronizes real-time design templates and creators
  */
 export function getAutoScrapedData() {
   let storedTemplates = [];
@@ -478,7 +478,7 @@ export async function triggerLiveCanvaSync() {
 
 /**
  * Starts continuous background auto-scraping loop
- * Automatically fetches & indexes trending Canva designs every interval
+ * Automatically fetches & indexes trending Creativa designs every interval
  */
 export function startContinuousAutoScraping(intervalSeconds = 60) {
   if (autoScrapeTimer) return;
@@ -493,7 +493,7 @@ export function startContinuousAutoScraping(intervalSeconds = 60) {
     triggerLiveCanvaSync().catch(console.warn);
   }, intervalSeconds * 1000);
 
-  console.info(`[Canva Auto-Scraper] Background continuous sync active (every ${intervalSeconds}s)`);
+  console.info(`[Creativa Auto-Scraper] Background continuous sync active (every ${intervalSeconds}s)`);
 }
 
 /**
@@ -503,7 +503,7 @@ export function stopContinuousAutoScraping() {
   if (autoScrapeTimer) {
     clearInterval(autoScrapeTimer);
     autoScrapeTimer = null;
-    console.info('[Canva Auto-Scraper] Background continuous sync paused');
+    console.info('[Creativa Auto-Scraper] Background continuous sync paused');
   }
 }
 

@@ -1,5 +1,5 @@
 {
-  "name": "canva",
+  "name": "creativa",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
@@ -8,10 +8,16 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "graphic-design",
+    "canvas-editor",
+    "fabricjs",
+    "react",
+    "creativa"
+  ],
+  "author": "Aman Kumar",
+  "license": "MIT",
+  "description": "Creativa — Free, open-source web-based graphic design & collaborative canvas editor.",
   "dependencies": {
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",

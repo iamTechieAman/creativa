@@ -1,7 +1,7 @@
 import { Group, Rect, Line, Textbox } from 'fabric';
 
 /**
- * Canva Pro Data Table Generator
+ * Creativa Pro Data Table Generator
  * Creates editable vector grid tables with customizable rows, columns, and color styling
  */
 export const createDataTable = ({

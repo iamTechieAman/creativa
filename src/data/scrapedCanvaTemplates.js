@@ -1,4 +1,4 @@
-// Auto-scraped official Canva templates via Scrapling & Global Aggregator Engine
+// Auto-scraped official Creativa templates via Scrapling & Global Aggregator Engine
 // 100% CORS-Enabled & CDN-Cached Artwork (Zero 403 Errors)
 export const SCRAPED_CANVA_TEMPLATES = [
   {
@@ -18,7 +18,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "official",
       "yellow",
       "green",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -69,7 +69,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "blue",
       "proposal",
       "official",
-      "canva",
+      "creativa",
       "beige",
       "project"
     ],
@@ -122,7 +122,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "company",
       "white",
       "official",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -172,7 +172,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "minimalist",
       "pink",
       "official",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -221,7 +221,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "vintage",
       "official",
       "green",
-      "canva",
+      "creativa",
       "beige",
       "project",
       "scrapbook"
@@ -277,7 +277,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "group",
       "white",
       "official",
-      "canva",
+      "creativa",
       "project"
     ],
     "objects": [
@@ -329,7 +329,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "portfolio",
       "official",
       "red",
-      "canva",
+      "creativa",
       "beige",
       "bold"
     ],
@@ -382,7 +382,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "modern",
       "gray",
       "official",
-      "canva",
+      "creativa",
       "project",
       "history"
     ],
@@ -438,7 +438,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "official",
       "instagram",
       "fashion",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -492,7 +492,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "official",
       "instagram",
       "beige",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -546,7 +546,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "official",
       "instagram",
       "beige",
-      "canva",
+      "creativa",
       "happy"
     ],
     "objects": [
@@ -595,7 +595,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "social media",
       "album",
       "instagram",
-      "canva",
+      "creativa",
       "post",
       "photo",
       "interface",
@@ -658,7 +658,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "red",
       "instagram",
       "fashion",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -710,7 +710,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "quote",
       "official",
       "instagram",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -757,7 +757,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     "keywords": [
       "photographer",
       "social media",
-      "canva",
+      "creativa",
       "seamless",
       "post",
       "elegant",
@@ -817,7 +817,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "gray",
       "official",
       "instagram",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -869,7 +869,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "are",
       "white",
       "official",
-      "canva",
+      "creativa",
       "we",
       "marketing",
       "flyer"
@@ -924,7 +924,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "are",
       "official",
       "green",
-      "canva",
+      "creativa",
       "we",
       "marketing",
       "flyer"
@@ -979,7 +979,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "official",
       "brown",
       "beige",
-      "canva",
+      "creativa",
       "marketing",
       "playful"
     ],
@@ -1033,7 +1033,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "qr",
       "scan",
       "official",
-      "canva",
+      "creativa",
       "marketing",
       "flyer"
     ],
@@ -1087,7 +1087,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "white",
       "official",
       "brown",
-      "canva",
+      "creativa",
       "marketing",
       "flyer"
     ],
@@ -1140,7 +1140,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "gold",
       "red",
       "retro",
-      "canva",
+      "creativa",
       "bar",
       "marketing",
       "flyer"
@@ -1198,7 +1198,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "qr",
       "white",
       "green",
-      "canva",
+      "creativa",
       "official",
       "payday",
       "marketing",
@@ -1250,7 +1250,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "happy",
       "birthday",
       "official",
-      "canva",
+      "creativa",
       "marketing",
       "flyer"
     ],
@@ -1303,7 +1303,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "streetwear",
       "white",
       "official",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -1356,7 +1356,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "elegant",
       "official",
       "gold",
-      "canva",
+      "creativa",
       "monogram"
     ],
     "objects": [
@@ -1411,7 +1411,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "studio",
       "white",
       "official",
-      "canva",
+      "creativa",
       "bold"
     ],
     "objects": [
@@ -1469,7 +1469,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "store",
       "white",
       "official",
-      "canva",
+      "creativa",
       "bold"
     ],
     "objects": [
@@ -1523,7 +1523,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "initial",
       "white",
       "official",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -1574,7 +1574,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "badge",
       "official",
       "red",
-      "canva",
+      "creativa",
       "esports"
     ],
     "objects": [
@@ -1626,7 +1626,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "creative",
       "white",
       "official",
-      "canva",
+      "creativa",
       "minimal",
       "bold"
     ],
@@ -1677,7 +1677,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "logo",
       "minimalist",
       "official",
-      "canva",
+      "creativa",
       "marketing"
     ],
     "objects": [
@@ -1732,7 +1732,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "border",
       "white",
       "official",
-      "canva",
+      "creativa",
       "poster"
     ],
     "objects": [
@@ -1784,7 +1784,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "minimalist",
       "art",
       "official",
-      "canva",
+      "creativa",
       "poster",
       "exhibition"
     ],
@@ -1838,7 +1838,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "modern",
       "white",
       "official",
-      "canva",
+      "creativa",
       "newspaper",
       "poster"
     ],
@@ -1892,7 +1892,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "border",
       "official",
       "green",
-      "canva",
+      "creativa",
       "poster"
     ],
     "objects": [
@@ -1944,7 +1944,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "in",
       "photos",
       "official",
-      "canva",
+      "creativa",
       "light",
       "poster",
       "style"
@@ -2000,7 +2000,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "border",
       "official",
       "yellow",
-      "canva",
+      "creativa",
       "orange",
       "poster"
     ],
@@ -2057,7 +2057,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "doubled",
       "grey",
       "fashion",
-      "canva",
+      "creativa",
       "poster"
     ],
     "objects": [
@@ -2108,7 +2108,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "birthday",
       "white",
       "official",
-      "canva",
+      "creativa",
       "beige",
       "poster"
     ],
@@ -2162,7 +2162,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "modern",
       "resume",
       "official",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -2212,7 +2212,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "minimalist",
       "resume",
       "official",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -2264,7 +2264,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "developer",
       "resume",
       "official",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -2318,7 +2318,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "school",
       "white",
       "official",
-      "canva",
+      "creativa",
       "graduate"
     ],
     "objects": [
@@ -2370,7 +2370,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "resume",
       "white",
       "official",
-      "canva",
+      "creativa",
       "peach"
     ],
     "objects": [
@@ -2423,7 +2423,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "resume",
       "white",
       "official",
-      "canva",
+      "creativa",
       "sales"
     ],
     "objects": [
@@ -2477,7 +2477,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "resume",
       "white",
       "green",
-      "canva",
+      "creativa",
       "official"
     ],
     "objects": [
@@ -2530,7 +2530,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "resume",
       "white",
       "official",
-      "canva"
+      "creativa"
     ],
     "objects": [
       {
@@ -2584,7 +2584,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "save",
       "elegant",
       "official",
-      "canva",
+      "creativa",
       "beige"
     ],
     "objects": [
@@ -2638,7 +2638,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "pink",
       "white",
       "official",
-      "canva",
+      "creativa",
       "watercolor"
     ],
     "objects": [
@@ -2692,7 +2692,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "save",
       "minimalist",
       "official",
-      "canva",
+      "creativa",
       "beige"
     ],
     "objects": [
@@ -2745,7 +2745,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "grand",
       "official",
       "green",
-      "canva",
+      "creativa",
       "watercolor"
     ],
     "objects": [
@@ -2798,7 +2798,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "drawn",
       "white",
       "red",
-      "canva",
+      "creativa",
       "official",
       "hand"
     ],
@@ -2851,7 +2851,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "birthday",
       "white",
       "18th",
-      "canva",
+      "creativa",
       "official",
       "magazine",
       "maroon"
@@ -2903,7 +2903,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "birthday",
       "pink",
       "official",
-      "canva",
+      "creativa",
       "9th",
       "cute",
       "watercolor"
@@ -2956,7 +2956,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "invitation",
       "white",
       "green",
-      "canva",
+      "creativa",
       "official",
       "watercolor"
     ],
@@ -3008,7 +3008,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "minimalist",
       "video",
       "official",
-      "canva",
+      "creativa",
       "solitude",
       "youtube"
     ],
@@ -3063,7 +3063,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "vlog",
       "yellow",
       "cinematic",
-      "canva",
+      "creativa",
       "youtube"
     ],
     "objects": [
@@ -3113,7 +3113,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "video",
       "official",
       "red",
-      "canva",
+      "creativa",
       "bold",
       "finance",
       "youtube"
@@ -3170,7 +3170,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "vlog",
       "brown",
       "official",
-      "canva",
+      "creativa",
       "youtube"
     ],
     "objects": [
@@ -3224,7 +3224,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "video",
       "white",
       "vlog",
-      "canva",
+      "creativa",
       "official",
       "youtube"
     ],
@@ -3282,7 +3282,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "video",
       "white",
       "official",
-      "canva",
+      "creativa",
       "youtube"
     ],
     "objects": [
@@ -3336,7 +3336,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "elegant",
       "video",
       "official",
-      "canva",
+      "creativa",
       "new",
       "youtube"
     ],
@@ -3390,7 +3390,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "thumbnail",
       "video",
       "official",
-      "canva",
+      "creativa",
       "youtube"
     ],
     "objects": [
@@ -3428,7 +3428,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-executive-ai-machine-learning-strategy-deck",
+    "id": "creativa-official-executive-ai-machine-learning-strategy-deck",
     "title": "Executive AI & Machine Learning Strategy Deck",
     "category": "Presentation",
     "width": 1920,
@@ -3441,7 +3441,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "learning",
       "strategy",
       "deck",
-      "canva",
+      "creativa",
       "official",
       "presentation"
     ],
@@ -3480,7 +3480,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-modern-glassmorphism-startup-annual-report",
+    "id": "creativa-official-modern-glassmorphism-startup-annual-report",
     "title": "Modern Glassmorphism Startup Annual Report",
     "category": "Presentation",
     "width": 1920,
@@ -3493,7 +3493,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "startup",
       "annual",
       "report",
-      "canva",
+      "creativa",
       "official",
       "presentation"
     ],
@@ -3532,7 +3532,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-organic-terracotta-artisan-pottery-catalog",
+    "id": "creativa-official-organic-terracotta-artisan-pottery-catalog",
     "title": "Organic Terracotta Artisan Pottery Catalog",
     "category": "Presentation",
     "width": 1920,
@@ -3545,7 +3545,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "artisan",
       "pottery",
       "catalog",
-      "canva",
+      "creativa",
       "official",
       "presentation"
     ],
@@ -3584,7 +3584,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-kinetic-streetwear-brand-lookbook-deck",
+    "id": "creativa-official-kinetic-streetwear-brand-lookbook-deck",
     "title": "Kinetic Streetwear Brand Lookbook Deck",
     "category": "Presentation",
     "width": 1920,
@@ -3597,7 +3597,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "brand",
       "lookbook",
       "deck",
-      "canva",
+      "creativa",
       "official",
       "presentation"
     ],
@@ -3636,7 +3636,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-cyberpunk-futuristic-tech-keynote-slide",
+    "id": "creativa-official-cyberpunk-futuristic-tech-keynote-slide",
     "title": "Cyberpunk Futuristic Tech Keynote Slide",
     "category": "Presentation",
     "width": 1920,
@@ -3649,7 +3649,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "tech",
       "keynote",
       "slide",
-      "canva",
+      "creativa",
       "official",
       "presentation"
     ],
@@ -3688,7 +3688,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-clean-scandinavian-architecture-portfolio",
+    "id": "creativa-official-clean-scandinavian-architecture-portfolio",
     "title": "Clean Scandinavian Architecture Portfolio",
     "category": "Presentation",
     "width": 1920,
@@ -3700,7 +3700,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "scandinavian",
       "architecture",
       "portfolio",
-      "canva",
+      "creativa",
       "official",
       "presentation"
     ],
@@ -3739,7 +3739,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-high-impact-saas-customer-growth-metrics",
+    "id": "creativa-official-high-impact-saas-customer-growth-metrics",
     "title": "High-Impact SaaS Customer Growth Metrics",
     "category": "Presentation",
     "width": 1920,
@@ -3752,7 +3752,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "customer",
       "growth",
       "metrics",
-      "canva",
+      "creativa",
       "official",
       "presentation"
     ],
@@ -3791,7 +3791,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-minimalist-swiss-typographic-exhibition-deck",
+    "id": "creativa-official-minimalist-swiss-typographic-exhibition-deck",
     "title": "Minimalist Swiss Typographic Exhibition Deck",
     "category": "Presentation",
     "width": 1920,
@@ -3804,7 +3804,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "typographic",
       "exhibition",
       "deck",
-      "canva",
+      "creativa",
       "official",
       "presentation"
     ],
@@ -3843,7 +3843,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-luxury-parisian-fragrance-brand-presentation",
+    "id": "creativa-official-luxury-parisian-fragrance-brand-presentation",
     "title": "Luxury Parisian Fragrance Brand Presentation",
     "category": "Presentation",
     "width": 1920,
@@ -3856,7 +3856,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "fragrance",
       "brand",
       "presentation",
-      "canva",
+      "creativa",
       "official",
       "presentation"
     ],
@@ -3895,7 +3895,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-mindful-wellness-yoga-retreat-walkthrough",
+    "id": "creativa-official-mindful-wellness-yoga-retreat-walkthrough",
     "title": "Mindful Wellness & Yoga Retreat Walkthrough",
     "category": "Presentation",
     "width": 1920,
@@ -3908,7 +3908,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "yoga",
       "retreat",
       "walkthrough",
-      "canva",
+      "creativa",
       "official",
       "presentation"
     ],
@@ -3947,7 +3947,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-bold-cyber-monday-mega-sale-discount-banner",
+    "id": "creativa-official-bold-cyber-monday-mega-sale-discount-banner",
     "title": "Bold Cyber Monday Mega Sale Discount Banner",
     "category": "Social Media",
     "width": 1080,
@@ -3962,7 +3962,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "sale",
       "discount",
       "banner",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4001,7 +4001,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-viral-creator-10-step-educational-carousel",
+    "id": "creativa-official-viral-creator-10-step-educational-carousel",
     "title": "Viral Creator 10-Step Educational Carousel",
     "category": "Social Media",
     "width": 1080,
@@ -4014,7 +4014,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "10-step",
       "educational",
       "carousel",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4053,7 +4053,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-neon-glow-nightclub-party-dj-announcement",
+    "id": "creativa-official-neon-glow-nightclub-party-dj-announcement",
     "title": "Neon Glow Nightclub Party DJ Announcement",
     "category": "Social Media",
     "width": 1080,
@@ -4066,7 +4066,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "nightclub",
       "party",
       "announcement",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4105,7 +4105,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-pastel-aesthetic-daily-wellness-affirmation",
+    "id": "creativa-official-pastel-aesthetic-daily-wellness-affirmation",
     "title": "Pastel Aesthetic Daily Wellness Affirmation",
     "category": "Social Media",
     "width": 1080,
@@ -4118,7 +4118,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "daily",
       "wellness",
       "affirmation",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4157,7 +4157,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-minimalist-coffee-bakery-morning-quote",
+    "id": "creativa-official-minimalist-coffee-bakery-morning-quote",
     "title": "Minimalist Coffee & Bakery Morning Quote",
     "category": "Social Media",
     "width": 1080,
@@ -4170,7 +4170,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "bakery",
       "morning",
       "quote",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4209,7 +4209,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-crypto-defi-yield-investment-infographic",
+    "id": "creativa-official-crypto-defi-yield-investment-infographic",
     "title": "Crypto & DeFi Yield Investment Infographic",
     "category": "Social Media",
     "width": 1080,
@@ -4222,7 +4222,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "yield",
       "investment",
       "infographic",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4261,7 +4261,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-modern-fitness-transformation-challenge",
+    "id": "creativa-official-modern-fitness-transformation-challenge",
     "title": "Modern Fitness Transformation Challenge",
     "category": "Social Media",
     "width": 1080,
@@ -4273,7 +4273,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "fitness",
       "transformation",
       "challenge",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4312,7 +4312,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-autumn-collection-high-fashion-instagram-grid",
+    "id": "creativa-official-autumn-collection-high-fashion-instagram-grid",
     "title": "Autumn Collection High Fashion Instagram Grid",
     "category": "Social Media",
     "width": 1080,
@@ -4326,7 +4326,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "fashion",
       "instagram",
       "grid",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4365,7 +4365,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-artisan-ceramic-handcrafted-product-drop",
+    "id": "creativa-official-artisan-ceramic-handcrafted-product-drop",
     "title": "Artisan Ceramic Handcrafted Product Drop",
     "category": "Social Media",
     "width": 1080,
@@ -4378,7 +4378,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "handcrafted",
       "product",
       "drop",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4417,7 +4417,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-tech-podcast-audio-waveform-episode-cover",
+    "id": "creativa-official-tech-podcast-audio-waveform-episode-cover",
     "title": "Tech Podcast Audio Waveform Episode Cover",
     "category": "Social Media",
     "width": 1080,
@@ -4431,7 +4431,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "waveform",
       "episode",
       "cover",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4470,7 +4470,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-tiktok-creator-viral-hook-story-frame",
+    "id": "creativa-official-tiktok-creator-viral-hook-story-frame",
     "title": "TikTok Creator Viral Hook Story Frame",
     "category": "Social Media",
     "width": 1080,
@@ -4484,7 +4484,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "hook",
       "story",
       "frame",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4523,7 +4523,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-high-energy-workout-reel-countdown",
+    "id": "creativa-official-high-energy-workout-reel-countdown",
     "title": "High-Energy Workout Reel Countdown",
     "category": "Social Media",
     "width": 1080,
@@ -4535,7 +4535,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "workout",
       "reel",
       "countdown",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4574,7 +4574,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-behind-the-scenes-studio-vlog-story",
+    "id": "creativa-official-behind-the-scenes-studio-vlog-story",
     "title": "Behind the Scenes Studio Vlog Story",
     "category": "Social Media",
     "width": 1080,
@@ -4587,7 +4587,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "studio",
       "vlog",
       "story",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4626,7 +4626,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-breaking-tech-news-flash-reel-cover",
+    "id": "creativa-official-breaking-tech-news-flash-reel-cover",
     "title": "Breaking Tech News Flash Reel Cover",
     "category": "Social Media",
     "width": 1080,
@@ -4640,7 +4640,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "flash",
       "reel",
       "cover",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4679,7 +4679,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-daily-motivation-minimalist-vertical-quote",
+    "id": "creativa-official-daily-motivation-minimalist-vertical-quote",
     "title": "Daily Motivation Minimalist Vertical Quote",
     "category": "Social Media",
     "width": 1080,
@@ -4692,7 +4692,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "minimalist",
       "vertical",
       "quote",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4731,7 +4731,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-boutique-hotel-weekend-getaway-story",
+    "id": "creativa-official-boutique-hotel-weekend-getaway-story",
     "title": "Boutique Hotel Weekend Getaway Story",
     "category": "Social Media",
     "width": 1080,
@@ -4744,7 +4744,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "weekend",
       "getaway",
       "story",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4783,7 +4783,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-gourmet-recipe-quick-steps-video-reel",
+    "id": "creativa-official-gourmet-recipe-quick-steps-video-reel",
     "title": "Gourmet Recipe Quick Steps Video Reel",
     "category": "Social Media",
     "width": 1080,
@@ -4797,7 +4797,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "steps",
       "video",
       "reel",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4836,7 +4836,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-sound-bath-guided-meditation-story",
+    "id": "creativa-official-sound-bath-guided-meditation-story",
     "title": "Sound Bath Guided Meditation Story",
     "category": "Social Media",
     "width": 1080,
@@ -4849,7 +4849,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "guided",
       "meditation",
       "story",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4888,7 +4888,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-streetwear-summer-collection-teaser-reel",
+    "id": "creativa-official-streetwear-summer-collection-teaser-reel",
     "title": "Streetwear Summer Collection Teaser Reel",
     "category": "Social Media",
     "width": 1080,
@@ -4901,7 +4901,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "collection",
       "teaser",
       "reel",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4940,7 +4940,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-interactive-q-a-poll-community-story",
+    "id": "creativa-official-interactive-q-a-poll-community-story",
     "title": "Interactive Q&A Poll Community Story",
     "category": "Social Media",
     "width": 1080,
@@ -4952,7 +4952,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "poll",
       "community",
       "story",
-      "canva",
+      "creativa",
       "official",
       "social media"
     ],
@@ -4991,7 +4991,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-swiss-style-international-film-festival-poster",
+    "id": "creativa-official-swiss-style-international-film-festival-poster",
     "title": "Swiss Style International Film Festival Poster",
     "category": "Poster",
     "width": 1080,
@@ -5005,7 +5005,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "film",
       "festival",
       "poster",
-      "canva",
+      "creativa",
       "official",
       "poster"
     ],
@@ -5044,7 +5044,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-modernist-architecture-bauhaus-expo-poster",
+    "id": "creativa-official-modernist-architecture-bauhaus-expo-poster",
     "title": "Modernist Architecture & Bauhaus Expo Poster",
     "category": "Poster",
     "width": 1080,
@@ -5057,7 +5057,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "bauhaus",
       "expo",
       "poster",
-      "canva",
+      "creativa",
       "official",
       "poster"
     ],
@@ -5096,7 +5096,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-vintage-botanical-pressed-flower-art-poster",
+    "id": "creativa-official-vintage-botanical-pressed-flower-art-poster",
     "title": "Vintage Botanical Pressed Flower Art Poster",
     "category": "Poster",
     "width": 1080,
@@ -5109,7 +5109,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "pressed",
       "flower",
       "poster",
-      "canva",
+      "creativa",
       "official",
       "poster"
     ],
@@ -5148,7 +5148,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-underground-electronic-music-warehouse-flyer",
+    "id": "creativa-official-underground-electronic-music-warehouse-flyer",
     "title": "Underground Electronic Music Warehouse Flyer",
     "category": "Poster",
     "width": 1080,
@@ -5161,7 +5161,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "music",
       "warehouse",
       "flyer",
-      "canva",
+      "creativa",
       "official",
       "poster"
     ],
@@ -5200,7 +5200,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-global-climate-summit-environmental-poster",
+    "id": "creativa-official-global-climate-summit-environmental-poster",
     "title": "Global Climate Summit Environmental Poster",
     "category": "Poster",
     "width": 1080,
@@ -5213,7 +5213,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "summit",
       "environmental",
       "poster",
-      "canva",
+      "creativa",
       "official",
       "poster"
     ],
@@ -5252,7 +5252,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-contemporary-abstract-art-gallery-exhibition",
+    "id": "creativa-official-contemporary-abstract-art-gallery-exhibition",
     "title": "Contemporary Abstract Art Gallery Exhibition",
     "category": "Poster",
     "width": 1080,
@@ -5264,7 +5264,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "abstract",
       "gallery",
       "exhibition",
-      "canva",
+      "creativa",
       "official",
       "poster"
     ],
@@ -5303,7 +5303,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-geometric-falcon-luxury-crest-vector-logo",
+    "id": "creativa-official-geometric-falcon-luxury-crest-vector-logo",
     "title": "Geometric Falcon Luxury Crest Vector Logo",
     "category": "Logo",
     "width": 800,
@@ -5317,7 +5317,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "crest",
       "vector",
       "logo",
-      "canva",
+      "creativa",
       "official",
       "logo"
     ],
@@ -5356,7 +5356,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-artisan-ceramic-monoline-botanical-logo",
+    "id": "creativa-official-artisan-ceramic-monoline-botanical-logo",
     "title": "Artisan Ceramic Monoline Botanical Logo",
     "category": "Logo",
     "width": 800,
@@ -5369,7 +5369,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "monoline",
       "botanical",
       "logo",
-      "canva",
+      "creativa",
       "official",
       "logo"
     ],
@@ -5408,7 +5408,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-next-gen-cyber-security-shield-logo",
+    "id": "creativa-official-next-gen-cyber-security-shield-logo",
     "title": "Next-Gen Cyber Security Shield Logo",
     "category": "Logo",
     "width": 800,
@@ -5421,7 +5421,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "security",
       "shield",
       "logo",
-      "canva",
+      "creativa",
       "official",
       "logo"
     ],
@@ -5460,7 +5460,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-nordic-hygge-clean-minimalist-wordmark",
+    "id": "creativa-official-nordic-hygge-clean-minimalist-wordmark",
     "title": "Nordic Hygge Clean Minimalist Wordmark",
     "category": "Logo",
     "width": 800,
@@ -5473,7 +5473,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "clean",
       "minimalist",
       "wordmark",
-      "canva",
+      "creativa",
       "official",
       "logo"
     ],
@@ -5512,7 +5512,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-boutique-specialty-coffee-roasters-emblem",
+    "id": "creativa-official-boutique-specialty-coffee-roasters-emblem",
     "title": "Boutique Specialty Coffee Roasters Emblem",
     "category": "Logo",
     "width": 800,
@@ -5525,7 +5525,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "coffee",
       "roasters",
       "emblem",
-      "canva",
+      "creativa",
       "official",
       "logo"
     ],
@@ -5564,7 +5564,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-techsphere-quantum-ai-labs-modern-monogram",
+    "id": "creativa-official-techsphere-quantum-ai-labs-modern-monogram",
     "title": "TechSphere Quantum AI Labs Modern Monogram",
     "category": "Logo",
     "width": 800,
@@ -5577,7 +5577,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "labs",
       "modern",
       "monogram",
-      "canva",
+      "creativa",
       "official",
       "logo"
     ],
@@ -5616,7 +5616,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-high-ctr-youtube-clickbait-tech-breakdown",
+    "id": "creativa-official-high-ctr-youtube-clickbait-tech-breakdown",
     "title": "High CTR YouTube Clickbait Tech Breakdown",
     "category": "Video",
     "width": 1280,
@@ -5629,7 +5629,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "clickbait",
       "tech",
       "breakdown",
-      "canva",
+      "creativa",
       "official",
       "video"
     ],
@@ -5668,7 +5668,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-cinematic-travel-vlog-iceland-drone-footage",
+    "id": "creativa-official-cinematic-travel-vlog-iceland-drone-footage",
     "title": "Cinematic Travel Vlog Iceland Drone Footage",
     "category": "Video",
     "width": 1280,
@@ -5682,7 +5682,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "iceland",
       "drone",
       "footage",
-      "canva",
+      "creativa",
       "official",
       "video"
     ],
@@ -5721,7 +5721,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-ultimate-coding-tutorial-step-by-step-thumbnail",
+    "id": "creativa-official-ultimate-coding-tutorial-step-by-step-thumbnail",
     "title": "Ultimate Coding Tutorial Step-by-Step Thumbnail",
     "category": "Video",
     "width": 1280,
@@ -5734,7 +5734,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "tutorial",
       "step-by-step",
       "thumbnail",
-      "canva",
+      "creativa",
       "official",
       "video"
     ],
@@ -5773,7 +5773,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-financial-freedom-investing-guide-thumbnail",
+    "id": "creativa-official-financial-freedom-investing-guide-thumbnail",
     "title": "Financial Freedom Investing Guide Thumbnail",
     "category": "Video",
     "width": 1280,
@@ -5786,7 +5786,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "investing",
       "guide",
       "thumbnail",
-      "canva",
+      "creativa",
       "official",
       "video"
     ],
@@ -5825,7 +5825,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-luxury-black-tie-gala-award-night-invitation",
+    "id": "creativa-official-luxury-black-tie-gala-award-night-invitation",
     "title": "Luxury Black Tie Gala & Award Night Invitation",
     "category": "Invitation",
     "width": 1080,
@@ -5839,7 +5839,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "award",
       "night",
       "invitation",
-      "canva",
+      "creativa",
       "official",
       "invitation"
     ],
@@ -5878,7 +5878,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-earthy-terracotta-olive-branch-wedding-suite",
+    "id": "creativa-official-earthy-terracotta-olive-branch-wedding-suite",
     "title": "Earthy Terracotta & Olive Branch Wedding Suite",
     "category": "Invitation",
     "width": 1080,
@@ -5892,7 +5892,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "branch",
       "wedding",
       "suite",
-      "canva",
+      "creativa",
       "official",
       "invitation"
     ],
@@ -5931,7 +5931,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-neon-cyber-birthday-vip-club-access-card",
+    "id": "creativa-official-neon-cyber-birthday-vip-club-access-card",
     "title": "Neon Cyber Birthday VIP Club Access Card",
     "category": "Invitation",
     "width": 1080,
@@ -5945,7 +5945,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "club",
       "access",
       "card",
-      "canva",
+      "creativa",
       "official",
       "invitation"
     ],
@@ -5984,7 +5984,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
     ]
   },
   {
-    "id": "canva-official-golden-foil-botanical-baby-shower-invitation",
+    "id": "creativa-official-golden-foil-botanical-baby-shower-invitation",
     "title": "Golden Foil Botanical Baby Shower Invitation",
     "category": "Invitation",
     "width": 1080,
@@ -5998,7 +5998,7 @@ export const SCRAPED_CANVA_TEMPLATES = [
       "baby",
       "shower",
       "invitation",
-      "canva",
+      "creativa",
       "official",
       "invitation"
     ],

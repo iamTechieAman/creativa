@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://vercel.com/new/clone?repository-url=https://github.com/your-username/creativa"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
+  <a href="https://vercel.com/new/clone?repository-url=https://github.com/iamTechieAman/creativa"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
   <img src="https://img.shields.io/badge/React-19.3-61DAFB?logo=react&logoColor=black" alt="React 19" />
   <img src="https://img.shields.io/badge/Vite-8.3-646CFF?logo=vite&logoColor=white" alt="Vite" />
   <img src="https://img.shields.io/badge/Fabric.js-7.4-E34F26" alt="Fabric.js 7" />
@@ -47,7 +47,7 @@ node -v   # v18.0.0 or higher
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/your-username/creativa.git
+git clone https://github.com/iamTechieAman/creativa.git
 cd creativa
 ```
 
@@ -74,7 +74,7 @@ Production assets are generated in the `dist/` directory in under 1 second.
 
 Deploy your own live instance of Creativa for free on Vercel with zero configuration:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/creativa)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/iamTechieAman/creativa)
 
 Creativa includes a ready-to-use [`vercel.json`](vercel.json) configured with SPA route rewrites, immutable static asset caching, and security headers.
 
@@ -87,7 +87,7 @@ creativa/
 ├── public/                 # Static assets (favicons, logos, robots.txt, sitemap.xml)
 ├── src/
 │   ├── components/         # React UI modules
-│   │   ├── CanvaHomeModal.jsx       # Authentic Home screen dashboard
+│   │   ├── CreativaHomeModal.jsx    # Authentic Home screen dashboard
 │   │   ├── MagicStudioView.jsx      # Generative AI Magic Studio Suite
 │   │   ├── TemplatesHubView.jsx     # Searchable 900+ templates directory
 │   │   ├── CreatorsDirectoryView.jsx# 700+ Verified designers community
@@ -147,10 +147,10 @@ Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct]
 
 ---
 
-## ⚖️ Legal Disclaimer & Fair Use Notice
+## ⚖️ Legal Disclaimer & Notice
 
-- **Independent Project**: Creativa is an independent open-source web application created for educational, research, and non-commercial design prototyping.
-- **Trademark Notice**: "Canva" is a registered trademark of Canva Pty Ltd. Creativa is neither affiliated with, endorsed by, nor sponsored by Canva Pty Ltd. All references to formats and design concepts are made under Fair Use for interoperability and technical educational demonstrations.
+- **Independent Project**: Creativa is an independent original open-source design platform developed by Aman Kumar for community creation, education, and visual design prototyping.
+- **Trademark Notice**: All product names, logos, and brands are property of their respective owners. Any reference to formats or style concepts is strictly for identification and interoperability. Creativa is an independent creative platform and is not affiliated with, authorized, or endorsed by any external design software vendor.
 - **Media Attribution**: Royalty-free imagery, stock vectors, and fonts belong to their respective creators under permissive Unsplash, Google Fonts, and CC0 licenses.
 
 ---

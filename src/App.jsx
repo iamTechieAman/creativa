@@ -31,7 +31,7 @@ import NotesDrawer from './components/NotesDrawer';
 import MagicWriteModal from './components/MagicWriteModal';
 import MagicDesignModal from './components/MagicDesignModal';
 import VersionHistoryModal from './components/VersionHistoryModal';
-import CanvaHomeModal from './components/CanvaHomeModal';
+import CreativaHomeModal from './components/CreativaHomeModal';
 import CreatorProfileModal from './components/CreatorProfileModal';
 import { getAllCreators } from './data/creators';
 import { synthesizeCanvaTemplate } from './utils/canvaTemplateEngine';
@@ -1938,8 +1938,8 @@ export default function App() {
         onRestoreSnapshot={handleRestoreSnapshot}
       />
 
-      {/* Authentic Canva Main Home Screen & Dashboard */}
-      <CanvaHomeModal
+      {/* Creativa Main Home Screen & Dashboard */}
+      <CreativaHomeModal
         isOpen={isCanvaHomeOpen}
         onClose={() => setIsCanvaHomeOpen(false)}
         onLoadTemplate={(template) => {

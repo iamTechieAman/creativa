@@ -1,6 +1,6 @@
 /**
- * Comprehensive Canva Typography Catalog
- * 75+ Authentic Canva and Google Fonts across all major typographic classes
+ * Comprehensive Creativa Typography Catalog
+ * 75+ Authentic Fonts across all major typographic classes
  */
 
 export const AVAILABLE_FONTS = [
@@ -151,7 +151,7 @@ export const PRESET_TEXT_STYLES = [
   }
 ];
 
-export const CANVA_FONT_PAIRINGS = [
+export const CREATIVA_FONT_PAIRINGS = [
   {
     name: 'Modern Startup',
     headingFont: 'Montserrat',
@@ -188,3 +188,5 @@ export const CANVA_FONT_PAIRINGS = [
     sampleSub: 'Minimalist living spaces in Copenhagen'
   }
 ];
+
+export const CANVA_FONT_PAIRINGS = CREATIVA_FONT_PAIRINGS;

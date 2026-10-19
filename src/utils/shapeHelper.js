@@ -99,7 +99,7 @@ export const createStickerBadge = ({ text, bg = '#ef4444', textColor = '#ffffff'
 };
 
 /**
- * Canva Pro Vector Phone Mockup Frame
+ * Creativa Pro Vector Phone Mockup Frame
  */
 export const createPhoneMockup = ({ left = 400, top = 400 }) => {
   const bezel = new Rect({
@@ -156,7 +156,7 @@ export const createPhoneMockup = ({ left = 400, top = 400 }) => {
 };
 
 /**
- * Canva Pro Laptop Mockup Frame
+ * Creativa Pro Laptop Mockup Frame
  */
 export const createLaptopMockup = ({ left = 400, top = 400 }) => {
   const screenBezel = new Rect({
@@ -233,7 +233,7 @@ export const createLaptopMockup = ({ left = 400, top = 400 }) => {
 };
 
 /**
- * Canva Pro Polaroid Photo Card Frame
+ * Creativa Pro Polaroid Photo Card Frame
  */
 export const createPolaroidFrame = ({ left = 400, top = 400, caption = 'Golden Memories ✨' }) => {
   const card = new Rect({
@@ -313,7 +313,7 @@ export const createSocialIcon = ({ platform = 'instagram', fill = '#7D2AE8', lef
 };
 
 /**
- * Canva Circle Photo Frame
+ * Creativa Circle Photo Frame
  */
 export const createCircleFrame = ({ left = 400, top = 400, radius = 90 }) => {
   const outer = new Circle({

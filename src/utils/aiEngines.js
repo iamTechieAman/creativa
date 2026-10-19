@@ -1,5 +1,5 @@
 /**
- * Canva Pro Magic Studio AI Engines
+ * Creativa Pro Magic Studio AI Engines
  * 100% Free, Zero API Keys, Unlimited Generations
  * Features:
  * - Magic Media (Text-to-Image & AI Video generator)
@@ -171,7 +171,7 @@ const generateClientSideCopy = (action, text, tone, customPrompt) => {
   if (customPrompt) {
     const pLower = customPrompt.toLowerCase();
     if (pLower.includes('caption') || pLower.includes('instagram')) {
-      return `✨ Unstoppable vibes and timeless design. Elevate your everyday moments with sheer perfection. 🔥\n\n#DesignInspiration #CanvaPro #Aesthetic #Trending`;
+      return `✨ Unstoppable vibes and timeless design. Elevate your everyday moments with sheer perfection. 🔥\n\n#DesignInspiration #CreativaPro #Aesthetic #Trending`;
     }
     if (pLower.includes('headline') || pLower.includes('title')) {
       return `Transforming Imagination Into Iconic Reality`;

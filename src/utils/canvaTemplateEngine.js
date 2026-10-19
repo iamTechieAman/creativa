@@ -108,7 +108,7 @@ const getThemeForQuery = (query = '') => {
 };
 
 /**
- * Dynamically synthesizes an authentic Canva multi-layer template for any query
+ * Dynamically synthesizes an authentic Creativa multi-layer template for any query
  */
 export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
   const cleanQ = query.trim() || 'Modern Design';
@@ -279,12 +279,12 @@ export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
 }
 
 /**
- * Searches Canva Templates with 100% connectivity and live dynamic synthesis
+ * Searches Creativa Templates with 100% connectivity and live dynamic synthesis
  */
 export function searchCanvaTemplates(query = '', category = 'All') {
   const cleanQ = query.trim().toLowerCase();
   
-  // 1. Filter combined library (Auto-scraped official Canva + curated premade)
+  // 1. Filter combined library (Auto-scraped official Creativa + curated premade)
   const matched = getAllTemplates().filter(tpl => {
     const matchesCat = category === 'All' || tpl.category.toLowerCase() === category.toLowerCase();
     if (!matchesCat) return false;
@@ -521,3 +521,8 @@ export function getExpandedCreatorPortfolio(creator, requestedLimit = 36) {
 
   return Array.from(designMap.values());
 }
+
+export const searchTemplates = searchCanvaTemplates;
+export const synthesizeTemplate = synthesizeCanvaTemplate;
+export const searchCreativaTemplates = searchCanvaTemplates;
+export const synthesizeCreativaTemplate = synthesizeCanvaTemplate;

@@ -8,7 +8,7 @@ export const SOLID_COLORS = [
 
 export const GRADIENT_PRESETS = [
   {
-    name: 'Canva Aurora',
+    name: 'Creativa Aurora',
     gradient: 'linear-gradient(135deg, #7D2AE8 0%, #00C4CC 100%)',
     stops: [{ offset: 0, color: '#7D2AE8' }, { offset: 1, color: '#00C4CC' }]
   },

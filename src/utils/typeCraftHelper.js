@@ -1,7 +1,7 @@
 import { Group, Textbox, Shadow } from 'fabric';
 
 /**
- * Canva TypeCraft Plugin: 3D Extruded & Stylized Typography Generator
+ * Creativa TypeCraft Plugin: 3D Extruded & Stylized Typography Generator
  */
 export const createTypeCraftText = ({
   text = 'TYPECRAFT',

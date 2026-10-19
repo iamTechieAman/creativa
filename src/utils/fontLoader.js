@@ -1,5 +1,5 @@
 /**
- * Dynamic Font Loader for Creativa & Canva Typography Engine
+ * Dynamic Font Loader for Creativa Typography Engine
  * Dynamically streams and injects authentic fonts via Google Fonts and FontFace API
  */
 
@@ -57,16 +57,18 @@ export async function loadGoogleFont(fontFamily) {
 }
 
 /**
- * Preloads popular Canva signature typography
+ * Preloads popular Creativa signature typography
  */
-export function preloadSignatureCanvaFonts() {
-  const topCanvaFonts = [
-    'Canva Sans', 'League Spartan', 'Cinzel', 'Caveat', 'Great Vibes', 
+export function preloadSignatureCreativaFonts() {
+  const topCreativaFonts = [
+    'Inter', 'League Spartan', 'Cinzel', 'Caveat', 'Great Vibes', 
     'Satisfy', 'Sacramento', 'Lora', 'Merriweather', 'DM Sans', 
     'Outfit', 'Plus Jakarta Sans', 'Anton', 'Archivo Black', 'Shrikhand'
   ];
 
-  topCanvaFonts.forEach(font => {
+  topCreativaFonts.forEach(font => {
     loadGoogleFont(font).catch(() => {});
   });
 }
+
+export const preloadSignatureCanvaFonts = preloadSignatureCreativaFonts;

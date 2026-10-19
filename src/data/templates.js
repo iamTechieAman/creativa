@@ -597,7 +597,7 @@ export const PREMADE_TEMPLATES = [
         type: 'textbox',
         left: 400,
         top: 600,
-        text: 'Verified Official Canva Credential',
+        text: 'Verified Official Creativa Credential',
         fontSize: 12,
         fontWeight: 'bold',
         fontFamily: 'Inter',
@@ -1427,7 +1427,7 @@ export const PREMADE_TEMPLATES = [
       { type: 'textbox', left: 397, top: 145, text: 'SENIOR FULL-STACK ARCHITECT & LEAD DESIGNER', fontSize: 16, fontWeight: '600', fontFamily: 'Inter', fill: '#38bdf8', textAlign: 'center', originX: 'center', originY: 'center', width: 680 },
       { type: 'textbox', left: 397, top: 260, text: 'PROFESSIONAL PROFILE', fontSize: 20, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#0f172a', textAlign: 'left', originX: 'center', originY: 'center', width: 700 },
       { type: 'textbox', left: 397, top: 350, text: 'Results-driven technology leader with 8+ years building enterprise SaaS applications and high-converting visual systems.', fontSize: 16, fontFamily: 'Inter', fill: '#475569', textAlign: 'left', originX: 'center', originY: 'center', width: 700 },
-      { type: 'textbox', left: 397, top: 480, text: 'KEY EXPERIENCES & ACHIEVEMENTS\n• Lead Architect @ CloudScale Inc (2022 - Present)\n• Senior UI Engineer @ Canva Partner Network (2019 - 2022)\n• Full-Stack Developer @ TechSphere Labs (2017 - 2019)', fontSize: 16, fontFamily: 'Inter', fill: '#334155', textAlign: 'left', originX: 'center', originY: 'center', width: 700 }
+      { type: 'textbox', left: 397, top: 480, text: 'KEY EXPERIENCES & ACHIEVEMENTS\n• Lead Architect @ CloudScale Inc (2022 - Present)\n• Senior UI Engineer @ Creativa Partner Network (2019 - 2022)\n• Full-Stack Developer @ TechSphere Labs (2017 - 2019)', fontSize: 16, fontFamily: 'Inter', fill: '#334155', textAlign: 'left', originX: 'center', originY: 'center', width: 700 }
     ]
   },
   {

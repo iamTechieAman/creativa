@@ -29,7 +29,7 @@ This project and everyone participating in it is governed by the [Creativa Code 
 
 ### Reporting Bugs
 
-Before creating bug reports, please check the [Issues list](https://github.com/your-username/creativa/issues) as you might find out that you don't need to create one. When creating a bug report, please include as many details as possible:
+Before creating bug reports, please check the [Issues list](https://github.com/iamTechieAman/creativa/issues) as you might find out that you don't need to create one. When creating a bug report, please include as many details as possible:
 
 1. **Use a clear and descriptive title**.
 2. **Describe the exact steps to reproduce the problem**.
@@ -50,7 +50,7 @@ Feature suggestions are tracked as GitHub Issues. When submitting a proposal:
 1. **Fork the repository** on GitHub.
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/<your-username>/creativa.git
+   git clone https://github.com/iamTechieAman/creativa.git
    cd creativa
    ```
 3. **Create a topic branch** from `main`:

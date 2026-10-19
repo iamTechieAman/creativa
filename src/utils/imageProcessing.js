@@ -105,7 +105,7 @@ export const applyImageAdjustments = (imageSource, filters = {}) => {
 };
 
 /**
- * Canva Pro Duotone Effect: Maps dark luminance to shadowColor and bright luminance to highlightColor
+ * Creativa Pro Duotone Effect: Maps dark luminance to shadowColor and bright luminance to highlightColor
  */
 export const applyDuotone = (imageSource, shadowHex, highlightHex) => {
   return new Promise((resolve, reject) => {
@@ -176,7 +176,7 @@ export const PHOTO_FILTER_PRESETS = [
 ];
 
 /**
- * Canva Pro Magic Eraser: Content-Aware Inpainting
+ * Creativa Pro Magic Eraser: Content-Aware Inpainting
  * Erases masked objects by diffusing surrounding boundary textures & gradients inward.
  */
 export const inpaintImage = (imageSource, maskCanvas) => {
@@ -279,7 +279,7 @@ export const inpaintImage = (imageSource, maskCanvas) => {
 };
 
 /**
- * Canva Pro 1-Click Auto Enhance:
+ * Creativa Pro 1-Click Auto Enhance:
  * Automatically balances contrast histogram, boosts vibrance, and levels lighting
  */
 export const autoEnhanceImage = (imageSource) => {
