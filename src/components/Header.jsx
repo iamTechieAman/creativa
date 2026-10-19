@@ -331,18 +331,8 @@ export default function Header({
         )}
       </div>
 
-      {/* ================= RIGHT SECTION: PRO, AVATARS, PRESENT, SHARE ================= */}
+      {/* ================= RIGHT SECTION: PRESENT, SHARE, DOWNLOAD ================= */}
       <div className="flex items-center space-x-1.5 sm:space-x-2 md:space-x-2.5 shrink-0">
-        {/* User Account Profile */}
-        <div className="flex items-center pl-0.5 sm:pl-1">
-          <div 
-            className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 flex items-center justify-center text-slate-600 hover:text-purple-700 shadow-xs transition-all cursor-pointer" 
-            title="Account & Profile"
-          >
-            <User size={14} />
-          </div>
-        </div>
-
         {/* Present Button */}
         <button
           onClick={onOpenPresent}

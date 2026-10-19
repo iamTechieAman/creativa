@@ -32,71 +32,134 @@ export const STYLE_PROMPTS = {
 
 // Curated High-Definition Semantic Unsplash Fallback Library (100% CORS-Enabled & prompt-accurate)
 const SEMANTIC_FALLBACKS = {
+  // --- FOOD & BEVERAGES ---
   coffee: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80',
   cafe: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80',
+  espresso: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80',
+  latte: 'https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=1200&q=80',
   bakery: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
+  cake: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80',
+  burger: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80',
+  pizza: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80',
+  sushi: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80',
+  pasta: 'https://images.unsplash.com/photo-1621996346565-e3d5d62812e4?auto=format&fit=crop&w=1200&q=80',
+  taco: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1200&q=80',
+  salad: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80',
+  cocktail: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80',
+  wine: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80',
+  beer: 'https://images.unsplash.com/photo-1608270546103-970f5e132924?auto=format&fit=crop&w=1200&q=80',
+  icecream: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=1200&q=80',
+  dessert: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1200&q=80',
+  food: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
+  restaurant: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
+
+  // --- SPORTS & FITNESS ---
   gym: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
   fitness: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
   workout: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80',
-  sale: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80',
-  discount: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1200&q=80',
+  yoga: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=80',
+  running: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=1200&q=80',
+  boxing: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1200&q=80',
+  football: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80',
+  soccer: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=80',
+  basketball: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1200&q=80',
+  tennis: 'https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?auto=format&fit=crop&w=1200&q=80',
+
+  // --- LUXURY, FASHION & JEWELRY ---
   fashion: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80',
   clothing: 'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=80',
+  sale: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80',
+  discount: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1200&q=80',
   sneaker: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80',
   shoe: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80',
   jewelry: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80',
   diamond: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=80',
   gold: 'https://images.unsplash.com/photo-1611591475837-f0c2394cbb45?auto=format&fit=crop&w=1200&q=80',
   watch: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80',
-  wedding: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
-  marriage: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
-  bride: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80',
+  perfume: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=1200&q=80',
+
+  // --- CARS & VEHICLES ---
   car: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
   auto: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80',
   supercar: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80',
-  gaming: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80',
-  gamer: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80',
-  esport: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80',
+  racing: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80',
+  motorcycle: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1200&q=80',
+  yacht: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d17?auto=format&fit=crop&w=1200&q=80',
+  airplane: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80',
+
+  // --- CELEBRATIONS & EVENTS ---
+  wedding: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
+  marriage: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
+  bride: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80',
+  birthday: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80',
+  party: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
+  concert: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80',
+  music: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80',
+  festival: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1200&q=80',
+
+  // --- REAL ESTATE & ARCHITECTURE ---
+  'real estate': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+  realestate: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+  villa: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80',
+  house: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80',
+  home: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
+  interior: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
+  architecture: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+
+  // --- TECH, AI & BUSINESS ---
   tech: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
   ai: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
   robot: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80',
   cyber: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80',
-  travel: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
-  vacation: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80',
-  beach: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
-  nature: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80',
-  mountain: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
-  food: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
-  burger: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80',
-  pizza: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80',
-  sushi: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80',
-  cat: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80',
-  dog: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80',
-  pet: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80',
-  realestate: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-  house: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80',
-  interior: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
-  music: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80',
-  concert: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
-  medical: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
-  doctor: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80',
-  beauty: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80',
-  makeup: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80',
   crypto: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=1200&q=80',
   finance: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80',
+  gaming: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80',
+  gamer: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80',
+  esport: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80',
+
+  // --- HEALTH & BEAUTY ---
+  medical: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
+  doctor: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80',
+  dental: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80',
+  dentist: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80',
+  beauty: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80',
+  makeup: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80',
+  skincare: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80',
+  spa: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
+
+  // --- ANIMALS & PETS ---
+  dog: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80',
+  puppy: 'https://images.unsplash.com/photo-1591160690555-5debfba289f0?auto=format&fit=crop&w=1200&q=80',
+  cat: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80',
+  pet: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80',
+
+  // --- TRAVEL & NATURE ---
+  travel: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+  beach: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+  mountain: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
+  nature: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80',
+  forest: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80',
   space: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
   flower: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80',
   camera: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
-  education: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80',
-  abstract: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1200&q=80'
+  education: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80'
 };
 
 const getSemanticFallback = (prompt) => {
-  const p = (prompt || '').toLowerCase();
-  for (const [key, url] of Object.entries(SEMANTIC_FALLBACKS)) {
-    if (p.includes(key)) return url;
+  const p = (prompt || '').toLowerCase().trim();
+  // Sort keys by length descending to match multi-word phrases first
+  const keys = Object.keys(SEMANTIC_FALLBACKS).sort((a, b) => b.length - a.length);
+  for (const key of keys) {
+    if (p.includes(key)) return SEMANTIC_FALLBACKS[key];
   }
-  return 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80';
+  // Try tokenized keywords
+  const tokens = p.split(/\s+/).filter(t => t.length > 2);
+  for (const t of tokens) {
+    for (const key of keys) {
+      if (t.includes(key) || key.includes(t)) return SEMANTIC_FALLBACKS[key];
+    }
+  }
+  return 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80';
 };
 
 export const generateAiImage = async (prompt, options = {}) => {
@@ -112,16 +175,16 @@ export const generateAiImage = async (prompt, options = {}) => {
   const fullPrompt = `${prompt}, ${styleEnhancement}`;
   const encoded = encodeURIComponent(fullPrompt);
 
-  // High-speed Pollinations endpoint with turbo engine
   const pollinationsUrl = `https://image.pollinations.ai/prompt/${encoded}?width=${width}&height=${height}&seed=${seed}&nologo=true&model=${model}`;
 
   return new Promise((resolve) => {
     const img = new Image();
     img.crossOrigin = 'anonymous';
 
+    // 8-second smart timeout fallback
     const fallbackTimeout = setTimeout(() => {
       resolve(getSemanticFallback(prompt));
-    }, 14000);
+    }, 8500);
 
     img.onload = () => {
       clearTimeout(fallbackTimeout);
@@ -133,7 +196,6 @@ export const generateAiImage = async (prompt, options = {}) => {
         ctx.drawImage(img, 0, 0, width, height);
         resolve(canvas.toDataURL('image/jpeg', 0.92));
       } catch (e) {
-        // In case of CORS canvas export restriction, return valid image URL
         resolve(pollinationsUrl);
       }
     };
@@ -845,9 +907,35 @@ export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 80
     accentColor = '#f43f5e';
   }
 
-  const isLightCard = styleVariant === 'minimal';
-  const textColor = isLightCard ? '#0f172a' : '#ffffff';
-  const subtextColor = isLightCard ? '#475569' : '#cbd5e1';
+  // Dynamic contextual subtitle tailored to user's prompt
+  let dynamicSubtitle = `Curated for ${headline.toLowerCase()}. Handcrafted composition, balance, and modern visual hierarchy.`;
+  if (p.includes('sale') || p.includes('discount') || p.includes('off') || p.includes('deal')) {
+    dynamicSubtitle = 'Exclusive limited-time collection. Premium quality and curated designs crafted for you.';
+  } else if (p.includes('invite') || p.includes('party') || p.includes('celebrat') || p.includes('wedding') || p.includes('birthday')) {
+    dynamicSubtitle = 'Join us for an unforgettable celebration. Save the date and RSVP online today.';
+  } else if (p.includes('gym') || p.includes('fitness') || p.includes('workout') || p.includes('coach')) {
+    dynamicSubtitle = 'Transform your body, unlock peak performance, and conquer your goals with personalized coaching.';
+  } else if (p.includes('coffee') || p.includes('cafe') || p.includes('roast')) {
+    dynamicSubtitle = 'Freshly roasted single-origin beans and artisanal espresso brewed with pure passion.';
+  } else if (p.includes('food') || p.includes('restaurant') || p.includes('pizza') || p.includes('burger') || p.includes('bakery')) {
+    dynamicSubtitle = 'Savor delectable culinary creations crafted from authentic ingredients and seasonal flavors.';
+  } else if (p.includes('tech') || p.includes('ai') || p.includes('software') || p.includes('app') || p.includes('startup')) {
+    dynamicSubtitle = 'Accelerating modern engineering teams with intelligent digital infrastructure and tools.';
+  } else if (p.includes('real estate') || p.includes('villa') || p.includes('house') || p.includes('home') || p.includes('property')) {
+    dynamicSubtitle = 'Architectural masterworks in premier locations designed for sophisticated luxury living.';
+  } else if (p.includes('car') || p.includes('auto') || p.includes('supercar') || p.includes('racing')) {
+    dynamicSubtitle = 'Precision German engineering meets breathtaking speed and uncompromised luxury.';
+  } else if (p.includes('music') || p.includes('concert') || p.includes('festival') || p.includes('dj')) {
+    dynamicSubtitle = 'Experience electrifying live acoustics, pulsating energy, and world-class performances.';
+  } else if (p.includes('beauty') || p.includes('skincare') || p.includes('salon') || p.includes('makeup') || p.includes('spa')) {
+    dynamicSubtitle = 'Indulge in transformative rituals, nourishing organic botanicals, and effortless radiance.';
+  } else if (p.includes('crypto') || p.includes('finance') || p.includes('invest') || p.includes('wealth')) {
+    dynamicSubtitle = 'Empowering your capital growth with institutional security and deep market intelligence.';
+  } else if (p.includes('pet') || p.includes('dog') || p.includes('cat') || p.includes('vet')) {
+    dynamicSubtitle = 'Compassionate care, premium nutrition, and dedicated medical wellness for your best friend.';
+  } else if (p.includes('travel') || p.includes('tour') || p.includes('beach') || p.includes('resort')) {
+    dynamicSubtitle = 'Breathtaking destinations, serene natural beauty, and unforgettable excursions await.';
+  }
 
   return {
     id: `magic-layout-${styleVariant}`,
@@ -856,7 +944,7 @@ export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 80
     backgroundColor: profile.bg,
     badge: profile.badge,
     headline,
-    subtitle: `Engineered for ${headline.toLowerCase()}. Fully editable vector layout, premium typography & color harmony.`,
+    subtitle: dynamicSubtitle,
     cta: profile.cta,
     accentColor,
     objects: [
@@ -945,7 +1033,7 @@ export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 80
       {
         role: 'subtitle',
         type: 'textbox',
-        text: `Engineered for ${headline.toLowerCase()}. Fully editable vector layout, premium typography & color harmony.`,
+        text: dynamicSubtitle,
         left: w / 2,
         top: h * 0.57,
         originX: 'center',

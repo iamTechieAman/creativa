@@ -272,33 +272,6 @@ export default function CreativaHomeModal({
               <span>Business</span>
               <ChevronDown size={12} className={`text-slate-400 transition-transform ${activeNavMenu === 'business' ? 'rotate-180 text-purple-600' : ''}`} />
             </button>
-            <button 
-              onClick={() => setActiveNavMenu(prev => prev === 'education' ? null : 'education')}
-              className={`px-3 py-1.5 rounded-lg flex items-center space-x-1 transition-colors ${
-                activeNavMenu === 'education' ? 'bg-purple-100 text-purple-700' : 'hover:bg-slate-100'
-              }`}
-            >
-              <span>Education</span>
-              <ChevronDown size={12} className={`text-slate-400 transition-transform ${activeNavMenu === 'education' ? 'rotate-180 text-purple-600' : ''}`} />
-            </button>
-            <button 
-              onClick={() => setActiveNavMenu(prev => prev === 'pricing' ? null : 'pricing')}
-              className={`px-3 py-1.5 rounded-lg flex items-center space-x-1 transition-colors ${
-                activeNavMenu === 'pricing' ? 'bg-purple-100 text-purple-700' : 'hover:bg-slate-100'
-              }`}
-            >
-              <span>Plans & pricing</span>
-              <ChevronDown size={12} className={`text-slate-400 transition-transform ${activeNavMenu === 'pricing' ? 'rotate-180 text-purple-600' : ''}`} />
-            </button>
-            <button 
-              onClick={() => setActiveNavMenu(prev => prev === 'learn' ? null : 'learn')}
-              className={`px-3 py-1.5 rounded-lg flex items-center space-x-1 transition-colors ${
-                activeNavMenu === 'learn' ? 'bg-purple-100 text-purple-700' : 'hover:bg-slate-100'
-              }`}
-            >
-              <span>Learn</span>
-              <ChevronDown size={12} className={`text-slate-400 transition-transform ${activeNavMenu === 'learn' ? 'rotate-180 text-purple-600' : ''}`} />
-            </button>
           </nav>
         </div>
 
@@ -391,12 +364,6 @@ export default function CreativaHomeModal({
               </div>
             )}
           </div>
-
-          {/* User Profile */}
-          <div className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 shadow-xs shrink-0">
-            <User size={15} />
-          </div>
-
         </div>
 
       </header>
@@ -431,7 +398,7 @@ export default function CreativaHomeModal({
                   }`}
                 >
                   <span className="flex items-center space-x-2"><Sparkles size={16} className="text-purple-600 fill-purple-600" /><span>Magic Studio AI</span></span>
-                  <span className="text-[9px] bg-purple-600 text-white px-1.5 py-0.5 rounded font-bold">PRO</span>
+                  <ChevronRight size={14} className="text-slate-400" />
                 </button>
                 <button 
                   onClick={() => { setActiveTab('templates'); setIsMobileNavOpen(false); }}
@@ -1045,32 +1012,6 @@ export default function CreativaHomeModal({
               </span>
             </button>
           </div>
-
-          {/* Bottom Live Auto-Scraper Status Widget */}
-          <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="flex items-center space-x-1.5 text-[11px] font-bold text-emerald-700">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-xs" />
-                <span>Creativa Cloud Engine: Active</span>
-              </span>
-              <button 
-                onClick={handleManualSync} 
-                disabled={isSyncing}
-                className="text-slate-400 hover:text-purple-600 transition-colors p-1"
-                title="Sync live from Creativa global design network"
-              >
-                <RefreshCw size={12} className={isSyncing ? 'animate-spin text-purple-600' : ''} />
-              </button>
-            </div>
-            <p className="text-[10px] text-slate-500 leading-tight">
-              {syncStatus}
-            </p>
-            <div className="pt-1 text-[9px] text-slate-600 flex items-center justify-between font-mono font-semibold">
-              <span>{allTemplates.length} Studio Templates</span>
-              <span>{allCreators.length} Verified Designers</span>
-            </div>
-          </div>
-
         </aside>
 
         {/* Main Dashboard Canvas Viewport (Scrollable) */}
