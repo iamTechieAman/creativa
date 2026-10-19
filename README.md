@@ -1,166 +1,187 @@
-# Creativa — Free Online Graphic Design Platform & Magic Studio AI
+# Creativa
+
+> Free, open-source web graphic design studio & vector canvas editor.
 
 <p align="center">
-  <img src="public/creativa-logo.png" alt="Creativa Logo" width="340" />
+  <img src="public/creativa-logo.png" alt="Creativa" width="320" />
 </p>
 
 <p align="center">
-  <strong>Design Without Limits. 100% Free, Open-Source Creative Platform Powered by React 19, Fabric.js v7, and Generative AI.</strong>
+  <a href="https://creativa.toonplayer.in"><strong>🌐 Live Demo: creativa.toonplayer.in</strong></a>
 </p>
 
 <p align="center">
   <a href="https://vercel.com/new/clone?repository-url=https://github.com/iamTechieAman/creativa"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
-  <img src="https://img.shields.io/badge/React-19.3-61DAFB?logo=react&logoColor=black" alt="React 19" />
-  <img src="https://img.shields.io/badge/Vite-8.3-646CFF?logo=vite&logoColor=white" alt="Vite" />
-  <img src="https://img.shields.io/badge/Fabric.js-7.4-E34F26" alt="Fabric.js 7" />
-  <img src="https://img.shields.io/badge/TailwindCSS-v4.3-38B2AC?logo=tailwindcss&logoColor=white" alt="Tailwind 4" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React 19" />
+  <img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/Fabric.js-7-E34F26" alt="Fabric.js 7" />
+  <img src="https://img.shields.io/badge/TailwindCSS-4-38B2AC?logo=tailwindcss&logoColor=white" alt="Tailwind 4" />
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" />
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" />
 </p>
 
 ---
 
-## 🌟 Highlights
+## Why Creativa?
 
-- 🚀 **100% Client-Side Privacy Sandbox**: Your uploads and projects are stored exclusively in your local browser storage. No other user can ever access or view your files.
-- 🪄 **Magic Studio™ Generative AI Suite**:
-  - **Magic Design™**: Plain-text prompts generate complete, multi-element vector canvas layouts.
-  - **Magic Media™**: Photorealistic 8K image generation powered by FLUX.1.
-  - **Magic Write™**: Smart AI copywriting, tone shifting, and headline generation.
-  - **Magic Morph™**: 3D materials and artistic textures for typography and elements.
-  - **Magic Switch™**: Instant one-click multi-format resizing (Instagram Post, Story, YouTube, A4, Banner).
-- 🎨 **900+ Fully Editable Design Templates**: Categorized across Presentations, Social Media, Marketing, Logos, Posters, Flyers, and Resumes.
-- 👥 **700+ Verified Creators Hub**: Real-time directory of top designers with one-click profile inspection and published template collections.
-- 📐 **Vector Artboard & Typography Engine**: 75+ Google Fonts, custom font pairings, letter-spacing, line-height, text shadows, and curve effects.
-- 📱 **100% Responsive on All Devices**: Optimized for smartphones, tablets, laptops, and ultra-wide displays with zero horizontal overflow.
-- 📦 **Multi-Format High-DPI Export**: PNG (transparent support, up to 300 DPI), JPEG, SVG (scalable vector paths), and PDF.
+Most modern online graphic editors lock basic tools behind paywalls, enforce recurring subscriptions, and upload your private uploads to remote servers.
+
+I built **Creativa** to give creators, developers, and students a capable, completely free design editor in the browser:
+
+- **Zero Subscriptions & Zero Paywalls**: Everything is unlocked from day one.
+- **Client-Side Privacy Sandbox**: Your uploaded images, logos, and saved projects stay strictly inside your browser's local storage (IndexedDB / LocalStorage). No remote tracking or cross-user data exposure.
+- **Instant Performance**: Built with React 19, Fabric.js v7, and Tailwind CSS v4. Bundled with Vite for sub-second builds and smooth 60fps canvas manipulation.
+- **Fully Responsive**: Optimized for desktop monitors, laptops, tablets, and mobile screens.
 
 ---
 
-## 🚀 Quick Start (Local Setup)
+## Key Features
+
+### 🎨 Vector Canvas Engine
+- Sub-target group selection and double-click inline text editing.
+- Freehand drawing brushes with adjustable stroke weight and hex color picker.
+- Multi-layer management: arrange layers (bring to front, send backward), lock/unlock, and duplicate.
+- Alignment guides, snap-to-center helpers, and canvas bounding boxes.
+- Multi-page document support with page reordering, duplication, and individual page notes.
+
+### 📐 900+ Searchable Templates
+- Categorized across **Presentations**, **Social Media Posts & Stories**, **Marketing Flyers**, **Brand Logos**, **Posters**, and **Professional Resumes**.
+- Dynamic search and tag filtering.
+- One-click template synthesis and live customization.
+
+### 👥 700+ Verified Creators Hub
+- Directory of creator portfolios.
+- One-click creator profile inspection and direct template duplication into your canvas.
+
+### 🪄 AI Design Suite
+- **Prompt to Layout**: Generates multi-element vector layouts directly on the artboard from text descriptions.
+- **AI Image Generation**: Client-side FLUX text-to-image integration.
+- **Smart Copywriter**: Tone shifting, headlines, captions, and body copy generation.
+- **Format Switcher**: Instant one-click resizing for Instagram Posts (1:1), Stories (9:16), YouTube Thumbnails (16:9), Posters, and A4 documents.
+
+### 🔤 Typography & Elements
+- 75+ Google Fonts with curated font pairings (Editorial, Tech Startup, Elegant, Bold).
+- Letter spacing, line height, text shadows, and curvature controls.
+- Vector shape library: geometric shapes, speech bubbles, badges, and device mockup frames (Phone, Laptop, Polaroid).
+- Dynamic vector chart generator (Bar, Line, Pie, Doughnut).
+- Integrated QR code generator with live preview.
+
+### 📦 Production Export
+- **PNG**: High-DPI raster export with optional transparent backgrounds.
+- **JPEG**: Compressed web-ready imagery.
+- **SVG**: Scalable vector paths.
+- **PDF**: Multi-page document generation via jsPDF.
+- **JSON**: Full canvas state serialization for local project backup and reload.
+
+---
+
+## Quick Start
 
 ### 1. Prerequisites
-Ensure you have **Node.js 18+** installed:
-```bash
-node -v   # v18.0.0 or higher
-```
+- [Node.js](https://nodejs.org/) v18.0.0 or higher.
+- `npm` (v9+) or `pnpm` / `yarn`.
 
-### 2. Clone the Repository
+### 2. Clone & Install
+
 ```bash
 git clone https://github.com/iamTechieAman/creativa.git
 cd creativa
-```
-
-### 3. Install Dependencies
-```bash
 npm install
 ```
 
-### 4. Run Development Server
+### 3. Start Development Server
+
 ```bash
 npm run dev
 ```
-Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-### 5. Build for Production
+Visit `http://localhost:3000` in your browser.
+
+### 4. Build for Production
+
 ```bash
 npm run build
 ```
-Production assets are generated in the `dist/` directory in under 1 second.
+
+Production output will be generated in `dist/`.
 
 ---
 
-## ⚡ 1-Click Deploy to Vercel
+## Deployment (Vercel)
 
-Deploy your own live instance of Creativa for free on Vercel with zero configuration:
+Creativa includes a ready-to-use [`vercel.json`](vercel.json) pre-configured with SPA route rewrites, immutable caching headers, and HTTP security policies.
 
+### One-Click Deploy:
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/iamTechieAman/creativa)
 
-Creativa includes a ready-to-use [`vercel.json`](vercel.json) configured with SPA route rewrites, immutable static asset caching, and security headers.
+### Custom Domain / Subdomain:
+1. Go to your project on **Vercel** -> **Settings** -> **Domains**.
+2. Add your domain or subdomain (e.g., `creativa.toonplayer.in`).
+3. In your DNS provider (e.g. GoDaddy), add a `CNAME` record:
+   - **Type**: `CNAME`
+   - **Name**: `creativa`
+   - **Value**: `cname.vercel-dns.com`
 
 ---
 
-## 🏗️ Architecture & Tech Stack
+## Project Structure
 
 ```
 creativa/
-├── public/                 # Static assets (favicons, logos, robots.txt, sitemap.xml)
+├── public/                     # Static assets, logos, robots.txt, sitemap.xml
 ├── src/
-│   ├── components/         # React UI modules
-│   │   ├── CreativaHomeModal.jsx    # Authentic Home screen dashboard
-│   │   ├── MagicStudioView.jsx      # Generative AI Magic Studio Suite
-│   │   ├── TemplatesHubView.jsx     # Searchable 900+ templates directory
-│   │   ├── CreatorsDirectoryView.jsx# 700+ Verified designers community
-│   │   ├── ProjectsWorkspaceView.jsx# Local private projects workspace
-│   │   ├── CanvasStage.jsx          # Center Fabric.js drafting stage
-│   │   ├── Header.jsx               # Top navigation & file actions
-│   │   ├── Sidebar.jsx              # 14 Sidebar tool categories
-│   │   ├── Drawer.jsx               # Expandable slide-out drawers
-│   │   ├── ContextToolbar.jsx       # Floating contextual action bar
-│   │   └── CreativaLogo.jsx         # Responsive vector brandmark
-│   ├── data/               # Template databases, elements, fonts, creators
-│   ├── utils/              # Canvas helpers, AI synthesis, export engines
-│   ├── App.jsx             # Root application orchestrator
-│   └── main.jsx            # React 19 entry point
-├── vercel.json             # Vercel deployment & routing config
-└── vite.config.js          # Vite build config with Tailwind CSS v4
+│   ├── components/             # React UI components
+│   │   ├── CreativaHomeModal.jsx   # Discover templates, search & creator hub
+│   │   ├── CanvasStage.jsx         # Center Fabric.js drafting viewport
+│   │   ├── Header.jsx              # Top bar, file operations, export & share
+│   │   ├── Sidebar.jsx             # Left tool drawer navigation
+│   │   ├── ContextToolbar.jsx      # Context-sensitive element controls
+│   │   ├── MagicStudioView.jsx     # AI tools and layout generator
+│   │   ├── TemplatesHubView.jsx    # Template explorer
+│   │   └── CreatorsDirectoryView.jsx # Creators directory
+│   ├── data/                   # Template definitions, fonts, shapes, palettes
+│   ├── utils/                  # Canvas export, storage, and AI synthesis helpers
+│   ├── App.jsx                 # Main state coordinator
+│   └── main.jsx                # Application mount point
+├── vercel.json                 # Vercel SPA routing & security headers
+├── package.json
+└── vite.config.js
 ```
 
-### Core Technologies
-- **UI Framework**: [React 19](https://react.dev/) + [Vite 8](https://vitejs.dev/)
-- **Canvas Rendering**: [Fabric.js v7](https://fabricjs.com/) with sub-target group editability
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Document Export**: [jsPDF](https://github.com/parallax/jsPDF) + Native Canvas API
-- **QR Engine**: [node-qrcode](https://github.com/soldair/node-qrcode)
-
 ---
 
-## ⌨️ Keyboard Shortcuts Reference
+## Keyboard Shortcuts
 
-| Shortcut | Action |
+| Shortcut | Description |
 |---|---|
-| `Ctrl + Z` / `Cmd + Z` | Undo last canvas action |
-| `Ctrl + Y` / `Cmd + Shift + Z` | Redo action |
-| `Ctrl + S` / `Cmd + S` | Save project locally |
-| `Ctrl + D` / `Cmd + D` | Duplicate selected element |
-| `Delete` / `Backspace` | Delete active element |
-| `T` | Quick-insert Heading Textbox |
-| `R` | Quick-insert Rectangle |
-| `C` | Quick-insert Circle |
-| `L` | Quick-insert Vector Line |
-| `Escape` | Dismiss modal or clear active selection |
+| `Ctrl / Cmd + Z` | Undo |
+| `Ctrl / Cmd + Shift + Z` | Redo |
+| `Ctrl / Cmd + S` | Save project locally |
+| `Ctrl / Cmd + D` | Duplicate selection |
+| `Delete` / `Backspace` | Delete selected element |
+| `T` | Add Textbox |
+| `R` | Add Rectangle |
+| `C` | Add Circle |
+| `L` | Add Line |
+| `Escape` | Deselect element / close active modal |
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions, bug reports, and suggestions are welcome!
 
-Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before submitting a Pull Request.
+1. Fork the repository.
+2. Create a branch: `git checkout -b feature/my-feature`
+3. Commit your changes: `git commit -m 'feat: add my feature'`
+4. Push to your branch: `git push origin feature/my-feature`
+5. Open a Pull Request.
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'feat: add AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## ⚖️ Legal Disclaimer & Notice
-
-- **Independent Project**: Creativa is an independent original open-source design platform developed by Aman Kumar for community creation, education, and visual design prototyping.
-- **Trademark Notice**: All product names, logos, and brands are property of their respective owners. Any reference to formats or style concepts is strictly for identification and interoperability. Creativa is an independent creative platform and is not affiliated with, authorized, or endorsed by any external design software vendor.
-- **Media Attribution**: Royalty-free imagery, stock vectors, and fonts belong to their respective creators under permissive Unsplash, Google Fonts, and CC0 licenses.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details.
 
 ---
 
-## 📄 License
+## License
 
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
+This project is licensed under the [MIT License](LICENSE).
 
----
-
-<p align="center">
-  Crafted with ❤️ by Aman Kumar and the Creativa Open Source Community.
-</p>
+Created and maintained by [Aman Kumar](https://github.com/iamTechieAman).

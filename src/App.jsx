@@ -83,8 +83,16 @@ export default function App() {
   const [isMagicWriteOpen, setIsMagicWriteOpen] = useState(false);
   const [isMagicDesignOpen, setIsMagicDesignOpen] = useState(false);
   const [isVersionHistoryOpen, setIsVersionHistoryOpen] = useState(false);
-  const [isCanvaHomeOpen, setIsCanvaHomeOpen] = useState(false);
   const [selectedCreatorForProfile, setSelectedCreatorForProfile] = useState(null);
+  const [isCanvaHomeOpen, setIsCanvaHomeOpen] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('editor') === 'true' || window.location.hash === '#editor') {
+        return false;
+      }
+    }
+    return true;
+  });
   const [historySnapshots, setHistorySnapshots] = useState([]);
 
   // Drawing mode state
