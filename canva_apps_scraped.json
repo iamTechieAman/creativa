@@ -1,0 +1,306 @@
+{
+  "app_links": [
+    {
+      "title": "Apps Marketplace",
+      "href": "https://www.canva.com/en_in/apps/"
+    },
+    {
+      "title": "Static QR codes",
+      "href": "/apps/QRCode/static-qr-codes"
+    },
+    {
+      "title": "Brandfetch",
+      "href": "/apps/AAFkBgdvQVY/brandfetch"
+    },
+    {
+      "title": "Frame Maker",
+      "href": "/apps/AAF9Z7S4lbA/frame-maker"
+    },
+    {
+      "title": "Character Builder",
+      "href": "/apps/AAGQPsz8_w0/character-builder"
+    },
+    {
+      "title": "TypeCutOut",
+      "href": "/apps/AAGB3po4Nwg/typecutout"
+    },
+    {
+      "title": "Gen QR",
+      "href": "/apps/AAGB4-AUqkc/gen-qr"
+    },
+    {
+      "title": "Shape Cropper",
+      "href": "/apps/AAF-1Cbbs4M/shape-cropper"
+    },
+    {
+      "title": "Image Outliner",
+      "href": "/apps/AAF53_lw2gE/image-outliner"
+    },
+    {
+      "title": "Choppy Crop",
+      "href": "/apps/AAGFLua4Ymc/choppy-crop"
+    },
+    {
+      "title": "QR Code with Logo",
+      "href": "/apps/AAGiX2A_dWs/qr-code-with-logo"
+    },
+    {
+      "title": "Dynamic QR Codes",
+      "href": "/apps/AAFPSH_pOmY/dynamic-qr-codes"
+    },
+    {
+      "title": "Equations",
+      "href": "/apps/AAFuDWhzgN8/equations"
+    },
+    {
+      "title": "Figma to Canva",
+      "href": "/apps/AAG-bbvk9KU/figma-to-canva"
+    },
+    {
+      "title": "TypeCraft",
+      "href": "/apps/AAFhOgYBHhc/typecraft"
+    },
+    {
+      "title": "GIPHY",
+      "href": "/apps/AAFsOREZOmw/giphy"
+    },
+    {
+      "title": "TypeStudio",
+      "href": "/apps/AAGrY2fIkkY/typestudio"
+    },
+    {
+      "title": "DepthText",
+      "href": "/apps/AAGYmP6c3bw/depthtext"
+    },
+    {
+      "title": "Texture",
+      "href": "/apps/AAGjZJwFQ24/texture"
+    },
+    {
+      "title": "MotionText",
+      "href": "/apps/AAGliEVOBEA/motiontext"
+    },
+    {
+      "title": "TypeExtrude",
+      "href": "/apps/AAGB3pmX7hc/typeextrude"
+    },
+    {
+      "title": "TypeLettering",
+      "href": "/apps/AAGD_ndUrso/typelettering"
+    },
+    {
+      "title": "Text Studio Maker",
+      "href": "/apps/AAGjRT0BVaE/text-studio-maker"
+    },
+    {
+      "title": "YouTube Embed",
+      "href": "/apps/AAGElljVEJg/youtube-embed"
+    },
+    {
+      "title": "Instagram",
+      "href": "/apps/AAGW-6SZRGI/instagram"
+    },
+    {
+      "title": "Google Maps",
+      "href": "/apps/AAGcYWbtT08/google-maps"
+    },
+    {
+      "title": "YouTube",
+      "href": "/apps/AAGyvilVQiI/youtube"
+    },
+    {
+      "title": "Facebook",
+      "href": "/apps/AAGSjsxjQBI/facebook"
+    },
+    {
+      "title": "Activities Maker",
+      "href": "/apps/AAGQBxGhNlQ/activities-maker"
+    },
+    {
+      "title": "OneDrive",
+      "href": "/apps/AAGzwFKPpoM/onedrive"
+    },
+    {
+      "title": "Mailchimp",
+      "href": "/apps/AAG6lDSsqkM/mailchimp"
+    },
+    {
+      "title": "LinkedIn",
+      "href": "/apps/AAG7jJpM_Y4/linkedin"
+    },
+    {
+      "title": "Meta Design Check",
+      "href": "/apps/AAF-xrdmb-Q/meta-design-check"
+    },
+    {
+      "title": "Heyzine Flipbooks",
+      "href": "/apps/AAGOptJ-N6g/heyzine-flipbooks"
+    },
+    {
+      "title": "Afrikaans",
+      "href": "/af_za/apps/"
+    },
+    {
+      "title": "Shqip",
+      "href": "/sq_al/apps/"
+    },
+    {
+      "title": "\u12a0\u121b\u122d\u129b",
+      "href": "/am_et/apps/"
+    },
+    {
+      "title": "\u0639\u0631\u0628\u064a (\u0627\u0644\u0644\u063a\u0629 \u0627\u0644\u0645\u0639\u0627\u0635\u0631\u0629)",
+      "href": "/ar/apps/"
+    },
+    {
+      "title": "\u0639\u0631\u0628\u064a (\u0645\u0635\u0631)",
+      "href": "/ar_eg/apps/"
+    },
+    {
+      "title": "\u0639\u0631\u0628\u064a (\u0627\u0644\u0633\u0639\u0648\u062f\u064a\u0629)",
+      "href": "/ar_sa/apps/"
+    },
+    {
+      "title": "\u0639\u0631\u0628\u064a (\u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a)",
+      "href": "/ar_ae/apps/"
+    },
+    {
+      "title": "\u0540\u0561\u0575\u0565\u0580\u0565\u0576",
+      "href": "/hy_am/apps/"
+    },
+    {
+      "title": "\u0985\u09b8\u09ae\u09c0\u09df\u09be",
+      "href": "/as_in/apps/"
+    },
+    {
+      "title": "Az\u0259rbaycanca",
+      "href": "/az_az/apps/"
+    },
+    {
+      "title": "\u09ac\u09be\u0982\u09b2\u09be",
+      "href": "/bn_bd/apps/"
+    },
+    {
+      "title": "Euskara",
+      "href": "/eu_es/apps/"
+    },
+    {
+      "title": "\u0411\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438",
+      "href": "/bg_bg/apps/"
+    },
+    {
+      "title": "\u1019\u103c\u1014\u103a\u1019\u102c",
+      "href": "/my_mm/apps/"
+    },
+    {
+      "title": "Catal\u00e0",
+      "href": "/ca_es/apps/"
+    },
+    {
+      "title": "Cebuano",
+      "href": "/ceb_ph/apps/"
+    },
+    {
+      "title": "\u7b80\u4f53\u4e2d\u6587\uff08\u4e2d\u56fd\u5927\u9646\uff09",
+      "href": "/zh_cn/apps/"
+    },
+    {
+      "title": "\u7e41\u9ad4\u4e2d\u6587\uff08\u9999\u6e2f\uff09",
+      "href": "/zh_hk/apps/"
+    },
+    {
+      "title": "\u7e41\u9ad4\u4e2d\u6587\uff08\u53f0\u7063\uff09",
+      "href": "/zh_tw/apps/"
+    },
+    {
+      "title": "Hrvatski",
+      "href": "/hr_hr/apps/"
+    },
+    {
+      "title": "\u010ce\u0161tina",
+      "href": "/cs_cz/apps/"
+    },
+    {
+      "title": "Dansk",
+      "href": "/da_dk/apps/"
+    },
+    {
+      "title": "Nederlands (Belgi\u00eb)",
+      "href": "/nl_be/apps/"
+    },
+    {
+      "title": "Nederlands (Nederland)",
+      "href": "/nl_nl/apps/"
+    },
+    {
+      "title": "English (US)",
+      "href": "/en/apps/"
+    },
+    {
+      "title": "English (Australia)",
+      "href": "/en_au/apps/"
+    }
+  ],
+  "app_texts": [
+    "Digital design",
+    "Digital design",
+    "Print design",
+    "Print design",
+    "Images and photos",
+    "Images and photos",
+    "Videos and audio",
+    "Videos and audio",
+    "Product",
+    "Product",
+    "Canva AI",
+    "Canva AI",
+    "All Canva AI",
+    "Plans",
+    "Plans",
+    "Canva for business",
+    "Canva for business",
+    "Business plans",
+    "All Canva for business",
+    "Solutions",
+    "Solutions",
+    "All solutions",
+    "Features",
+    "Features",
+    "All features",
+    "Resources",
+    "Resources",
+    "Reports",
+    "All resources",
+    "Canva for Education",
+    "Canva for Education",
+    "K-12 education",
+    "K-12 education",
+    "K-12 teachers",
+    "K-12 teachers",
+    "Higher education",
+    "Higher education",
+    "Campus solutions",
+    "Help",
+    "Help",
+    "Design with your favourite media",
+    "Static QR codes",
+    "Generate custom QR codes for printing and sharing",
+    "Brandfetch",
+    "Search and add brand logos to your design",
+    "Frame Maker",
+    "Create Canva frames from text, shapes, and images",
+    "Character Builder",
+    "Create your own unique character",
+    "TypeCutOut",
+    "Transform your text with background images",
+    "Gen QR",
+    "Design vibrant QR codes",
+    "Shape Cropper",
+    "Crop image into frames",
+    "Image Outliner",
+    "Add outlines to images effortlessly",
+    "Choppy Crop",
+    "Crop your images in custom shapes",
+    "QR Code with Logo"
+  ]
+}
