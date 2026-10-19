@@ -27,6 +27,17 @@ export default function CreatorProfileModal({
   const [copyFeedback, setCopyFeedback] = useState(false);
   const [favoriteDesignIds, setFavoriteDesignIds] = useState([]);
   const [portfolioLimit, setPortfolioLimit] = useState(36);
+  const [, setSyncRev] = useState(0);
+
+  useEffect(() => {
+    const handleSync = () => setSyncRev(r => r + 1);
+    window.addEventListener('canva_autoscrape_sync', handleSync);
+    window.addEventListener('creativa_autoscrape_sync', handleSync);
+    return () => {
+      window.removeEventListener('canva_autoscrape_sync', handleSync);
+      window.removeEventListener('creativa_autoscrape_sync', handleSync);
+    };
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e) => {

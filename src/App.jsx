@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
   Canvas, Rect, Circle, Triangle, Line, Textbox, 
-  FabricImage, PencilBrush, Shadow, Group, ActiveSelection, FabricObject 
+  FabricImage, PencilBrush, Shadow, Group, ActiveSelection, FabricObject,
+  Ellipse, Path, Polygon 
 } from 'fabric';
 
 // Canva signature selection controls & bounding box tokens
@@ -984,6 +985,21 @@ export default function App() {
         });
       } else if (type === 'line') {
         fObj = new Line(cleanProps.points || [0, 0, 100, 0], {
+          ...cleanProps,
+          selectable: cleanProps.selectable ?? true
+        });
+      } else if (type === 'ellipse') {
+        fObj = new Ellipse({
+          ...cleanProps,
+          selectable: cleanProps.selectable ?? true
+        });
+      } else if (type === 'path' && cleanProps.path) {
+        fObj = new Path(cleanProps.path, {
+          ...cleanProps,
+          selectable: cleanProps.selectable ?? true
+        });
+      } else if (type === 'polygon' && cleanProps.points) {
+        fObj = new Polygon(cleanProps.points, {
           ...cleanProps,
           selectable: cleanProps.selectable ?? true
         });
