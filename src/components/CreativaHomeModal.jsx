@@ -325,21 +325,6 @@ export default function CreativaHomeModal({
         {/* Right: Return to Editor & Create a Design Button */}
         <div className="flex items-center space-x-1.5 sm:space-x-2 md:space-x-3">
           
-          {/* Live Auto-Scraper Status Pill */}
-          <div 
-            className="hidden lg:flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-semibold shrink-0 shadow-2xs"
-            title="Real-time background scraper continuously fetches and indexes fresh templates and creators"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span>Auto-Scraping Active</span>
-            <span className="text-[10px] text-emerald-800 bg-emerald-100/90 px-1.5 py-0.5 rounded-full font-bold">
-              {allTemplates.length}
-            </span>
-          </div>
-
           {/* Return to Canvas Editor Button */}
           <button
             onClick={onClose}
