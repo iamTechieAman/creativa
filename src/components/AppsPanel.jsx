@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
   Search, Sparkles, Type, Smartphone, Table, Film, 
   ShieldCheck, Binary, QrCode, BarChart3, Eye, ArrowLeft, 
-  Wand2, Plus, RefreshCw, Check, CheckCircle2, AlertCircle, Crown,
+  Wand2, Plus, RefreshCw, Check, CheckCircle2, AlertCircle,
   Layers, Maximize2, Laptop, Camera
 } from 'lucide-react';
 import { CANVA_PLUGINS, BRAND_LOGOS, GIPHY_STICKERS, MATH_FORMULAS } from '../data/plugins';
@@ -941,9 +941,8 @@ export default function AppsPanel({
                   <h4 className="text-xs font-bold text-slate-900 group-hover:text-purple-700 truncate">
                     {plugin.name}
                   </h4>
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300 uppercase flex items-center space-x-1 shrink-0">
-                    <Crown size={9} className="fill-amber-500 text-amber-500" />
-                    <span>{plugin.badge} FREE</span>
+                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-purple-100 text-purple-800 border border-purple-200 uppercase flex items-center shrink-0">
+                    <span>{plugin.badge}</span>
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">

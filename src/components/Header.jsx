@@ -3,7 +3,7 @@ import {
   Undo2, Redo2, Cloud, CloudCheck, Download, 
   ChevronDown, Save, FilePlus, Maximize2, 
   FolderOpen, Upload, Trash2, Edit3, Sparkles, Play,
-  Crown, Share2, Copy, Check, Users, Eye, Ruler,
+  Share2, Copy, Check, Users, Eye, Ruler,
   FileCheck, Shield, ExternalLink, History, Compass, User
 } from 'lucide-react';
 import CreativaLogo from './CreativaLogo';
@@ -126,7 +126,7 @@ export default function Header({
                   onClick={() => { onOpenResize?.(); setIsFileMenuOpen(false); }}
                   className="w-full flex items-center space-x-2.5 px-3.5 py-2 hover:bg-slate-50 text-left transition-colors"
                 >
-                  <Crown size={15} className="text-amber-500 fill-amber-400" />
+                  <Sparkles size={15} className="text-purple-600" />
                   <span>Magic Switch & Resize</span>
                 </button>
 
@@ -259,7 +259,7 @@ export default function Header({
           className="hidden sm:flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 border border-slate-300 transition-all shadow-xs group shrink-0"
           title="Magic Switch & Resize"
         >
-          <Crown size={14} className="text-amber-500 group-hover:scale-110 transition-transform fill-amber-400 shrink-0" />
+          <Maximize2 size={13} className="text-purple-600 group-hover:scale-110 transition-transform shrink-0" />
           <span className="hidden xl:inline">Magic Switch</span>
           <span className="text-[10px] sm:text-[11px] text-slate-500 font-mono ml-0.5">
             {canvasDimensions.width}×{canvasDimensions.height}

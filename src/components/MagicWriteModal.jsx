@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   X, Sparkles, Wand2, RefreshCw, Check, Copy, ArrowDownRight, 
-  ChevronRight, AlignLeft, Send, Crown 
+  ChevronRight, AlignLeft, Send 
 } from 'lucide-react';
 import { 
   MAGIC_WRITE_ACTIONS, TONE_PRESETS, executeMagicWrite 

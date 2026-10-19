@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Download, FileImage, FileCode, FileText, CheckCircle2, Layers, Crown, Sparkles, Check } from 'lucide-react';
+import { X, Download, FileImage, FileCode, FileText, CheckCircle2, Layers, Sparkles, Check } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { exportCanvasAsImage, exportCanvasAsSVG, exportCanvasAsPDF, downloadDataUrl } from '../utils/export';
 
@@ -90,12 +90,8 @@ export default function ExportModal({
             <div>
               <div className="flex items-center space-x-2">
                 <h3 className="font-bold text-slate-900 text-base">Export & Download</h3>
-                <span className="flex items-center space-x-1 px-1.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 text-[10px] font-extrabold uppercase">
-                  <Crown size={10} className="fill-amber-500 text-amber-500" />
-                  <span>Pro Free</span>
-                </span>
               </div>
-              <p className="text-[11px] text-slate-500">All premium high-res formats unlocked for free</p>
+              <p className="text-[11px] text-slate-500">Download your design in high-definition formats</p>
             </div>
           </div>
           <button
@@ -117,7 +113,7 @@ export default function ExportModal({
               {[
                 { id: 'png', label: 'PNG', sub: 'High-res image', icon: FileImage },
                 { id: 'jpg', label: 'JPG', sub: 'Compressed image', icon: FileImage },
-                { id: 'svg', label: 'SVG', sub: 'Vector graphic', icon: FileCode, isPro: true },
+                { id: 'svg', label: 'SVG', sub: 'Vector graphic', icon: FileCode },
                 { id: 'pdf', label: 'PDF', sub: 'Print document', icon: FileText }
               ].map(item => {
                 const isSelected = format === item.id;
@@ -132,11 +128,6 @@ export default function ExportModal({
                         : 'border-slate-200 hover:border-slate-300 text-slate-600'
                     }`}
                   >
-                    {item.isPro && (
-                      <span className="absolute -top-1.5 -right-1 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-[8px] px-1 rounded-full shadow-xs">
-                        FREE
-                      </span>
-                    )}
                     <Icon size={20} className={isSelected ? 'text-purple-600' : 'text-slate-400'} />
                     <span className="font-bold text-xs mt-1.5">{item.label}</span>
                     <span className="text-[10px] text-slate-400 leading-tight mt-0.5">{item.sub}</span>
@@ -191,9 +182,6 @@ export default function ExportModal({
                 <div className="flex justify-between text-xs mb-1.5">
                   <div className="flex items-center space-x-1.5">
                     <span className="font-semibold text-slate-700">Resolution Scale:</span>
-                    <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
-                      Pro Unlocked
-                    </span>
                   </div>
                   <span className="font-bold text-purple-700">{multiplier}x ({canvasWidth * multiplier} × {canvasHeight * multiplier}px)</span>
                 </div>

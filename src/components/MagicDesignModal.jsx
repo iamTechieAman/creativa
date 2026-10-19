@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Sparkles, Wand2, RefreshCw, Check, Layout, Crown, ArrowRight } from 'lucide-react';
+import { X, Sparkles, Wand2, RefreshCw, Check, Layout, ArrowRight } from 'lucide-react';
 import { generateMagicDesignLayout, generateMagicDesignVariants } from '../utils/aiEngines';
 
 const TRENDING_DESIGN_PROMPTS = [

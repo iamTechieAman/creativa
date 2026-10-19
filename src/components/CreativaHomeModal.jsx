@@ -907,7 +907,7 @@ export default function CreativaHomeModal({
                       onClick={() => { setActiveTab('templates'); setActiveNavMenu(null); }}
                       className="w-full py-2.5 rounded-2xl canva-btn-primary font-bold text-xs text-white shadow-md hover:shadow-lg transition-all"
                     >
-                      Start Creating with All Pro Features ➔
+                      Start Creating Now ➔
                     </button>
                   </div>
                 </div>

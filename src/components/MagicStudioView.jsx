@@ -152,7 +152,7 @@ export default function MagicStudioView({
             { id: 'media', label: 'Magic Media™', icon: Image, desc: 'FLUX.1 Text to Image' },
             { id: 'write', label: 'Magic Write™', icon: Type, desc: 'AI Copywriting' },
             { id: 'morph', label: 'Magic Morph™', icon: Sparkles, desc: '3D Materials' },
-            { id: 'switch', label: 'Magic Switch & Pro Tools', icon: Sliders, desc: 'AI Photo Suite' }
+            { id: 'switch', label: 'Magic Switch & Smart Tools', icon: Sliders, desc: 'AI Photo Suite' }
           ].map(tool => (
             <button
               key={tool.id}
@@ -714,13 +714,13 @@ export default function MagicStudioView({
         </div>
       )}
 
-      {/* ================= 5. MAGIC SWITCH & PRO TOOLS TAB ================= */}
+      {/* ================= 5. MAGIC SWITCH & SMART TOOLS TAB ================= */}
       {activeTool === 'switch' && (
         <div className="space-y-4">
           <div className="bg-white rounded-3xl border border-slate-200 p-6 space-y-2 shadow-xs">
             <h3 className="font-extrabold text-slate-900 text-base flex items-center space-x-2">
               <Sliders size={18} className="text-purple-600" />
-              <span>Pro Creative Intelligence & Transform Tools</span>
+              <span>Studio Creative Intelligence & Transform Tools</span>
             </h3>
             <p className="text-xs text-slate-500">
               Unleash deep generative photo manipulation tools inside the Creativa Canvas Editor with single-click actions.
@@ -735,7 +735,7 @@ export default function MagicStudioView({
                 <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center">
                   <Maximize2 size={20} />
                 </div>
-                <h4 className="font-bold text-sm text-slate-900">Magic Switch™ Pro Resize</h4>
+                <h4 className="font-bold text-sm text-slate-900">Magic Switch™ Smart Resize</h4>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   Automatically reformat your designs across 10+ standard formats — from Instagram 1:1 to YouTube 16:9, A4 Resumes, and Reels.
                 </p>

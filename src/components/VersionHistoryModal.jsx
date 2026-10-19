@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, History, RotateCcw, Clock, Check, Crown, Eye } from 'lucide-react';
+import { X, History, RotateCcw, Clock, Check, Eye } from 'lucide-react';
 
 export default function VersionHistoryModal({
   isOpen,

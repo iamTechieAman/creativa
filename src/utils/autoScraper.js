@@ -500,20 +500,34 @@ export async function triggerLiveCanvaSync() {
  * Starts continuous background auto-scraping loop
  * Automatically fetches & indexes trending Creativa designs every interval
  */
-export function startContinuousAutoScraping(intervalSeconds = 25) {
+export function startContinuousAutoScraping(intervalSeconds = 30) {
   if (autoScrapeTimer) return;
 
-  // Run initial sync after 1 second
+  // Run initial sync after 1 second if window is active
   setTimeout(() => {
-    triggerLiveCanvaSync().catch(console.warn);
+    if (typeof document === 'undefined' || document.visibilityState === 'visible') {
+      triggerLiveCanvaSync().catch(console.warn);
+    }
   }, 1000);
 
-  // Set periodic background interval
+  // Set periodic background interval (zero CPU/network when tab is in background)
   autoScrapeTimer = setInterval(() => {
-    triggerLiveCanvaSync().catch(console.warn);
+    if (typeof document === 'undefined' || document.visibilityState === 'visible') {
+      triggerLiveCanvaSync().catch(console.warn);
+    }
   }, intervalSeconds * 1000);
 
-  console.info(`[Creativa Auto-Scraper] Background continuous sync active (every ${intervalSeconds}s)`);
+  // Auto-sync immediately when user switches back to the tab
+  if (typeof document !== 'undefined') {
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        triggerLiveCanvaSync().catch(console.warn);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+  }
+
+  console.info(`[Creativa Auto-Scraper] Vercel Hobby-optimized client-side sync active (every ${intervalSeconds}s, zero server load)`);
 }
 
 /**

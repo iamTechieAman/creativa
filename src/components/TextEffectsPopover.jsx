@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Sparkles, Sliders, RotateCcw, Crown } from 'lucide-react';
+import { X, Sparkles, Sliders, RotateCcw } from 'lucide-react';
 import { Shadow, Path } from 'fabric';
 import { SOLID_COLORS } from '../data/backgrounds';
 
@@ -412,7 +412,7 @@ export default function TextEffectsPopover({
         {/* SECTION 2: SHAPE (NONE vs CURVE) */}
         <div className="pt-3 border-t border-slate-100">
           <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2">
-            Shape (Creativa Pro)
+            Curved Text & Shape
           </span>
           <div className="grid grid-cols-2 gap-2 mb-3">
             <button

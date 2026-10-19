@@ -6,7 +6,7 @@ import {
   ChevronsUp, ChevronsDown, Palette, ChevronDown, Sparkles,
   Wand2, Move, Group as GroupIcon, Ungroup as UngroupIcon,
   AlignJustify, SlidersHorizontal, Clock, FileText, X,
-  Paintbrush, List, Crop, Crown, Search
+  Paintbrush, List, Crop, Search
 } from 'lucide-react';
 import { AVAILABLE_FONTS } from '../data/fonts';
 import { SOLID_COLORS, GRADIENT_PRESETS } from '../data/backgrounds';
@@ -463,7 +463,7 @@ export default function ContextToolbar({
               )}
             </div>
 
-            {/* Effects Button (Canva Pro Text Effects) */}
+            {/* Effects Button (Text Effects) */}
             <button
               onClick={() => {
                 const next = !isEffectsOpen;
@@ -478,7 +478,7 @@ export default function ContextToolbar({
               <span>Effects</span>
             </button>
 
-            {/* Magic Write AI Copywriter (Pro Free) */}
+            {/* Magic Write AI Copywriter */}
             <button
               onClick={onOpenMagicWrite}
               className="flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs shadow-xs transition-all"
@@ -486,7 +486,6 @@ export default function ContextToolbar({
             >
               <Sparkles size={12} className="text-yellow-300 fill-yellow-300" />
               <span>Magic Write</span>
-              <Crown size={10} className="fill-amber-400 text-amber-400" />
             </button>
           </>
         )}
@@ -553,7 +552,6 @@ export default function ContextToolbar({
             >
               <Wand2 size={13} className="text-purple-600" />
               <span>Edit photo (Magic Studio)</span>
-              <Crown size={11} className="fill-amber-500 text-amber-500 ml-0.5" />
             </button>
 
             {/* Flip Horizontal */}

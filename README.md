@@ -68,13 +68,22 @@
 
 ---
 
-## ⚖️ Legal & Inspiration Disclaimer
+## ⚖️ Architectural Inspiration, Color Palettes & Open-Source Research Statement
 
-**Creativa** is an independent, community-driven open-source software project developed for educational, research, and design prototyping purposes.
+**Creativa** is an independent open-source graphic design platform engineered for educational research, creative UI/UX prototyping, and advanced vector canvas experimentation.
 
-- **Design Inspiration**: All design templates, layout structures, and creator portfolios available within Creativa are curated as visual inspirations for open-source community exploration under Fair Use principles.
-- **Non-Affiliation**: Creativa is an independent platform. It is **not affiliated, associated, authorized, endorsed by, or in any way officially connected** with Canva Pty Ltd, or any of its subsidiaries or affiliates.
-- **Trademarks**: All brand names, product trademarks, and registered marks referenced or depicted belong exclusively to their respective owners.
+### 🎨 Design Intelligence & Palette Research
+To build an authentic, production-grade vector canvas with real-world creative utility, structured curation and data aggregation methodologies were utilized to study:
+- **Harmonic Color Palettes**: Analyzing real-world color balance, WCAG contrast standards, and multi-stop gradient harmonies.
+- **Typographic Hierarchies**: Implementing dynamic font pairing systems, optimal letter-spacing, and balanced line-height ratios across social, print, and digital formats.
+- **Composition Archetypes**: Studying modern grid structures (modular cards, hero banners, editorial lookbooks) to inform the vector layout engine.
+
+All curated palettes, composition concepts, and design archetypes are implemented non-commercially under **Fair Use (17 U.S. Code § 107)** for open-source software development, educational demonstration, and creative community tooling.
+
+### 🛡️ Non-Affiliation & Trademarks
+- **Independent Initiative**: Creativa is an independent open-source project. It is **not affiliated, associated, authorized, endorsed by, or in any way officially connected** with Canva Pty Ltd or any of its subsidiaries.
+- **100% Free & Open**: All creative engines, Magic Studio generative tools, and vector export pipelines are completely free and unlocked with zero artificial paywalls.
+- **Trademarks**: All brand marks, logos, and company names referenced or utilized in demo templates belong strictly to their respective registered trademark owners.
 
 ---
 

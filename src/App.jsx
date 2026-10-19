@@ -64,7 +64,7 @@ export default function App() {
   ]);
   const [activePageIndex, setActivePageIndex] = useState(0);
 
-  // View Settings & Canva Pro State (Rulers OFF by default as requested)
+  // View Settings & Studio State (Rulers OFF by default as requested)
   const [showRulers, setShowRulers] = useState(false);
   const [showMargins, setShowMargins] = useState(false);
   const [showBleed, setShowBleed] = useState(false);
@@ -338,7 +338,7 @@ export default function App() {
     }
   }, [isDrawingMode, brushSize, brushColor]);
 
-  // Restore specific historical snapshot (Canva Pro Version History)
+  // Restore specific historical snapshot (Studio Version History)
   const handleRestoreSnapshot = useCallback(async (targetIndex) => {
     if (targetIndex < 0 || targetIndex >= historyRef.current.length || !fabricRef.current) return;
     isHistoryLockedRef.current = true;

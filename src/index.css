@@ -6,11 +6,16 @@
     -webkit-tap-highlight-color: transparent;
   }
   
+  button, a, input, select, textarea, [role="button"], .cursor-pointer {
+    touch-action: manipulation;
+  }
+  
   html, body {
     overscroll-behavior: none;
     width: 100%;
     height: 100%;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 }
 

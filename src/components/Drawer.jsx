@@ -3,7 +3,7 @@ import {
   X, Search, Plus, Trash2, Eye, EyeOff, Lock, Unlock, 
   ArrowUp, ArrowDown, Upload, Sparkles, FolderOpen, RefreshCw, 
   BarChart3, QrCode, Shuffle, Wand2, Image as ImageIcon,
-  Smartphone, Laptop, Camera, Share2, Type, ChevronsUp, ChevronsDown, Crown,
+  Smartphone, Laptop, Camera, Share2, Type, ChevronsUp, ChevronsDown,
   Palette, Globe, FileText, Check, LayoutGrid, Heart, Flame,
   Users, UserPlus, UserCheck
 } from 'lucide-react';

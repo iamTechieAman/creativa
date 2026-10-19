@@ -71,9 +71,6 @@ export default function CreativaLogo({ className = "h-9 w-auto", showTagline = t
           <span className="text-lg sm:text-xl md:text-2xl font-black tracking-tight bg-gradient-to-r from-purple-700 via-indigo-700 to-pink-600 bg-clip-text text-transparent drop-shadow-xs">
             Creativa
           </span>
-          <span className="hidden sm:inline-block text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-xs">
-            Pro Free
-          </span>
         </div>
         {showTagline && (
           <span className="hidden md:inline-block text-[8px] font-extrabold uppercase tracking-widest text-slate-400 mt-0.5">

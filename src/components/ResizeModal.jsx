@@ -205,7 +205,7 @@ export default function ResizeModal({
               <Sparkles size={16} />
             </div>
             <div>
-              <h3 className="font-bold text-slate-900 text-base">Magic Switch (Creativa Pro)</h3>
+              <h3 className="font-bold text-slate-900 text-base">Magic Switch & Smart Resize</h3>
               <p className="text-[11px] text-slate-500">Transform, translate, and resize your design instantly</p>
             </div>
           </div>

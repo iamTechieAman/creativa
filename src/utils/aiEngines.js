@@ -30,26 +30,65 @@ export const STYLE_PROMPTS = {
   retro: 'vintage 1970s print, warm grain, retro color grading, nostalgic aesthetics, polaroid tone'
 };
 
-// Curated High-Definition Semantic Unsplash Fallback Library
+// Curated High-Definition Semantic Unsplash Fallback Library (100% CORS-Enabled & prompt-accurate)
 const SEMANTIC_FALLBACKS = {
   coffee: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80',
+  cafe: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80',
+  bakery: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
   gym: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
   fitness: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
+  workout: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80',
   sale: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80',
+  discount: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1200&q=80',
   fashion: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80',
+  clothing: 'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=80',
+  sneaker: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80',
+  shoe: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80',
+  jewelry: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80',
+  diamond: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=80',
+  gold: 'https://images.unsplash.com/photo-1611591475837-f0c2394cbb45?auto=format&fit=crop&w=1200&q=80',
+  watch: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80',
+  wedding: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
+  marriage: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
+  bride: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80',
+  car: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
+  auto: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80',
+  supercar: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80',
+  gaming: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80',
+  gamer: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80',
+  esport: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80',
   tech: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
   ai: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+  robot: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80',
+  cyber: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80',
   travel: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+  vacation: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80',
+  beach: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
   nature: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80',
+  mountain: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
   food: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
+  burger: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80',
+  pizza: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80',
+  sushi: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80',
   cat: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80',
   dog: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80',
+  pet: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80',
   realestate: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+  house: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80',
+  interior: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
   music: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80',
+  concert: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
   medical: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
-  abstract: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1200&q=80',
-  cyberpunk: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80',
-  car: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80'
+  doctor: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80',
+  beauty: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80',
+  makeup: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80',
+  crypto: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=1200&q=80',
+  finance: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80',
+  space: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+  flower: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80',
+  camera: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80',
+  education: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80',
+  abstract: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1200&q=80'
 };
 
 const getSemanticFallback = (prompt) => {
@@ -57,7 +96,7 @@ const getSemanticFallback = (prompt) => {
   for (const [key, url] of Object.entries(SEMANTIC_FALLBACKS)) {
     if (p.includes(key)) return url;
   }
-  return 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80';
+  return 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80';
 };
 
 export const generateAiImage = async (prompt, options = {}) => {
@@ -662,6 +701,78 @@ const AI_INDUSTRY_PROFILES = [
     badgeBg: '#1e3a8a',
     bg: '#0f172a',
     image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    keywords: ['car', 'auto', 'supercar', 'vehicle', 'dealership', 'racing', 'drive', 'motor'],
+    badge: 'HIGH PERFORMANCE',
+    cta: 'Test Drive Today',
+    accent: '#ef4444',
+    badgeBg: '#7f1d1d',
+    bg: '#09090b',
+    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    keywords: ['wedding', 'marriage', 'bride', 'groom', 'reception', 'engagement', 'anniversary'],
+    badge: 'ROYAL CELEBRATION',
+    cta: 'RSVP Today',
+    accent: '#e11d48',
+    badgeBg: '#881337',
+    bg: '#1c1917',
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    keywords: ['jewelry', 'jewel', 'diamond', 'gold', 'ring', 'necklace', 'luxury', 'watch', 'gem'],
+    badge: 'TIMELESS LUXURY',
+    cta: 'Discover Collection',
+    accent: '#f59e0b',
+    badgeBg: '#78350f',
+    bg: '#0a0a0a',
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    keywords: ['gaming', 'gamer', 'game', 'esport', 'twitch', 'tournament', 'stream', 'playstation', 'xbox'],
+    badge: 'CHAMPIONSHIP ARENA',
+    cta: 'Join Tournament Now',
+    accent: '#a855f7',
+    badgeBg: '#581c87',
+    bg: '#090d16',
+    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    keywords: ['beauty', 'salon', 'makeup', 'cosmetic', 'spa', 'skincare', 'hair', 'glow'],
+    badge: 'RADIANT ELEGANCE',
+    cta: 'Book Appointment',
+    accent: '#ec4899',
+    badgeBg: '#831843',
+    bg: '#260c1a',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    keywords: ['crypto', 'bitcoin', 'finance', 'invest', 'trading', 'stocks', 'wealth', 'bank', 'fund'],
+    badge: 'FINANCIAL HORIZON',
+    cta: 'Start Investing Today',
+    accent: '#10b981',
+    badgeBg: '#064e3b',
+    bg: '#022c22',
+    image: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    keywords: ['pet', 'dog', 'cat', 'puppy', 'veterinary', 'vet', 'animal', 'kitten'],
+    badge: 'PREMIUM PET CARE',
+    cta: 'Schedule Checkup',
+    accent: '#f97316',
+    badgeBg: '#7c2d12',
+    bg: '#1c1917',
+    image: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    keywords: ['photography', 'photographer', 'photo', 'camera', 'portrait', 'shoot', 'lens'],
+    badge: 'VISUAL MONOGRAPH',
+    cta: 'View Full Portfolio',
+    accent: '#06b6d4',
+    badgeBg: '#164e63',
+    bg: '#09090b',
+    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 
@@ -673,13 +784,32 @@ export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 80
     prof.keywords.some(k => p.includes(k))
   );
 
+  const dynamicImage = matchedProfile ? matchedProfile.image : getSemanticFallback(prompt);
+  
+  // Intelligent dynamic badge & CTA derivation
+  let dynamicBadge = 'CREATIVA SHOWCASE';
+  let dynamicCta = 'Explore Collection';
+  if (p.includes('sale') || p.includes('discount') || p.includes('off') || p.includes('deal')) {
+    dynamicBadge = 'LIMITED SPECIAL OFFER';
+    dynamicCta = 'Shop The Sale';
+  } else if (p.includes('book') || p.includes('appoint') || p.includes('consult')) {
+    dynamicBadge = 'RESERVATION OPEN';
+    dynamicCta = 'Book Appointment';
+  } else if (p.includes('invite') || p.includes('party') || p.includes('celebrat') || p.includes('wedding')) {
+    dynamicBadge = 'YOU ARE INVITED';
+    dynamicCta = 'RSVP Today';
+  } else if (p.includes('launch') || p.includes('new') || p.includes('start')) {
+    dynamicBadge = 'OFFICIAL LAUNCH';
+    dynamicCta = 'Get Started';
+  }
+
   const profile = matchedProfile || {
-    badge: 'CREATIVA SPOTLIGHT',
-    cta: 'Customize Layout',
+    badge: dynamicBadge,
+    cta: dynamicCta,
     accent: '#7D2AE8',
     badgeBg: '#4338ca',
     bg: '#0f172a',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80'
+    image: dynamicImage
   };
 
   // Clean and derive smart headline from the user's prompt

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   X, Wand2, Sliders, Sparkles, Check, RefreshCw, Download, 
-  RotateCcw, Crown, Eraser, Maximize2, Scissors, Type, 
+  RotateCcw, Eraser, Maximize2, Scissors, Type, 
   Layers, ArrowRight, Palette 
 } from 'lucide-react';
 import { 
@@ -510,7 +510,7 @@ export default function EditImageModal({
                   }`}
                   title="Magic Cutout: Background Remover"
                 >
-                  <Crown size={11} className="fill-amber-500 text-amber-500 shrink-0" />
+                  <Scissors size={11} className="text-purple-600 shrink-0" />
                   <span>Cutout BG</span>
                 </button>
               </div>
@@ -781,7 +781,7 @@ export default function EditImageModal({
               <div className="space-y-3.5 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs">
                 <div className="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 leading-relaxed text-[11px]">
                   <p className="font-bold flex items-center space-x-1 mb-0.5 text-amber-800">
-                    <Crown size={12} className="fill-amber-500 text-amber-500" />
+                    <Scissors size={12} className="text-purple-600" />
                     <span>Magic Cutout</span>
                   </p>
                   Automatically isolates the subject by keying out backgrounds with smooth edge alpha falloff.

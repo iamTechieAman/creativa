@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  X, Pipette, Plus, Sparkles, Shuffle, Crown, 
+  X, Pipette, Plus, Sparkles, Shuffle, 
   Palette, Sliders, Check, Search 
 } from 'lucide-react';
 import { SOLID_COLORS, GRADIENT_PRESETS } from '../data/backgrounds';
@@ -251,7 +251,7 @@ export default function CanvaColorPickerModal({
                 </div>
               )}
 
-              {/* SECTION: BRAND KIT PALETTES (PRO FREE) */}
+              {/* SECTION: BRAND KIT PALETTES */}
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-1.5">

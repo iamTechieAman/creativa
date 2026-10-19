@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
   Sparkles, Wand2, Image as ImageIcon, Type, Sliders, RefreshCw, 
   Copy, Check, ArrowRight, Download, Eye, Zap, Layers, Scissors, 
-  Crop, Palette, Maximize2, Send, Plus, Crown, ChevronRight
+  Crop, Palette, Maximize2, Send, Plus, ChevronRight
 } from 'lucide-react';
 import { 
   generateMagicDesignLayout, 
@@ -151,7 +151,7 @@ export default function MagicStudioPanel({
             </div>
           </div>
           <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-purple-500/30 text-purple-200 border border-purple-400/30">
-            PRO FREE
+            STUDIO AI
           </span>
         </div>
 
@@ -684,7 +684,7 @@ export default function MagicStudioPanel({
             },
             {
               id: 'resize',
-              title: 'Magic Switch™ Pro Resize',
+              title: 'Magic Switch™ Smart Resize',
               desc: 'Auto-reformat canvas artboard to Instagram, YouTube, Posters and Reels.',
               icon: Maximize2,
               action: onOpenResize
