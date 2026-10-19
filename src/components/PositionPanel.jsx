@@ -16,7 +16,7 @@ export default function PositionPanel({
   if (!isOpen || !activeObject) return null;
 
   return (
-    <div className="absolute top-12 right-6 w-72 bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 z-40 select-none text-xs text-slate-700 animate-in fade-in slide-in-from-top-2 duration-150">
+    <div className="fixed inset-x-3 top-16 md:absolute md:top-12 md:right-6 md:inset-x-auto w-auto md:w-72 max-w-sm mx-auto md:mx-0 bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 z-40 select-none text-xs text-slate-700 animate-in fade-in slide-in-from-top-2 duration-150">
       {/* Header */}
       <div className="flex items-center justify-between pb-3 border-b border-slate-100">
         <h4 className="font-bold text-slate-900 text-xs">Position & Alignment</h4>

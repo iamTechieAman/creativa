@@ -78,7 +78,7 @@ export default function ContextToolbar({
   // When no object is selected: Page Context Bar
   if (!activeObject) {
     return (
-      <div ref={toolbarRef} className="h-11 bg-white border-b border-slate-200 px-3 md:px-4 flex items-center justify-between text-xs text-slate-700 shadow-xs z-30 shrink-0 select-none overflow-x-auto relative">
+      <div ref={toolbarRef} className="h-11 bg-white border-b border-slate-200 px-3 md:px-4 flex items-center justify-between text-xs text-slate-700 shadow-xs z-30 shrink-0 select-none overflow-x-auto scrollbar-none touch-pan-x relative">
         <div className="flex items-center space-x-2 shrink-0">
           {/* Page Background Color Swatch (Creativa Palette) */}
           <button
@@ -215,7 +215,7 @@ export default function ContextToolbar({
   };
 
   return (
-    <div ref={toolbarRef} className="h-11 bg-white border-b border-slate-200 px-3 flex items-center justify-between text-xs text-slate-700 shadow-xs z-30 shrink-0 overflow-x-auto relative select-none">
+    <div ref={toolbarRef} className="h-11 bg-white border-b border-slate-200 px-3 flex items-center justify-between text-xs text-slate-700 shadow-xs z-30 shrink-0 overflow-x-auto scrollbar-none touch-pan-x relative select-none">
       {/* Left section: Type-specific controls */}
       <div className="flex items-center space-x-1.5 md:space-x-2 shrink-0">
         
@@ -240,7 +240,7 @@ export default function ContextToolbar({
               </button>
 
               {isFontMenuOpen && (
-                <div className="absolute left-0 top-full mt-1.5 w-76 bg-white border border-slate-200 rounded-2xl shadow-2xl p-2.5 z-50 text-slate-800 animate-in fade-in duration-100">
+                <div className="fixed inset-x-3 top-28 md:absolute md:top-full md:left-0 md:inset-x-auto md:mt-1.5 w-auto md:w-76 max-w-sm mx-auto md:mx-0 bg-white border border-slate-200 rounded-2xl shadow-2xl p-2.5 z-50 text-slate-800 animate-in fade-in duration-100">
                   {/* Search Bar */}
                   <div className="relative mb-2">
                     <Search size={13} className="absolute left-2.5 top-2 text-slate-400" />

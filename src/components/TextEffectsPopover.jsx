@@ -177,7 +177,7 @@ export default function TextEffectsPopover({
   };
 
   return (
-    <div className="absolute top-12 left-52 md:left-64 w-88 bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 z-40 select-none text-xs text-slate-700 animate-in fade-in slide-in-from-top-2 duration-150 max-h-[85vh] overflow-y-auto">
+    <div className="fixed inset-x-3 top-16 md:absolute md:top-12 md:left-64 md:inset-x-auto w-auto md:w-88 max-w-sm mx-auto md:mx-0 bg-white border border-slate-200 rounded-2xl shadow-2xl p-4 z-40 select-none text-xs text-slate-700 animate-in fade-in slide-in-from-top-2 duration-150 max-h-[85vh] overflow-y-auto">
       {/* Header */}
       <div className="flex items-center justify-between pb-3 border-b border-slate-100">
         <div className="flex items-center space-x-1.5 font-bold text-slate-900">

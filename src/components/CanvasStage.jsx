@@ -132,7 +132,7 @@ export default function CanvasStage({
               value={activePage.title || ''}
               onChange={(e) => onUpdatePageTitle?.(e.target.value)}
               placeholder="Add page title"
-              className="bg-transparent hover:bg-white/80 focus:bg-white border border-transparent hover:border-slate-300 focus:border-purple-500 rounded px-2 py-0.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none transition-all w-40 truncate"
+              className="bg-transparent hover:bg-white/80 focus:bg-white border border-transparent hover:border-slate-300 focus:border-purple-500 rounded px-2 py-0.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none transition-all w-20 sm:w-32 md:w-44 truncate"
             />
           </div>
 

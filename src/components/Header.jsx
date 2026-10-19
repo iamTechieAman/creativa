@@ -353,18 +353,28 @@ export default function Header({
           <span>Present</span>
         </button>
 
-        {/* Authentic Canva Share Dropdown */}
+        {/* Quick 1-Tap Download Button */}
+        <button
+          onClick={onOpenExport}
+          className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl hover:bg-slate-100 text-slate-700 transition-colors border border-slate-200 shadow-xs flex items-center space-x-1"
+          title="Download / Export Design (PNG, JPG, PDF, SVG)"
+        >
+          <Download size={14} className="text-purple-600 shrink-0" />
+          <span className="hidden md:inline text-xs font-semibold">Download</span>
+        </button>
+
+        {/* Authentic Creativa Share Dropdown */}
         <div className="relative" ref={shareMenuRef}>
           <button
             onClick={() => setIsShareMenuOpen(!isShareMenuOpen)}
-            className="canva-btn-primary flex items-center space-x-1 sm:space-x-1.5 px-2.5 sm:px-4 py-1.5 rounded-xl text-xs font-bold shadow-md hover:shadow-purple-500/25 transition-all text-white shrink-0"
+            className="canva-btn-primary flex items-center space-x-1 sm:space-x-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-xl text-xs font-bold shadow-md hover:shadow-purple-500/25 transition-all text-white shrink-0"
           >
             <Share2 size={13} />
-            <span className="hidden xs:inline">Share</span>
+            <span className="hidden sm:inline">Share</span>
           </button>
 
           {isShareMenuOpen && (
-            <div className="absolute right-0 mt-2 w-80 bg-white border border-slate-200 rounded-3xl shadow-2xl p-4 z-50 text-slate-700 text-xs animate-in fade-in slide-in-from-top-2 duration-150">
+            <div className="absolute right-0 mt-2 w-80 max-w-[calc(100vw-1rem)] bg-white border border-slate-200 rounded-3xl shadow-2xl p-4 z-50 text-slate-700 text-xs animate-in fade-in slide-in-from-top-2 duration-150">
               {/* Collaboration Link Box */}
               <div className="pb-3 border-b border-slate-100">
                 <div className="flex items-center justify-between mb-2">
