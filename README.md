@@ -82,7 +82,7 @@ All curated palettes, composition concepts, and design archetypes are implemente
 
 ### 🛡️ Non-Affiliation & Trademarks
 - **Independent Initiative**: Creativa is an independent open-source project. It is **not affiliated, associated, authorized, endorsed by, or in any way officially connected** with Canva Pty Ltd or any of its subsidiaries.
-- **100% Free & Open**: All creative engines, Magic Studio generative tools, and vector export pipelines are completely free and unlocked with zero artificial paywalls.
+- **Open Creative Architecture**: All creative engines, Magic Studio generative tools, and vector export pipelines are accessible with zero artificial paywalls.
 - **Trademarks**: All brand marks, logos, and company names referenced or utilized in demo templates belong strictly to their respective registered trademark owners.
 
 ---
