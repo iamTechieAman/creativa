@@ -226,7 +226,7 @@ export default function MagicDesignModal({
 
         {/* Footer */}
         <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
-          <span className="text-[11px] text-slate-500">100% Free • Powered by Creativa Magic Studio</span>
+          <span className="text-[11px] text-slate-500">Instant Generation • Powered by Creativa Magic Studio</span>
           <div className="flex items-center space-x-2">
             <button
               onClick={onClose}

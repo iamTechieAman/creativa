@@ -141,7 +141,7 @@ export default function MagicStudioView({
             Design at the speed of thought with next-gen AI.
           </h2>
           <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
-            Generate complete visual layouts from simple text prompts, create photorealistic 8K FLUX.1 images, generate persuasive marketing copy, and render 3D typographic textures — all 100% free with zero subscriptions.
+            Generate complete visual layouts from simple text prompts, create photorealistic 8K FLUX.1 images, generate persuasive marketing copy, and render 3D typographic textures — all with zero subscriptions.
           </p>
         </div>
 

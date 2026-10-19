@@ -238,7 +238,7 @@ export default function CanvasStage({
       {/* Canvas Viewport Scroll Area */}
       <div 
         ref={containerRef}
-        className="flex-1 bg-[#eaedf2] overflow-auto relative canvas-viewport flex"
+        className="flex-1 bg-[#eaedf2] overflow-auto relative canvas-viewport"
         style={{
           overscrollBehavior: 'contain',
           WebkitOverflowScrolling: 'touch',
@@ -246,8 +246,11 @@ export default function CanvasStage({
         }}
         onMouseDown={handleContainerMouseDown}
       >
-        {/* Inner centering wrapper: uses margin: auto to center when small, and aligns to top-left when overflowing to prevent clipping */}
-        <div className="min-w-fit min-h-fit m-auto flex flex-col items-center justify-start p-3 sm:p-6 md:p-12 shrink-0">
+        {/* Inner centering wrapper: uses width: max-content; min-width: 100%; margin: 0 auto to center without flex auto-margin click jitter */}
+        <div 
+          className="flex flex-col items-center justify-start p-3 sm:p-6 md:p-12 shrink-0"
+          style={{ width: 'max-content', minWidth: '100%', margin: '0 auto' }}
+        >
         {/* Page Top Action Bar */}
         <div 
           className="flex items-center justify-between mb-3 text-xs text-slate-700 font-medium transition-all max-w-full"
@@ -338,7 +341,7 @@ export default function CanvasStage({
 
             {/* Artboard Stage with Drop Shadow */}
             <div 
-              className="transition-transform duration-75 ease-out origin-top-left relative"
+              className="origin-top-left relative"
               onMouseMove={handleMouseMove}
               style={{
                 width: `${dimensions.width * zoom}px`,

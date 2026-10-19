@@ -75,7 +75,7 @@ export default function Sidebar({ activeTab, onSelectTab }) {
             <button
               key={tab.id}
               onClick={() => onSelectTab(isActive ? null : tab.id)}
-              className={`flex flex-col items-center justify-center py-1 px-2.5 min-h-[44px] min-w-[50px] rounded-xl text-[9px] font-medium shrink-0 transition-all active:scale-95 ${
+              className={`flex flex-col items-center justify-center py-1 px-2.5 min-h-[44px] min-w-[50px] rounded-xl text-[9px] font-medium shrink-0 transition-colors ${
                 isActive 
                   ? isAi ? 'bg-gradient-to-r from-purple-100 to-pink-100 text-purple-900 font-bold shadow-xs border border-purple-300' : 'bg-purple-100 text-purple-700 font-bold shadow-xs' 
                   : isAi ? 'text-purple-700 hover:text-purple-900' : 'text-slate-600 hover:text-purple-700 active:bg-slate-100'

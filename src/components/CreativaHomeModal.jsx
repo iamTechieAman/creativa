@@ -8,7 +8,8 @@ import {
   User, Check, ChevronDown, ExternalLink, Play,
   Printer, Briefcase, GraduationCap, BookOpen, ShieldCheck,
   Layers, Type, QrCode, BarChart2, Star, Zap,
-  Menu, ChevronLeft, Trash2, Copy, Sliders, Scissors, Crop
+  Menu, ChevronLeft, Trash2, Copy, Sliders, Scissors, Crop,
+  Globe
 } from 'lucide-react';
 import { CANVA_CREATORS, getAllCreators } from '../data/creators';
 import { searchCanvaTemplates, getAllTemplates } from '../utils/canvaTemplateEngine';
@@ -29,6 +30,86 @@ import TemplatesHubView from './TemplatesHubView';
 import CreatorsDirectoryView from './CreatorsDirectoryView';
 import ProjectsWorkspaceView from './ProjectsWorkspaceView';
 
+const HERO_WORKFLOWS = [
+  { id: 'for_you', label: 'For you', icon: Sparkles, category: 'All' },
+  { id: 'docs', label: 'Docs', icon: FileText, category: 'Resume' },
+  { id: 'whiteboards', label: 'Whiteboards', icon: LayoutGrid, category: 'Business' },
+  { id: 'presentations', label: 'Presentations', icon: Monitor, category: 'Presentation' },
+  { id: 'social', label: 'Social Media', icon: Smartphone, category: 'Social Media' },
+  { id: 'videos', label: 'Videos', icon: Video, category: 'Video' },
+  { id: 'prints', label: 'Print Products', icon: Printer, category: 'Poster' },
+  { id: 'websites', label: 'Websites', icon: Globe, category: 'Marketing' },
+  { id: 'more', label: 'More', icon: Layers, category: 'All' }
+];
+
+const WORKFLOW_FORMATS = {
+  for_you: [
+    { label: 'Doc', icon: FileText, width: 816, height: 1056, desc: '816 × 1056 px' },
+    { label: 'Whiteboard', icon: LayoutGrid, width: 1920, height: 1080, desc: '1920 × 1080 px' },
+    { label: 'Presentation (16:9)', icon: Monitor, width: 1920, height: 1080, desc: '1920 × 1080 px' },
+    { label: 'Instagram Post (Square)', icon: Smartphone, width: 1080, height: 1080, desc: '1080 × 1080 px' },
+    { label: 'Resume / CV', icon: FileText, width: 794, height: 1123, desc: '794 × 1123 px' },
+    { label: 'Flyer (Portrait)', icon: Image, width: 1080, height: 1350, desc: '1080 × 1350 px' },
+    { label: 'Logo', icon: Award, width: 800, height: 800, desc: '800 × 800 px' },
+    { label: 'YouTube Thumbnail', icon: Video, width: 1280, height: 720, desc: '1280 × 720 px' }
+  ],
+  docs: [
+    { label: 'Canva Doc', icon: FileText, width: 816, height: 1056, desc: '816 × 1056 px' },
+    { label: 'Executive Summary', icon: FileText, width: 816, height: 1056, desc: '816 × 1056 px' },
+    { label: 'Resume / CV', icon: FileText, width: 794, height: 1123, desc: '794 × 1123 px' },
+    { label: 'Project Proposal', icon: FileText, width: 1200, height: 1600, desc: '1200 × 1600 px' },
+    { label: 'Newsletter', icon: FileText, width: 816, height: 1056, desc: '816 × 1056 px' }
+  ],
+  whiteboards: [
+    { label: 'Brainstorm Whiteboard', icon: LayoutGrid, width: 2560, height: 1440, desc: '2560 × 1440 px' },
+    { label: 'Agile Retrospective', icon: LayoutGrid, width: 1920, height: 1080, desc: '1920 × 1080 px' },
+    { label: 'Flowchart Canvas', icon: LayoutGrid, width: 1920, height: 1080, desc: '1920 × 1080 px' },
+    { label: 'Team Mind Map', icon: LayoutGrid, width: 2560, height: 1440, desc: '2560 × 1440 px' },
+    { label: 'Mood Board', icon: LayoutGrid, width: 1920, height: 1080, desc: '1920 × 1080 px' }
+  ],
+  presentations: [
+    { label: 'Presentation (16:9)', icon: Monitor, width: 1920, height: 1080, desc: '1920 × 1080 px' },
+    { label: 'Talking Presentation', icon: Monitor, width: 1920, height: 1080, desc: '1920 × 1080 px' },
+    { label: 'Mobile Presentation', icon: Smartphone, width: 1080, height: 1920, desc: '1080 × 1920 px' },
+    { label: 'Pitch Deck', icon: Monitor, width: 1920, height: 1080, desc: '1920 × 1080 px' },
+    { label: 'Educational Deck', icon: Monitor, width: 1920, height: 1080, desc: '1920 × 1080 px' }
+  ],
+  social: [
+    { label: 'Instagram Post (Square)', icon: Smartphone, width: 1080, height: 1080, desc: '1080 × 1080 px' },
+    { label: 'Instagram Story', icon: Smartphone, width: 1080, height: 1920, desc: '1080 × 1920 px' },
+    { label: 'Facebook Post', icon: Smartphone, width: 1200, height: 630, desc: '1200 × 630 px' },
+    { label: 'TikTok Video', icon: Video, width: 1080, height: 1920, desc: '1080 × 1920 px' },
+    { label: 'YouTube Thumbnail', icon: Video, width: 1280, height: 720, desc: '1280 × 720 px' },
+    { label: 'Twitter / X Header', icon: Image, width: 1500, height: 500, desc: '1500 × 500 px' }
+  ],
+  videos: [
+    { label: 'Video (16:9)', icon: Video, width: 1920, height: 1080, desc: '1920 × 1080 px' },
+    { label: 'Mobile Video / Reel', icon: Video, width: 1080, height: 1920, desc: '1080 × 1920 px' },
+    { label: 'YouTube Video', icon: Video, width: 1920, height: 1080, desc: '1920 × 1080 px' },
+    { label: 'Video Message', icon: Video, width: 1080, height: 1920, desc: '1080 × 1920 px' },
+    { label: 'Video Collage', icon: Video, width: 1080, height: 1080, desc: '1080 × 1080 px' }
+  ],
+  prints: [
+    { label: 'Flyer (Portrait)', icon: Printer, width: 1080, height: 1350, desc: '1080 × 1350 px' },
+    { label: 'Poster', icon: Image, width: 1080, height: 1350, desc: '1080 × 1350 px' },
+    { label: 'Business Card', icon: Award, width: 1050, height: 600, desc: '1050 × 600 px' },
+    { label: 'Brochure (Tri-fold)', icon: FileText, width: 1123, height: 794, desc: '1123 × 794 px' },
+    { label: 'Invitation (Portrait)', icon: Heart, width: 1080, height: 1920, desc: '1080 × 1920 px' }
+  ],
+  websites: [
+    { label: 'Portfolio Website', icon: Globe, width: 1366, height: 768, desc: '1366 × 768 px' },
+    { label: 'Business Landing Page', icon: Globe, width: 1440, height: 900, desc: '1440 × 900 px' },
+    { label: 'Event Website', icon: Globe, width: 1366, height: 768, desc: '1366 × 768 px' },
+    { label: 'Bio Link Website', icon: Smartphone, width: 1080, height: 1920, desc: '1080 × 1920 px' }
+  ],
+  more: [
+    { label: 'Infographic', icon: Layers, width: 800, height: 2000, desc: '800 × 2000 px' },
+    { label: 'Desktop Wallpaper', icon: Monitor, width: 1920, height: 1080, desc: '1920 × 1080 px' },
+    { label: 'Book Cover', icon: Image, width: 1410, height: 2250, desc: '1410 × 2250 px' },
+    { label: 'Calendar', icon: LayoutGrid, width: 1080, height: 1080, desc: '1080 × 1080 px' }
+  ]
+};
+
 export default function CreativaHomeModal({
   isOpen,
   onClose,
@@ -46,6 +127,7 @@ export default function CreativaHomeModal({
 }) {
   const [activeTab, setActiveTab] = useState('home'); // 'home' | 'templates' | 'creators' | 'projects' | 'magic'
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [heroWorkflow, setHeroWorkflow] = useState('for_you');
   const [searchQuery, setSearchQuery] = useState('');
   const [followedCreators, setFollowedCreators] = useState(['creator-babhelluq50', 'creator-marina']);
   const [isSyncing, setIsSyncing] = useState(false);
@@ -441,27 +523,6 @@ export default function CreativaHomeModal({
                   className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl font-bold text-xs text-slate-800 hover:bg-purple-50 hover:text-purple-700 transition-colors"
                 >
                   <span className="flex items-center space-x-2"><Briefcase size={16} className="text-purple-600" /><span>Business</span></span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </button>
-                <button 
-                  onClick={() => { setActiveNavMenu('education'); setIsMobileNavOpen(false); }}
-                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl font-bold text-xs text-slate-800 hover:bg-purple-50 hover:text-purple-700 transition-colors"
-                >
-                  <span className="flex items-center space-x-2"><GraduationCap size={16} className="text-purple-600" /><span>Education</span></span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </button>
-                <button 
-                  onClick={() => { setActiveNavMenu('pricing'); setIsMobileNavOpen(false); }}
-                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl font-bold text-xs text-slate-800 hover:bg-purple-50 hover:text-purple-700 transition-colors"
-                >
-                  <span className="flex items-center space-x-2"><Award size={16} className="text-purple-600" /><span>Plans & Pricing (100% Free)</span></span>
-                  <ChevronRight size={14} className="text-slate-400" />
-                </button>
-                <button 
-                  onClick={() => { setActiveNavMenu('learn'); setIsMobileNavOpen(false); }}
-                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl font-bold text-xs text-slate-800 hover:bg-purple-50 hover:text-purple-700 transition-colors"
-                >
-                  <span className="flex items-center space-x-2"><BookOpen size={16} className="text-purple-600" /><span>Learn</span></span>
                   <ChevronRight size={14} className="text-slate-400" />
                 </button>
               </div>
@@ -1026,10 +1087,10 @@ export default function CreativaHomeModal({
             <div className="absolute top-0 right-0 -mt-12 -mr-12 w-80 h-80 rounded-full bg-white/10 blur-2xl pointer-events-none" />
             <div className="absolute bottom-0 left-1/3 -mb-12 w-64 h-64 rounded-full bg-pink-500/20 blur-xl pointer-events-none" />
 
-            <div className="relative z-10 max-w-3xl space-y-4">
+            <div className="relative z-10 max-w-4xl space-y-4">
               <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-[11px] font-bold border border-white/20">
                 <Sparkles size={13} className="text-amber-300 fill-amber-300" />
-                <span>Creativa • Design Without Limits • 100% Free Creative Platform</span>
+                <span>Creativa • Design Without Limits • Open Creative Platform</span>
               </div>
 
               <h1 className="text-2xl md:text-4xl font-black tracking-tight leading-tight">
@@ -1048,8 +1109,45 @@ export default function CreativaHomeModal({
                 />
               </div>
 
-              {/* Quick Format Categories Carousel */}
-              <div className="relative pt-2 pb-1 group/pills">
+              {/* Canva Authentic Circular Workflow Category Tabs */}
+              <div className="pt-2 pb-1 overflow-x-auto scrollbar-none touch-pan-x">
+                <div className="flex items-center space-x-4 md:space-x-6 min-w-max pb-1">
+                  {HERO_WORKFLOWS.map((wf) => {
+                    const isActive = heroWorkflow === wf.id;
+                    return (
+                      <button
+                        key={wf.id}
+                        type="button"
+                        onClick={() => {
+                          setHeroWorkflow(wf.id);
+                          if (wf.category) setSelectedCategory(wf.category);
+                        }}
+                        className={`flex flex-col items-center group cursor-pointer focus:outline-none transition-colors ${
+                          isActive ? 'opacity-100' : 'opacity-85 hover:opacity-100'
+                        }`}
+                      >
+                        <div 
+                          className={`w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-150 ${
+                            isActive 
+                              ? 'bg-white text-purple-700 shadow-xl ring-4 ring-white/30 scale-105' 
+                              : 'bg-white/15 text-white hover:bg-white/25 backdrop-blur-md border border-white/20'
+                          }`}
+                        >
+                          <wf.icon size={22} />
+                        </div>
+                        <span className={`text-[11px] md:text-xs font-semibold mt-2 whitespace-nowrap transition-colors ${
+                          isActive ? 'text-white font-bold' : 'text-white/80'
+                        }`}>
+                          {wf.label}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Recommended Format Cards Carousel for Active Workflow */}
+              <div className="relative pt-1 pb-1 group/pills">
                 {/* Scroll Left Button */}
                 <button
                   type="button"
@@ -1062,26 +1160,32 @@ export default function CreativaHomeModal({
 
                 <div 
                   ref={quickTypesScrollRef}
-                  className="flex items-center space-x-2 overflow-x-auto scrollbar-none py-1 scroll-smooth touch-pan-x"
+                  className="flex items-center space-x-2.5 overflow-x-auto scrollbar-none py-1 scroll-smooth touch-pan-x"
                 >
-                  {quickTypes.map((qt) => (
+                  {(WORKFLOW_FORMATS[heroWorkflow] || WORKFLOW_FORMATS.for_you).map((fmt) => (
                     <button
-                      key={qt.label}
+                      key={fmt.label}
+                      type="button"
                       onClick={() => {
                         onLoadTemplate({
-                          id: `blank-${qt.label.toLowerCase()}`,
-                          title: `Untitled ${qt.label}`,
-                          width: qt.width,
-                          height: qt.height,
+                          id: `blank-${fmt.label.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+                          title: `Untitled ${fmt.label}`,
+                          width: fmt.width,
+                          height: fmt.height,
                           backgroundColor: '#ffffff',
                           objects: []
                         });
                         onClose();
                       }}
-                      className="flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md text-white text-xs font-semibold shrink-0 transition-all border border-white/20 hover:scale-105 active:scale-95 shadow-xs"
+                      className="flex items-center space-x-2.5 px-3.5 py-2 rounded-xl bg-white/15 hover:bg-white/25 active:bg-white/30 backdrop-blur-md text-white text-xs font-semibold shrink-0 transition-colors duration-150 border border-white/20 shadow-xs cursor-pointer"
                     >
-                      <qt.icon size={13} />
-                      <span className="whitespace-nowrap">{qt.label}</span>
+                      <div className="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center shrink-0">
+                        <fmt.icon size={13} />
+                      </div>
+                      <div className="text-left">
+                        <div className="leading-tight truncate max-w-[130px] sm:max-w-[160px]">{fmt.label}</div>
+                        <div className="text-[10px] text-white/70 font-normal">{fmt.desc}</div>
+                      </div>
                     </button>
                   ))}
                 </div>
@@ -1164,7 +1268,7 @@ export default function CreativaHomeModal({
                     ({filteredTemplates.length} designs)
                   </span>
                 </h2>
-                <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">Aggregated live from global creator network • 100% Free & Unlocked</p>
+                <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">Aggregated live from global creator network • Open Design Community</p>
               </div>
 
               <div className="flex items-center space-x-3 max-w-full overflow-hidden">
