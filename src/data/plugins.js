@@ -93,7 +93,7 @@ export const CANVA_PLUGINS = [
     id: 'magic-morph',
     name: 'Magic Morph (3D Texture)',
     category: 'AI & Magic',
-    badge: 'Pro AI',
+    badge: 'Magic Studio',
     icon: 'Sparkles',
     color: '#BD00FF',
     description: 'Transform words and shapes into 3D balloons, liquid chrome, melted gold, and neon wire.'

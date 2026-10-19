@@ -96,6 +96,31 @@ export default function App() {
   });
   const [historySnapshots, setHistorySnapshots] = useState([]);
 
+  // Lock body scroll when any modal or drawer overlay is active
+  const isAnyModalOpen = isCanvaHomeOpen || 
+    !!selectedCreatorForProfile || 
+    isExportModalOpen || 
+    isResizeModalOpen || 
+    isSaveModalOpen || 
+    isEditImageModalOpen || 
+    isPresentationOpen || 
+    isMagicWriteOpen || 
+    isMagicDesignOpen || 
+    isVersionHistoryOpen || 
+    isNotesOpen || 
+    isGridViewOpen;
+
+  useEffect(() => {
+    if (isAnyModalOpen) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [isAnyModalOpen]);
+
   // Drawing mode state
   const [isDrawingMode, setIsDrawingMode] = useState(false);
   const [brushSize, setBrushSize] = useState(5);

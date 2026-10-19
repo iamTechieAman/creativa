@@ -839,7 +839,7 @@ export default function CreativaHomeModal({
                     </button>
                   </div>
                   <div className="p-4 rounded-2xl bg-purple-50/70 border border-purple-200 space-y-2">
-                    <h4 className="font-bold text-sm text-slate-900">100% Free For All Classrooms</h4>
+                    <h4 className="font-bold text-sm text-slate-900">Accessible For Classrooms & Students</h4>
                     <p className="text-xs text-slate-600 leading-relaxed">
                       No paywalls, no login friction, no student data collection. Privacy-preserving local storage on each student's device.
                     </p>
@@ -847,7 +847,7 @@ export default function CreativaHomeModal({
                       onClick={() => { setActiveTab('templates'); setActiveNavMenu(null); }}
                       className="text-xs font-bold text-purple-700 hover:underline pt-2 block"
                     >
-                      Explore All Free Templates ➔
+                      Explore All Templates ➔
                     </button>
                   </div>
                 </div>
@@ -861,9 +861,9 @@ export default function CreativaHomeModal({
                   <div>
                     <h3 className="text-base font-extrabold text-slate-900 flex items-center space-x-2">
                       <Zap size={18} className="text-purple-600" />
-                      <span>Creativa Plans & Pricing</span>
+                      <span>Creativa Studio Capabilities</span>
                     </h3>
-                    <p className="text-xs text-slate-500">Every single Pro creative feature, unlocked and completely free forever</p>
+                    <p className="text-xs text-slate-500">Every single creative feature is fully unlocked and ready to use</p>
                   </div>
                   <button onClick={() => setActiveNavMenu(null)} className="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
                     <X size={18} />
@@ -872,10 +872,10 @@ export default function CreativaHomeModal({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                   <div className="p-5 rounded-3xl bg-slate-50 border border-slate-200 space-y-4">
                     <div className="space-y-1">
-                      <h4 className="font-extrabold text-base text-slate-900">Creativa Free</h4>
-                      <p className="text-xs text-slate-500">Standard graphics editor</p>
+                      <h4 className="font-extrabold text-base text-slate-900">Creativa Standard</h4>
+                      <p className="text-xs text-slate-500">Core graphics editor</p>
                     </div>
-                    <div className="text-2xl font-black text-slate-900">$0 <span className="text-xs font-medium text-slate-500">forever</span></div>
+                    <div className="text-2xl font-black text-slate-900">Open Source <span className="text-xs font-medium text-slate-500">Edition</span></div>
                     <ul className="text-xs space-y-2 text-slate-600">
                       <li className="flex items-center space-x-2"><Check size={14} className="text-emerald-600 shrink-0" /><span>Basic shapes, text, drawing tools</span></li>
                       <li className="flex items-center space-x-2"><Check size={14} className="text-emerald-600 shrink-0" /><span>Standard PNG and JPG export</span></li>
@@ -890,11 +890,11 @@ export default function CreativaHomeModal({
                     <div className="space-y-1">
                       <h4 className="font-extrabold text-base text-purple-950 flex items-center space-x-1.5">
                         <Sparkles size={16} className="text-purple-600" />
-                        <span>Creativa Pro (All Premium Studio Features)</span>
+                        <span>Creativa Magic Studio & AI Suite</span>
                       </h4>
-                      <p className="text-xs text-purple-700">100% Free & Unlimited for Everyone</p>
+                      <p className="text-xs text-purple-700">Full Access for Everyone</p>
                     </div>
-                    <div className="text-2xl font-black text-purple-900">$0 <span className="text-xs font-bold text-emerald-600 uppercase bg-emerald-100 px-2 py-0.5 rounded-full">Included Free</span></div>
+                    <div className="text-2xl font-black text-purple-900">Unlocked <span className="text-xs font-bold text-emerald-600 uppercase bg-emerald-100 px-2 py-0.5 rounded-full">Always Included</span></div>
                     <ul className="text-xs space-y-2 text-slate-700 font-medium">
                       <li className="flex items-center space-x-2"><Check size={14} className="text-purple-600 shrink-0 font-bold" /><span><strong>580+ High-Resolution Studio Templates</strong> (All Categories)</span></li>
                       <li className="flex items-center space-x-2"><Check size={14} className="text-purple-600 shrink-0 font-bold" /><span><strong>237+ Verified Global Designers</strong> Full Portfolios</span></li>

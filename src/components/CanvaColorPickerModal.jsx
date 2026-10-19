@@ -261,12 +261,17 @@ export default function CanvaColorPickerModal({
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  {BRAND_PALETTES.slice(0, 3).map(bp => (
+                <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
+                  {BRAND_PALETTES.map(bp => (
                     <div key={bp.name} className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-200 hover:border-purple-300 transition-colors">
-                      <span className="text-xs font-semibold text-slate-700 truncate max-w-[100px]">
-                        {bp.name}
-                      </span>
+                      <div className="flex flex-col">
+                        <span className="text-xs font-semibold text-slate-700 truncate max-w-[110px]">
+                          {bp.name}
+                        </span>
+                        {bp.category && (
+                          <span className="text-[9px] text-purple-600 font-medium">{bp.category}</span>
+                        )}
+                      </div>
                       <div className="flex items-center space-x-1">
                         {bp.colors.map(col => (
                           <button
@@ -399,7 +404,7 @@ export default function CanvaColorPickerModal({
 
         {/* Footer */}
         <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-          <span>Creativa Pro Unified Color Engine</span>
+          <span>Creativa Unified Color Engine</span>
           <button
             onClick={onClose}
             className="canva-btn-primary px-4 py-1.5 rounded-xl font-bold text-xs shadow-xs"

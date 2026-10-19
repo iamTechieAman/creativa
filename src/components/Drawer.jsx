@@ -334,7 +334,7 @@ export default function Drawer({
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-5 bg-white">
+        <div className="flex-1 overflow-y-auto p-4 space-y-5 bg-white pb-24 md:pb-8 overscroll-contain">
         
         {/* ===================== TAB: MAGIC STUDIO AI ===================== */}
         {activeTab === 'magic' && (
@@ -982,7 +982,7 @@ export default function Drawer({
                 <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wider">
                   Curated Font Pairings
                 </h3>
-                <span className="text-[10px] font-semibold text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-100">Pro Typography</span>
+                <span className="text-[10px] font-semibold text-purple-600 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-100">Smart Typography</span>
               </div>
               <div className="space-y-2">
                 {CANVA_FONT_PAIRINGS.map((pair, idx) => (

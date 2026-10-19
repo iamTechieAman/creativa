@@ -308,7 +308,7 @@ export default function CreatorProfileModal({
                 </span>
               </h2>
               <p className="text-xs text-slate-500">
-                100% free unlocked templates • Zero text clipping • Single-click instant canvas import
+                Unlocked studio templates • Zero text clipping • Single-click instant canvas import
               </p>
             </div>
 
@@ -408,7 +408,7 @@ export default function CreatorProfileModal({
                       </p>
                       <div className="flex items-center justify-between pt-1 text-[10px] text-slate-400">
                         <span>{design.width}×{design.height} px</span>
-                        <span className="font-bold text-purple-600 group-hover:underline">Use Free ➔</span>
+                        <span className="font-bold text-purple-600 group-hover:underline">Open in Studio ➔</span>
                       </div>
                     </div>
 

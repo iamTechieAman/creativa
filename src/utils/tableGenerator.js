@@ -16,7 +16,7 @@ export const createDataTable = ({
   borderColor = '#cbd5e1',
   left = 400,
   top = 400,
-  headers = ['Feature', 'Starter', 'Pro Plan'],
+  headers = ['Feature', 'Starter', 'Enterprise Plan'],
   data = [
     ['Storage', '5 GB', '1 TB'],
     ['AI Credits', '20 / mo', 'Unlimited']

@@ -178,7 +178,8 @@ creativa/
 | `T` | Insert new Textbox |
 | `R` | Insert Rectangle |
 | `C` | Insert Circle |
-| `L` | Insert Line |
+| `Space + Drag` | Pan canvas viewport (Hand Tool) |
+| `Ctrl / Cmd + Wheel` | Smooth zoom in / out |
 | `Escape` | Deselect active object / Close modal |
 
 ---

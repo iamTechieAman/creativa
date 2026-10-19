@@ -31,12 +31,136 @@ export default function CanvasStage({
 }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isEditingPageTitle, setIsEditingPageTitle] = useState(false);
+  const [isSpacePressed, setIsSpacePressed] = useState(false);
+  const [isPanning, setIsPanning] = useState(false);
+  const panStartRef = useRef({ x: 0, y: 0, scrollLeft: 0, scrollTop: 0 });
+  const touchStartDistRef = useRef(null);
+  const initialZoomRef = useRef(zoom);
 
   const activePage = pages[activePageIndex] || { title: `Page ${activePageIndex + 1}` };
 
   const handleZoomIn = () => setZoom(prev => Math.min(Number((prev + 0.1).toFixed(2)), 3.0));
   const handleZoomOut = () => setZoom(prev => Math.max(Number((prev - 0.1).toFixed(2)), 0.2));
   const handleZoomReset = () => setZoom(1);
+
+  // Wheel Zoom & Trackpad Pinch Zoom (Ctrl/Cmd + Wheel)
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+        const delta = e.deltaY < 0 ? 0.05 : -0.05;
+        setZoom(prev => Math.min(3.0, Math.max(0.15, Number((prev + delta).toFixed(2)))));
+      }
+    };
+
+    container.addEventListener('wheel', handleWheel, { passive: false });
+    return () => container.removeEventListener('wheel', handleWheel);
+  }, [containerRef, setZoom]);
+
+  // Spacebar Hand Tool (Pan Mode)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === 'Space' && !e.repeat) {
+        const tag = document.activeElement?.tagName?.toLowerCase();
+        if (tag === 'input' || tag === 'textarea') return;
+        setIsSpacePressed(true);
+      }
+    };
+
+    const handleKeyUp = (e) => {
+      if (e.code === 'Space') {
+        setIsSpacePressed(false);
+        setIsPanning(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
+
+  const handleContainerMouseDown = (e) => {
+    if ((isSpacePressed && e.button === 0) || e.button === 1) {
+      e.preventDefault();
+      setIsPanning(true);
+      if (containerRef.current) {
+        panStartRef.current = {
+          x: e.clientX,
+          y: e.clientY,
+          scrollLeft: containerRef.current.scrollLeft,
+          scrollTop: containerRef.current.scrollTop
+        };
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (!isPanning) return;
+
+    const handleMouseMove = (e) => {
+      if (!containerRef.current) return;
+      const dx = e.clientX - panStartRef.current.x;
+      const dy = e.clientY - panStartRef.current.y;
+      containerRef.current.scrollLeft = panStartRef.current.scrollLeft - dx;
+      containerRef.current.scrollTop = panStartRef.current.scrollTop - dy;
+    };
+
+    const handleMouseUp = () => {
+      setIsPanning(false);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isPanning, containerRef]);
+
+  // Mobile multi-touch pinch zoom
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleTouchStart = (e) => {
+      if (e.touches.length === 2) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        touchStartDistRef.current = Math.hypot(dx, dy);
+        initialZoomRef.current = zoom;
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (e.touches.length === 2 && touchStartDistRef.current) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const dist = Math.hypot(dx, dy);
+        const scaleFactor = dist / touchStartDistRef.current;
+        const nextZoom = Number(Math.min(3.0, Math.max(0.15, initialZoomRef.current * scaleFactor)).toFixed(2));
+        setZoom(nextZoom);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      touchStartDistRef.current = null;
+    };
+
+    container.addEventListener('touchstart', handleTouchStart, { passive: true });
+    container.addEventListener('touchmove', handleTouchMove, { passive: true });
+    container.addEventListener('touchend', handleTouchEnd, { passive: true });
+    return () => {
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [containerRef, zoom, setZoom]);
 
   const handleFitToScreen = () => {
     if (!containerRef.current) return;
@@ -114,8 +238,16 @@ export default function CanvasStage({
       {/* Canvas Viewport Scroll Area */}
       <div 
         ref={containerRef}
-        className="flex-1 bg-[#eaedf2] overflow-auto relative flex flex-col items-center justify-start p-3 sm:p-6 md:p-12"
+        className="flex-1 bg-[#eaedf2] overflow-auto relative canvas-viewport flex"
+        style={{
+          overscrollBehavior: 'contain',
+          WebkitOverflowScrolling: 'touch',
+          cursor: isPanning ? 'grabbing' : isSpacePressed ? 'grab' : 'default'
+        }}
+        onMouseDown={handleContainerMouseDown}
       >
+        {/* Inner centering wrapper: uses margin: auto to center when small, and aligns to top-left when overflowing to prevent clipping */}
+        <div className="min-w-fit min-h-fit m-auto flex flex-col items-center justify-start p-3 sm:p-6 md:p-12 shrink-0">
         {/* Page Top Action Bar */}
         <div 
           className="flex items-center justify-between mb-3 text-xs text-slate-700 font-medium transition-all max-w-full"
@@ -262,6 +394,7 @@ export default function CanvasStage({
           </button>
         </div>
       </div>
+    </div>
 
       {/* ================= CANVA BOTTOM STATUS BAR ================= */}
       <footer className="h-10 bg-white border-t border-slate-200 px-2 sm:px-4 flex items-center justify-between text-xs text-slate-600 select-none shrink-0 shadow-xs z-30 mb-14 md:mb-0">

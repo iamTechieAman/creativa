@@ -68,3 +68,21 @@
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(125, 42, 232, 0.3);
 }
+
+/* Canvas viewport smooth panning and overscroll boundary */
+.canvas-viewport {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Modals and overlay scrolling isolation */
+.modal-overlay, [role="dialog"], .drawer-container {
+  overscroll-behavior: contain;
+}
+
+/* Body lock when modals are active */
+body.modal-open {
+  overflow: hidden !important;
+  touch-action: none;
+}
+

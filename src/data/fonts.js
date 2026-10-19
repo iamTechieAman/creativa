@@ -157,35 +157,140 @@ export const CREATIVA_FONT_PAIRINGS = [
     headingFont: 'Montserrat',
     bodyFont: 'Inter',
     sampleHeading: 'Innovate Tomorrow',
-    sampleSub: 'Scalable AI architectures built for growth'
+    sampleSub: 'Scalable AI architectures built for exponential growth'
   },
   {
-    name: 'Vogue Editorial',
+    name: 'Editorial Luxury',
     headingFont: 'Playfair Display',
-    bodyFont: 'Lora',
+    bodyFont: 'Poppins',
     sampleHeading: 'The Autumn Issue',
-    sampleSub: 'Exclusive portraits of high-fashion culture'
+    sampleSub: 'Exclusive portraits of high-fashion and minimalist culture'
   },
   {
     name: 'Urban Energy',
     headingFont: 'Bebas Neue',
     bodyFont: 'Roboto',
     sampleHeading: 'BREAK THE LIMITS',
-    sampleSub: 'High intensity athletic training sessions'
+    sampleSub: 'High intensity athletic training sessions and sportswear'
   },
   {
     name: 'Romantic Boutique',
     headingFont: 'Great Vibes',
     bodyFont: 'Montserrat',
     sampleHeading: 'Forever & Always',
-    sampleSub: 'You are cordially invited to celebrate with us'
+    sampleSub: 'You are cordially invited to celebrate our wedding day'
   },
   {
-    name: 'Architectural Monograph',
+    name: 'Architectural Monument',
     headingFont: 'Cinzel',
     bodyFont: 'Lato',
     sampleHeading: 'SANCTUARY',
-    sampleSub: 'Minimalist living spaces in Copenhagen'
+    sampleSub: 'Minimalist living spaces and Nordic architecture'
+  },
+  {
+    name: 'Parisian Haute Couture',
+    headingFont: 'Bodoni Moda',
+    bodyFont: 'Cormorant Garamond',
+    sampleHeading: 'MAISON DE LUXE',
+    sampleSub: 'Artisanal silk collections revealed on Paris Fashion Week'
+  },
+  {
+    name: 'Classic Literary',
+    headingFont: 'Merriweather',
+    bodyFont: 'Open Sans',
+    sampleHeading: 'Echoes of History',
+    sampleSub: 'A deep investigative narrative into contemporary philosophy'
+  },
+  {
+    name: 'Retro 70s Groove',
+    headingFont: 'Shrikhand',
+    bodyFont: 'DM Sans',
+    sampleHeading: 'Summer Soundfest',
+    sampleSub: 'Three days of psychedelic rock, jazz fusion, and art'
+  },
+  {
+    name: 'Athletic Power',
+    headingFont: 'League Spartan',
+    bodyFont: 'Work Sans',
+    sampleHeading: 'MAXIMUM VELOCITY',
+    sampleSub: 'Engineered performance gear built for champion athletes'
+  },
+  {
+    name: 'Contemporary Poetic',
+    headingFont: 'Lora',
+    bodyFont: 'Raleway',
+    sampleHeading: 'Silent Morning',
+    sampleSub: 'Reflections on nature, light, and mindful creative living'
+  },
+  {
+    name: 'Brutalist Cyber',
+    headingFont: 'Space Grotesk',
+    bodyFont: 'Inter',
+    sampleHeading: 'DECENTRALIZED',
+    sampleSub: 'Next-generation zero-knowledge cryptographic protocol'
+  },
+  {
+    name: 'Warm Bistro & Cafe',
+    headingFont: 'Yellowtail',
+    bodyFont: 'Nunito',
+    sampleHeading: 'Artisan Roast',
+    sampleSub: 'Ethically sourced single-origin Ethiopian cold brews'
+  },
+  {
+    name: 'Sci-Fi Aerospace',
+    headingFont: 'Orbitron',
+    bodyFont: 'Plus Jakarta Sans',
+    sampleHeading: 'ORBITAL STATION',
+    sampleSub: 'Deep space telemetry and commercial rocket avionics'
+  },
+  {
+    name: 'Whimsical Artisan',
+    headingFont: 'Indie Flower',
+    bodyFont: 'Quicksand',
+    sampleHeading: 'Handmade Goodies',
+    sampleSub: 'Organic ceramic pottery and botanical scented candles'
+  },
+  {
+    name: 'Newspaper Dispatch',
+    headingFont: 'Fjalla One',
+    bodyFont: 'Libre Baskerville',
+    sampleHeading: 'THE DAILY CHRONICLE',
+    sampleSub: 'Special investigative report on the global renewable energy transition'
+  },
+  {
+    name: 'Soft Digital Studio',
+    headingFont: 'Outfit',
+    bodyFont: 'DM Sans',
+    sampleHeading: 'Seamless Experience',
+    sampleSub: 'Designing fluid micro-interactions for modern applications'
+  },
+  {
+    name: 'High Society Serif',
+    headingFont: 'Prata',
+    bodyFont: 'Inter',
+    sampleHeading: 'Private Gala 2026',
+    sampleSub: 'An exclusive philanthropic evening benefiting global education'
+  },
+  {
+    name: 'Urban Streetwear',
+    headingFont: 'Anton',
+    bodyFont: 'Roboto',
+    sampleHeading: 'OVERLOAD VIBES',
+    sampleSub: 'Limited edition heavyweight cotton drop available worldwide'
+  },
+  {
+    name: 'Personal Journal',
+    headingFont: 'Caveat',
+    bodyFont: 'Quicksand',
+    sampleHeading: 'Little Happy Notes',
+    sampleSub: 'Collecting small memorable moments across our travel journey'
+  },
+  {
+    name: 'Handcrafted Warm',
+    headingFont: 'Dancing Script',
+    bodyFont: 'Montserrat',
+    sampleHeading: 'Made with Passion',
+    sampleSub: 'Curated artisanal recipe collection for home bakers'
   }
 ];
 
