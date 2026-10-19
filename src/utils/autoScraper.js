@@ -23,12 +23,32 @@ const LIVE_CDN_FEED = [
 ];
 
 const TRENDING_THEMES = [
-  { topic: 'AI Productivity Roadmap', category: 'Presentation', w: 1920, h: 1080 },
-  { topic: 'Minimalist Studio Aesthetic', category: 'Social Media', w: 1080, h: 1080 },
-  { topic: 'Creative Agency Brand Identity', category: 'Marketing', w: 1080, h: 1350 },
-  { topic: 'Viral Video Reel Hook', category: 'Social Media', w: 1080, h: 1920 },
-  { topic: 'High-Impact Keynote Masterclass', category: 'Presentation', w: 1920, h: 1080 },
-  { topic: 'Luxury Boutique Event Gala', category: 'Invitation', w: 1080, h: 1920 }
+  { topic: 'AI & Quantum Computing Roadmap', category: 'Presentation', w: 1920, h: 1080 },
+  { topic: 'SaaS Growth & Series A Pitch Deck', category: 'Presentation', w: 1920, h: 1080 },
+  { topic: 'Global Tech Summit Keynote', category: 'Presentation', w: 1920, h: 1080 },
+  { topic: 'Corporate Strategy & ESG Review', category: 'Presentation', w: 1920, h: 1080 },
+  { topic: 'Minimalist Studio Aesthetic Grid', category: 'Social Media', w: 1080, h: 1080 },
+  { topic: 'Viral Carousel 5-Step Growth Guide', category: 'Social Media', w: 1080, h: 1350 },
+  { topic: 'Streetwear Summer Drop Teaser', category: 'Social Media', w: 1080, h: 1920 },
+  { topic: 'Neon Cyber VIP Club Access', category: 'Social Media', w: 1080, h: 1080 },
+  { topic: 'High CTR Tech Breakdown Thumbnail', category: 'Social Media', w: 1280, h: 720 },
+  { topic: 'Gourmet Artisan Cafe Promo Flyer', category: 'Marketing', w: 1080, h: 1350 },
+  { topic: 'Cyber Monday Mega Sale Banner', category: 'Marketing', w: 1920, h: 1080 },
+  { topic: 'Sustainable Fashion Collection Lookbook', category: 'Marketing', w: 1080, h: 1350 },
+  { topic: 'Real Estate Luxury Penthouse Showcase', category: 'Marketing', w: 1080, h: 1350 },
+  { topic: 'Next-Gen Quantum AI Vector Monogram', category: 'Logo', w: 800, h: 800 },
+  { topic: 'Artisan Ceramic Monoline Emblem', category: 'Logo', w: 800, h: 800 },
+  { topic: 'Nordic Hygge Clean Minimalist Wordmark', category: 'Logo', w: 800, h: 800 },
+  { topic: 'Geometric Falcon Luxury Crest', category: 'Logo', w: 800, h: 800 },
+  { topic: 'Swiss Modernist Film Festival Poster', category: 'Poster', w: 1080, h: 1920 },
+  { topic: 'Underground Warehouse Electronic Flyer', category: 'Poster', w: 1080, h: 1920 },
+  { topic: 'Global Climate Action Summit Poster', category: 'Poster', w: 1080, h: 1920 },
+  { topic: 'Senior Cloud & AI Architect Resume', category: 'Resume', w: 794, h: 1123 },
+  { topic: 'Executive Product Leadership CV', category: 'Resume', w: 794, h: 1123 },
+  { topic: 'Luxury Black Tie Gala Award Night', category: 'Invitation', w: 1080, h: 1920 },
+  { topic: 'Earthy Terracotta Olive Wedding Suite', category: 'Invitation', w: 1080, h: 1920 },
+  { topic: 'High Energy Workout Reel Countdown', category: 'Video', w: 1080, h: 1920 },
+  { topic: 'Behind The Scenes Studio Vlog Story', category: 'Video', w: 1080, h: 1920 }
 ];
 
 function sanitizeAssetUrl(url, fallback = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80') {
@@ -452,15 +472,15 @@ export async function triggerLiveCanvaSync() {
 
     // Notify all active React components via DOM event
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('canva_autoscrape_sync', {
-        detail: {
-          syncedAt: now,
-          templatesCount: updatedTemplates.length,
-          creatorsCount: updatedCreators.length,
-          newTemplate,
-          newCreator: newlyDiscoveredCreator
-        }
-      }));
+      const detail = {
+        syncedAt: now,
+        templatesCount: updatedTemplates.length,
+        creatorsCount: updatedCreators.length,
+        newTemplate,
+        newCreator: newlyDiscoveredCreator
+      };
+      window.dispatchEvent(new CustomEvent('creativa_autoscrape_sync', { detail }));
+      window.dispatchEvent(new CustomEvent('canva_autoscrape_sync', { detail }));
     }
 
     return {
@@ -480,13 +500,13 @@ export async function triggerLiveCanvaSync() {
  * Starts continuous background auto-scraping loop
  * Automatically fetches & indexes trending Creativa designs every interval
  */
-export function startContinuousAutoScraping(intervalSeconds = 60) {
+export function startContinuousAutoScraping(intervalSeconds = 25) {
   if (autoScrapeTimer) return;
 
-  // Run initial sync after a short delay
+  // Run initial sync after 1 second
   setTimeout(() => {
     triggerLiveCanvaSync().catch(console.warn);
-  }, 3000);
+  }, 1000);
 
   // Set periodic background interval
   autoScrapeTimer = setInterval(() => {

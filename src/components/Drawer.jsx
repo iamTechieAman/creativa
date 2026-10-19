@@ -81,7 +81,11 @@ export default function Drawer({
   useEffect(() => {
     const handleSync = () => setLiveSyncRev(r => r + 1);
     window.addEventListener('canva_autoscrape_sync', handleSync);
-    return () => window.removeEventListener('canva_autoscrape_sync', handleSync);
+    window.addEventListener('creativa_autoscrape_sync', handleSync);
+    return () => {
+      window.removeEventListener('canva_autoscrape_sync', handleSync);
+      window.removeEventListener('creativa_autoscrape_sync', handleSync);
+    };
   }, []);
 
   const fileInputRef = useRef(null);
@@ -89,7 +93,7 @@ export default function Drawer({
   const brandPdfInputRef = useRef(null);
 
   // QR Code generator state
-  const [qrText, setQrText] = useState('https://creativa.design');
+  const [qrText, setQrText] = useState('https://creativa.toonplayer.in');
   const [qrColor, setQrColor] = useState('#000000');
   const [qrBgColor, setQrBgColor] = useState('#ffffff');
   const [qrPreviewUrl, setQrPreviewUrl] = useState('');

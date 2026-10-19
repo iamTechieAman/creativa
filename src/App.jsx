@@ -170,14 +170,18 @@ export default function App() {
     setZoom(Math.max(0.12, Number(scale.toFixed(2))));
   }, []);
 
-  // Continuous Always-On Canva Background Auto-Scraping
+  // Continuous Always-On Creativa Background Auto-Scraping
   useEffect(() => {
-    startContinuousAutoScraping(45);
+    startContinuousAutoScraping(25);
     const handleSync = (e) => {
-      console.info('[Canva Auto-Scraper] Realtime sync update received:', e.detail);
+      console.info('[Creativa Auto-Scraper] Realtime sync update received:', e.detail);
     };
+    window.addEventListener('creativa_autoscrape_sync', handleSync);
     window.addEventListener('canva_autoscrape_sync', handleSync);
-    return () => window.removeEventListener('canva_autoscrape_sync', handleSync);
+    return () => {
+      window.removeEventListener('creativa_autoscrape_sync', handleSync);
+      window.removeEventListener('canva_autoscrape_sync', handleSync);
+    };
   }, []);
 
   // Initialize Fabric Canvas
