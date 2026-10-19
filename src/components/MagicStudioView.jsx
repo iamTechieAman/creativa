@@ -269,24 +269,28 @@ export default function MagicStudioView({
 
                     <div className="relative z-10 space-y-2">
                       {/* Badge */}
-                      {designLayout.objects?.find(o => o.type === 'textbox' && (o.fontSize <= 18 || o.text?.length < 25)) && (
-                        <span className="inline-block px-3 py-1 rounded-full text-[10px] font-black tracking-wider uppercase text-white shadow-sm"
-                          style={{ background: designLayout.objects.find(o => o.type === 'rect')?.fill || '#7D2AE8' }}
-                        >
-                          {designLayout.objects.find(o => o.type === 'textbox' && (o.fontSize <= 18 || o.text?.length < 25))?.text || 'EXCLUSIVE'}
-                        </span>
-                      )}
+                      <span className="inline-block px-3 py-1 rounded-full text-[10px] font-black tracking-wider uppercase text-white shadow-sm"
+                        style={{ background: designLayout.accentColor || '#7D2AE8' }}
+                      >
+                        {designLayout.badge || 'EXCLUSIVE'}
+                      </span>
 
                       {/* Main Title */}
                       <h4 className="text-lg md:text-xl font-black text-white leading-tight drop-shadow-md">
-                        {designLayout.objects?.find(o => o.type === 'textbox' && o.fontSize > 20)?.text || 'Handcrafted Quality'}
+                        {designLayout.headline || 'Handcrafted Quality'}
                       </h4>
+
+                      <p className="text-xs text-slate-200 line-clamp-2 drop-shadow-xs">
+                        {designLayout.subtitle}
+                      </p>
                     </div>
 
                     {/* Bottom CTA */}
                     <div className="relative z-10 pt-4">
-                      <span className="inline-block px-4 py-2 rounded-xl text-xs font-bold text-slate-900 bg-amber-400 shadow-md">
-                        Customize on Canvas ➔
+                      <span className="inline-block px-4 py-2 rounded-xl text-xs font-bold text-white shadow-md uppercase tracking-wider"
+                        style={{ background: designLayout.accentColor || '#7D2AE8' }}
+                      >
+                        {designLayout.cta || 'Customize on Canvas ➔'}
                       </span>
                     </div>
                   </div>

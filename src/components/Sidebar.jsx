@@ -2,11 +2,12 @@ import React from 'react';
 import { 
   LayoutTemplate, Shapes, Type, UploadCloud, 
   Paintbrush, Palette, Layers, FolderHeart, 
-  BarChart3, QrCode, Sparkles, LayoutGrid, Image as ImageIcon, Users 
+  BarChart3, QrCode, Sparkles, Wand2, LayoutGrid, Image as ImageIcon, Users 
 } from 'lucide-react';
 
 export const SIDEBAR_TABS = [
   { id: 'templates', label: 'Design', icon: LayoutTemplate },
+  { id: 'magic', label: 'Magic Studio', icon: Wand2, isAi: true },
   { id: 'elements', label: 'Elements', icon: Shapes },
   { id: 'text', label: 'Text', icon: Type },
   { id: 'brand', label: 'Brand Kit', icon: Sparkles },
@@ -31,21 +32,33 @@ export default function Sidebar({ activeTab, onSelectTab }) {
           {SIDEBAR_TABS.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
+            const isAi = tab.isAi;
             return (
               <button
                 key={tab.id}
                 onClick={() => onSelectTab(isActive ? null : tab.id)}
-                className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl w-full text-[10px] font-medium transition-all group ${
+                className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl w-full text-[10px] font-medium transition-all group relative ${
                   isActive 
-                    ? 'bg-purple-50 text-purple-700 font-bold shadow-xs' 
-                    : 'text-slate-600 hover:text-purple-700 hover:bg-slate-50'
+                    ? isAi ? 'bg-gradient-to-r from-purple-100 to-pink-100 text-purple-900 font-bold shadow-xs border border-purple-300' : 'bg-purple-50 text-purple-700 font-bold shadow-xs' 
+                    : isAi ? 'text-purple-700 hover:bg-purple-50 hover:text-purple-900' : 'text-slate-600 hover:text-purple-700 hover:bg-slate-50'
                 }`}
                 title={tab.label}
               >
-                <div className={`p-1 rounded-lg transition-transform group-hover:scale-110 ${isActive ? 'text-purple-700' : 'text-slate-500 group-hover:text-purple-600'}`}>
-                  <Icon size={19} />
+                <div className={`p-1 rounded-lg transition-transform group-hover:scale-110 ${
+                  isActive 
+                    ? isAi ? 'text-purple-700' : 'text-purple-700' 
+                    : isAi ? 'text-purple-600' : 'text-slate-500 group-hover:text-purple-600'
+                }`}>
+                  <Icon size={19} className={isAi ? 'stroke-[2.2]' : ''} />
                 </div>
-                <span className="mt-0.5 leading-tight tracking-tight text-center truncate max-w-full">{tab.label}</span>
+                <span className="mt-0.5 leading-tight tracking-tight text-center truncate max-w-full">
+                  {tab.label}
+                </span>
+                {isAi && (
+                  <span className="text-[7.5px] px-1 py-0.2 rounded-full font-black bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white mt-0.5 shadow-2xs uppercase">
+                    AI
+                  </span>
+                )}
               </button>
             );
           })}
@@ -57,17 +70,18 @@ export default function Sidebar({ activeTab, onSelectTab }) {
         {SIDEBAR_TABS.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
+          const isAi = tab.isAi;
           return (
             <button
               key={tab.id}
               onClick={() => onSelectTab(isActive ? null : tab.id)}
               className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl text-[9px] font-medium shrink-0 transition-all ${
                 isActive 
-                  ? 'bg-purple-100 text-purple-700 font-bold shadow-xs' 
-                  : 'text-slate-600 hover:text-purple-700 active:bg-slate-100'
+                  ? isAi ? 'bg-gradient-to-r from-purple-100 to-pink-100 text-purple-900 font-bold shadow-xs border border-purple-300' : 'bg-purple-100 text-purple-700 font-bold shadow-xs' 
+                  : isAi ? 'text-purple-700 hover:text-purple-900' : 'text-slate-600 hover:text-purple-700 active:bg-slate-100'
               }`}
             >
-              <Icon size={17} className={isActive ? 'text-purple-700' : 'text-slate-500'} />
+              <Icon size={17} className={isActive ? 'text-purple-700' : isAi ? 'text-purple-600' : 'text-slate-500'} />
               <span className="mt-0.5 whitespace-nowrap">{tab.label}</span>
             </button>
           );

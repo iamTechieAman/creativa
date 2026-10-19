@@ -28,6 +28,7 @@ import {
   deleteIsolatedUserUpload 
 } from '../utils/userSession';
 import AppsPanel from './AppsPanel';
+import MagicStudioPanel from './MagicStudioPanel';
 
 export default function Drawer({
   activeTab,
@@ -64,7 +65,12 @@ export default function Drawer({
   canvasDimensions,
   onOpenMagicDesign,
   onOpenMagicWrite,
-  onOpenCreatorProfile
+  onOpenCreatorProfile,
+  onApplyMagicDesign,
+  onReplaceText,
+  onOpenEditImage,
+  onOpenResize,
+  activeObject
 }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [elementsSearchQuery, setElementsSearchQuery] = useState('');
@@ -301,8 +307,23 @@ export default function Drawer({
 
         {/* Top Header of Drawer */}
         <div className="h-13 md:h-14 border-b border-slate-100 flex items-center justify-between px-4 shrink-0 bg-white">
-          <h2 className="font-extrabold text-slate-900 capitalize text-sm tracking-wide">
-            {activeTab === 'templates' ? 'Design Templates' : activeTab === 'brand' ? 'Brand Kit' : activeTab === 'creators' ? 'Creators Hub' : activeTab === 'apps' ? 'Creativa Apps' : activeTab}
+          <h2 className="font-extrabold text-slate-900 capitalize text-sm tracking-wide flex items-center space-x-1.5">
+            {activeTab === 'templates' ? (
+              <span>Design Templates</span>
+            ) : activeTab === 'magic' ? (
+              <>
+                <Sparkles size={16} className="text-purple-600 fill-purple-600" />
+                <span className="bg-gradient-to-r from-purple-700 via-pink-600 to-indigo-600 bg-clip-text text-transparent">Magic Studio AI</span>
+              </>
+            ) : activeTab === 'brand' ? (
+              <span>Brand Kit</span>
+            ) : activeTab === 'creators' ? (
+              <span>Creators Hub</span>
+            ) : activeTab === 'apps' ? (
+              <span>Creativa Apps</span>
+            ) : (
+              <span>{activeTab}</span>
+            )}
           </h2>
           <button 
             onClick={onClose}
@@ -315,6 +336,20 @@ export default function Drawer({
         {/* Content Area */}
         <div className="flex-1 overflow-y-auto p-4 space-y-5 bg-white">
         
+        {/* ===================== TAB: MAGIC STUDIO AI ===================== */}
+        {activeTab === 'magic' && (
+          <MagicStudioPanel
+            canvasDimensions={canvasDimensions}
+            onApplyMagicDesign={onApplyMagicDesign}
+            onAddImage={onAddImage}
+            onAddText={onAddText}
+            onReplaceText={onReplaceText}
+            onOpenEditImage={onOpenEditImage}
+            onOpenResize={onOpenResize}
+            activeObject={activeObject}
+          />
+        )}
+
         {/* ===================== TAB: TEMPLATES ===================== */}
         {activeTab === 'templates' && (
           <div className="space-y-4">

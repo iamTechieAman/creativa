@@ -30,12 +30,42 @@ export const STYLE_PROMPTS = {
   retro: 'vintage 1970s print, warm grain, retro color grading, nostalgic aesthetics, polaroid tone'
 };
 
+// Curated High-Definition Semantic Unsplash Fallback Library
+const SEMANTIC_FALLBACKS = {
+  coffee: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80',
+  gym: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
+  fitness: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
+  sale: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80',
+  fashion: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80',
+  tech: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+  ai: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+  travel: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+  nature: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80',
+  food: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
+  cat: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80',
+  dog: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80',
+  realestate: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+  music: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80',
+  medical: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
+  abstract: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1200&q=80',
+  cyberpunk: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80',
+  car: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80'
+};
+
+const getSemanticFallback = (prompt) => {
+  const p = (prompt || '').toLowerCase();
+  for (const [key, url] of Object.entries(SEMANTIC_FALLBACKS)) {
+    if (p.includes(key)) return url;
+  }
+  return 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80';
+};
+
 export const generateAiImage = async (prompt, options = {}) => {
   const {
     width = 800,
     height = 800,
     style = 'photo',
-    negativePrompt = '',
+    model = 'turbo',
     seed = Math.floor(Math.random() * 1000000)
   } = options;
 
@@ -43,24 +73,19 @@ export const generateAiImage = async (prompt, options = {}) => {
   const fullPrompt = `${prompt}, ${styleEnhancement}`;
   const encoded = encodeURIComponent(fullPrompt);
 
-  // Free Pollinations FLUX.1 endpoint
-  const pollinationsUrl = `https://image.pollinations.ai/prompt/${encoded}?width=${width}&height=${height}&seed=${seed}&nologo=true&model=flux`;
+  // High-speed Pollinations endpoint with turbo engine
+  const pollinationsUrl = `https://image.pollinations.ai/prompt/${encoded}?width=${width}&height=${height}&seed=${seed}&nologo=true&model=${model}`;
 
-  // Pre-load and verify image
   return new Promise((resolve) => {
     const img = new Image();
     img.crossOrigin = 'anonymous';
 
     const fallbackTimeout = setTimeout(() => {
-      // Fallback: high-res Unsplash curated semantic image matching keywords
-      const cleanKeywords = prompt.replace(/[^\w\s]/gi, '').split(/\s+/).slice(0, 3).join(',');
-      const unsplashUrl = `https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=${width}&h=${height}&fit=crop&auto=format&q=80`;
-      resolve(unsplashUrl);
-    }, 12000);
+      resolve(getSemanticFallback(prompt));
+    }, 14000);
 
     img.onload = () => {
       clearTimeout(fallbackTimeout);
-      // Convert to clean dataURL or return loaded URL
       try {
         const canvas = document.createElement('canvas');
         canvas.width = width;
@@ -69,15 +94,14 @@ export const generateAiImage = async (prompt, options = {}) => {
         ctx.drawImage(img, 0, 0, width, height);
         resolve(canvas.toDataURL('image/jpeg', 0.92));
       } catch (e) {
+        // In case of CORS canvas export restriction, return valid image URL
         resolve(pollinationsUrl);
       }
     };
 
     img.onerror = () => {
       clearTimeout(fallbackTimeout);
-      // High quality semantic fallback
-      const keywords = encodeURIComponent(prompt.slice(0, 40));
-      resolve(`https://picsum.photos/${width}/${height}?random=${seed}`);
+      resolve(getSemanticFallback(prompt));
     };
 
     img.src = pollinationsUrl;
@@ -547,9 +571,7 @@ export const generateMagicMorph = async (elementText, texturePrompt) => {
   return generateAiImage(prompt, { width: 600, height: 600, style: '3d' });
 };
 
-// ==========================================
-// 8. MAGIC DESIGN: AI ARTBOARD GENERATOR
-// ==========================================
+// Extended industry profiles for authentic Canva Magic Design matching
 const AI_INDUSTRY_PROFILES = [
   {
     keywords: ['coffee', 'cafe', 'latte', 'espresso', 'brew', 'roast', 'tea', 'bakery', 'pastry'],
@@ -572,7 +594,7 @@ const AI_INDUSTRY_PROFILES = [
   {
     keywords: ['sale', 'discount', 'flash', 'deal', 'offer', 'promo', 'clearance', 'fashion', 'sneaker', 'shop', 'shopping'],
     badge: 'LIMITED TIME OFFER',
-    cta: 'Claim Discount Now',
+    cta: 'Claim 50% Off Today',
     accent: '#f43f5e',
     badgeBg: '#831843',
     bg: '#4a044e',
@@ -581,7 +603,7 @@ const AI_INDUSTRY_PROFILES = [
   {
     keywords: ['tech', 'ai', 'cloud', 'software', 'app', 'cyber', 'robot', 'saas', 'startup', 'crypto', 'web3', 'code'],
     badge: 'NEXT-GEN INTELLIGENCE',
-    cta: 'Explore Platform',
+    cta: 'Explore Platform Now',
     accent: '#06b6d4',
     badgeBg: '#164e63',
     bg: '#050814',
@@ -622,10 +644,28 @@ const AI_INDUSTRY_PROFILES = [
     badgeBg: '#134e4a',
     bg: '#042f2e',
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    keywords: ['food', 'burger', 'pizza', 'restaurant', 'dinner', 'lunch', 'chef', 'gourmet', 'culinary', 'recipe'],
+    badge: 'CHEF\'S SPECIAL SELECTION',
+    cta: 'Order Fresh Online',
+    accent: '#f97316',
+    badgeBg: '#7c2d12',
+    bg: '#18181b',
+    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    keywords: ['education', 'course', 'learn', 'student', 'university', 'college', 'degree', 'masterclass', 'academy', 'school'],
+    badge: 'MASTERCLASS ACCREDITED',
+    cta: 'Enroll In Course',
+    accent: '#3b82f6',
+    badgeBg: '#1e3a8a',
+    bg: '#0f172a',
+    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 
-export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 800, height: 800 }) => {
+export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 800, height: 800 }, styleVariant = 'modern') => {
   const p = (prompt || 'Creative design showcase').toLowerCase();
   
   // Find matching industry profile
@@ -658,11 +698,41 @@ export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 80
   const h = canvasDimensions.height || 800;
   const bgScale = Math.max(w / 1200, h / 800);
 
+  // Variant adjustments
+  let fontFam = 'Montserrat';
+  let cardFill = 'rgba(15, 23, 42, 0.75)';
+  let accentColor = profile.accent;
+
+  if (styleVariant === 'editorial') {
+    fontFam = 'Playfair Display';
+    cardFill = 'rgba(24, 24, 27, 0.85)';
+  } else if (styleVariant === 'minimal') {
+    fontFam = 'Inter';
+    cardFill = 'rgba(255, 255, 255, 0.90)';
+  } else if (styleVariant === 'promo') {
+    fontFam = 'Montserrat';
+    cardFill = 'rgba(17, 24, 39, 0.82)';
+    accentColor = '#f43f5e';
+  }
+
+  const isLightCard = styleVariant === 'minimal';
+  const textColor = isLightCard ? '#0f172a' : '#ffffff';
+  const subtextColor = isLightCard ? '#475569' : '#cbd5e1';
+
   return {
+    id: `magic-layout-${styleVariant}`,
+    styleVariant,
+    title: headline,
     backgroundColor: profile.bg,
+    badge: profile.badge,
+    headline,
+    subtitle: `Engineered for ${headline.toLowerCase()}. Fully editable vector layout, premium typography & color harmony.`,
+    cta: profile.cta,
+    accentColor,
     objects: [
       // 1. Thematic Background Photo (Scaled to cover canvas)
       {
+        role: 'background',
         type: 'image',
         src: profile.image,
         left: w / 2,
@@ -676,33 +746,36 @@ export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 80
       },
       // 2. Readability Frosted Backdrop Card
       {
+        role: 'backdrop',
         type: 'rect',
         left: w / 2,
         top: h * 0.50,
         originX: 'center',
         originY: 'center',
         width: Math.round(w * 0.84),
-        height: Math.round(h * 0.60),
-        fill: 'rgba(15, 23, 42, 0.65)',
-        rx: 24,
-        ry: 24,
+        height: Math.round(h * 0.62),
+        fill: cardFill,
+        rx: styleVariant === 'editorial' ? 8 : 24,
+        ry: styleVariant === 'editorial' ? 8 : 24,
         selectable: true
       },
       // 3. Top Pill Badge
       {
+        role: 'badge-bg',
         type: 'rect',
         left: w / 2,
         top: h * 0.28,
         originX: 'center',
         originY: 'center',
-        width: Math.min(240, Math.round(w * 0.30)),
+        width: Math.min(260, Math.round(w * 0.35)),
         height: 38,
-        fill: profile.accent,
-        rx: 19,
-        ry: 19,
+        fill: accentColor,
+        rx: styleVariant === 'editorial' ? 6 : 19,
+        ry: styleVariant === 'editorial' ? 6 : 19,
         selectable: true
       },
       {
+        role: 'badge-text',
         type: 'textbox',
         text: profile.badge,
         left: w / 2,
@@ -711,44 +784,46 @@ export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 80
         originY: 'center',
         fontSize: 12,
         fontWeight: 'bold',
-        fontFamily: 'Montserrat',
+        fontFamily: fontFam,
         fill: '#ffffff',
         textAlign: 'center',
-        width: 220,
+        width: 250,
         selectable: true,
         editable: true
       },
       // 4. Main Heading Directly Reflecting User's Prompt
       {
+        role: 'headline',
         type: 'textbox',
         text: headline,
         left: w / 2,
-        top: h * 0.42,
+        top: h * 0.43,
         originX: 'center',
         originY: 'center',
         fontSize: Math.min(42, Math.max(22, Math.round(w * 0.046))),
         fontWeight: 'bold',
-        fontFamily: 'Montserrat',
-        fill: '#ffffff',
+        fontFamily: fontFam,
+        fill: textColor,
         textAlign: 'center',
         width: Math.round(w * 0.78),
-        shadow: { color: 'rgba(0, 0, 0, 0.7)', blur: 10, offsetX: 0, offsetY: 2 },
+        shadow: isLightCard ? undefined : { color: 'rgba(0, 0, 0, 0.7)', blur: 10, offsetX: 0, offsetY: 2 },
         selectable: true,
         editable: true,
         cursorColor: '#7D2AE8'
       },
       // 5. Descriptive Subtitle Tailored to Prompt
       {
+        role: 'subtitle',
         type: 'textbox',
-        text: `Premium visual composition engineered for ${headline.toLowerCase()}. Fully editable typography, color palette and layout.`,
+        text: `Engineered for ${headline.toLowerCase()}. Fully editable vector layout, premium typography & color harmony.`,
         left: w / 2,
-        top: h * 0.56,
+        top: h * 0.57,
         originX: 'center',
         originY: 'center',
         fontSize: Math.max(14, Math.round(w * 0.020)),
         fontWeight: 'normal',
         fontFamily: 'Inter',
-        fill: '#cbd5e1',
+        fill: subtextColor,
         textAlign: 'center',
         width: Math.round(w * 0.74),
         selectable: true,
@@ -757,29 +832,31 @@ export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 80
       },
       // 6. Action Button (CTA)
       {
+        role: 'cta-bg',
         type: 'rect',
         left: w / 2,
-        top: h * 0.68,
+        top: h * 0.69,
         originX: 'center',
         originY: 'center',
         width: Math.min(250, Math.round(w * 0.32)),
         height: 48,
-        fill: profile.accent,
-        rx: 24,
-        ry: 24,
+        fill: accentColor,
+        rx: styleVariant === 'editorial' ? 8 : 24,
+        ry: styleVariant === 'editorial' ? 8 : 24,
         selectable: true,
         shadow: { color: 'rgba(0, 0, 0, 0.3)', blur: 12, offsetX: 0, offsetY: 4 }
       },
       {
+        role: 'cta-text',
         type: 'textbox',
         text: profile.cta.toUpperCase(),
         left: w / 2,
-        top: h * 0.68,
+        top: h * 0.69,
         originX: 'center',
         originY: 'center',
-        fontSize: 14,
+        fontSize: 13,
         fontWeight: 'bold',
-        fontFamily: 'Montserrat',
+        fontFamily: fontFam,
         fill: '#ffffff',
         textAlign: 'center',
         width: 230,
@@ -789,4 +866,9 @@ export const generateMagicDesignLayout = (prompt, canvasDimensions = { width: 80
       }
     ]
   };
+};
+
+export const generateMagicDesignVariants = (prompt, canvasDimensions = { width: 800, height: 800 }) => {
+  const variants = ['modern', 'editorial', 'minimal', 'promo'];
+  return variants.map(v => generateMagicDesignLayout(prompt, canvasDimensions, v));
 };

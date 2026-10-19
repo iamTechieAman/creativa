@@ -1811,6 +1811,11 @@ export default function App() {
           onOpenMagicDesign={() => setIsMagicDesignOpen(true)}
           onOpenMagicWrite={() => setIsMagicWriteOpen(true)}
           onOpenCreatorProfile={(creator) => setSelectedCreatorForProfile(creator)}
+          onApplyMagicDesign={handleApplyMagicDesign}
+          onReplaceText={handleMagicWriteReplace}
+          onOpenEditImage={() => setIsEditImageModalOpen(true)}
+          onOpenResize={() => setIsResizeModalOpen(true)}
+          activeObject={activeObject}
         />
 
         <div className="flex-1 flex flex-col overflow-hidden relative">

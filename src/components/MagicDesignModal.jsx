@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { X, Sparkles, Wand2, RefreshCw, Check, Layout, Crown, ArrowRight } from 'lucide-react';
-import { generateMagicDesignLayout } from '../utils/aiEngines';
+import { generateMagicDesignLayout, generateMagicDesignVariants } from '../utils/aiEngines';
 
 const TRENDING_DESIGN_PROMPTS = [
   { label: '☕ Coffee Roastery Special', prompt: 'Artisanal coffee shop 50% off fresh roasts promo' },
   { label: '💪 Gym & Fitness Coaching', prompt: 'Elite fitness coaching and personal training transform your power' },
   { label: '🛍️ Luxury Flash Sale', prompt: 'Mega flash sale 60% off signature fashion collection' },
-  { label: '🚀 AI & Tech Innovation', prompt: 'Next-gen AI cloud autonomous agentic platform launch' }
+  { label: '🚀 AI & Tech Innovation', prompt: 'Next-gen AI cloud autonomous agentic platform launch' },
+  { label: '🏖️ Tropical Resort Escape', prompt: 'Luxury tropical island beach resort vacation booking discount' },
+  { label: '🍔 Gourmet Burger House', prompt: 'Delicious artisanal smash burger weekend special order online' }
+];
+
+const STYLE_VARIANTS = [
+  { id: 'modern', label: 'Modern Glass', icon: '✨' },
+  { id: 'bold', label: 'Bold Editorial', icon: '🔥' },
+  { id: 'minimal', label: 'Minimalist', icon: '🌿' },
+  { id: 'promo', label: 'Vibrant Promo', icon: '⚡' }
 ];
 
 export default function MagicDesignModal({
@@ -16,23 +25,31 @@ export default function MagicDesignModal({
   onApplyLayout
 }) {
   const [prompt, setPrompt] = useState('Artisanal coffee shop 50% off fresh roasts promo');
+  const [selectedVariant, setSelectedVariant] = useState('modern');
   const [isGenerating, setIsGenerating] = useState(false);
   const [previewLayout, setPreviewLayout] = useState(null);
 
   if (!isOpen) return null;
 
-  const handleGeneratePreview = (designPrompt = prompt) => {
+  const handleGeneratePreview = (designPrompt = prompt, variant = selectedVariant) => {
     setIsGenerating(true);
     setTimeout(() => {
-      const layout = generateMagicDesignLayout(designPrompt, canvasDimensions);
+      const layout = generateMagicDesignLayout(designPrompt, canvasDimensions, variant);
       setPreviewLayout(layout);
       setIsGenerating(false);
-    }, 400);
+    }, 350);
+  };
+
+  const handleSelectVariant = (variantId) => {
+    setSelectedVariant(variantId);
+    if (previewLayout || prompt) {
+      handleGeneratePreview(prompt, variantId);
+    }
   };
 
   const handleApplyToCanvas = () => {
     if (!previewLayout) {
-      const layout = generateMagicDesignLayout(prompt, canvasDimensions);
+      const layout = generateMagicDesignLayout(prompt, canvasDimensions, selectedVariant);
       onApplyLayout(layout);
     } else {
       onApplyLayout(previewLayout);
@@ -40,19 +57,28 @@ export default function MagicDesignModal({
     onClose();
   };
 
+  // Helper selectors for preview
+  const bgImg = previewLayout?.objects?.find(o => o.role === 'background' || o.type === 'image');
+  const headline = previewLayout?.headline || previewLayout?.objects?.find(o => o.role === 'headline')?.text || 'Creativa Design';
+  const subtitle = previewLayout?.subtitle || previewLayout?.objects?.find(o => o.role === 'subtitle')?.text || '';
+  const badgeText = previewLayout?.badge || previewLayout?.objects?.find(o => o.role === 'badge-text')?.text || 'EXCLUSIVE';
+  const ctaText = previewLayout?.cta || previewLayout?.objects?.find(o => o.role === 'cta-text')?.text || 'GET STARTED';
+  const accentColor = previewLayout?.accentColor || '#7D2AE8';
+
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-3xl shadow-2xl max-w-xl w-full overflow-hidden border border-slate-200 flex flex-col max-h-[88vh] animate-in fade-in zoom-in-95 duration-200">
+      <div className="bg-white rounded-3xl shadow-2xl max-w-xl w-full overflow-hidden border border-slate-200 flex flex-col max-h-[90vh] animate-in fade-in zoom-in-95 duration-200">
         
         {/* Header */}
         <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-purple-50 via-pink-50 to-white">
           <div className="flex items-center space-x-2.5">
             <div className="w-9 h-9 rounded-xl canva-gradient flex items-center justify-center text-white shadow-md">
-              <Layout size={18} />
+              <Sparkles size={18} />
             </div>
             <div>
               <div className="flex items-center space-x-2">
                 <h3 className="font-bold text-slate-900 text-base">Creativa Magic Design™</h3>
+                <span className="px-1.5 py-0.5 rounded-full text-[9px] font-black bg-purple-600 text-white">AI</span>
               </div>
               <p className="text-[11px] text-slate-500">Describe your idea — AI composes full multi-element layouts</p>
             </div>
@@ -85,11 +111,34 @@ export default function MagicDesignModal({
               <button
                 onClick={() => handleGeneratePreview()}
                 disabled={isGenerating || !prompt.trim()}
-                className="canva-btn-primary px-4 py-2.5 rounded-xl font-bold flex items-center space-x-1 shadow-md text-xs"
+                className="canva-btn-primary px-4 py-2.5 rounded-xl font-bold flex items-center space-x-1 shadow-md text-xs shrink-0"
               >
                 {isGenerating ? <RefreshCw size={13} className="animate-spin" /> : <Wand2 size={13} />}
                 <span>Generate</span>
               </button>
+            </div>
+          </div>
+
+          {/* Design Style Selector */}
+          <div>
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
+              Style Preset
+            </span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+              {STYLE_VARIANTS.map(sv => (
+                <button
+                  key={sv.id}
+                  onClick={() => handleSelectVariant(sv.id)}
+                  className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all border flex items-center justify-center space-x-1.5 ${
+                    selectedVariant === sv.id
+                      ? 'bg-purple-600 text-white border-purple-600 shadow-xs'
+                      : 'bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-700'
+                  }`}
+                >
+                  <span>{sv.icon}</span>
+                  <span>{sv.label}</span>
+                </button>
+              ))}
             </div>
           </div>
 
@@ -129,27 +178,46 @@ export default function MagicDesignModal({
 
               {/* Visual Mini Artboard Card */}
               <div 
-                className="w-full h-44 rounded-xl border border-slate-300/80 p-4 flex flex-col items-center justify-between shadow-inner relative overflow-hidden"
-                style={{ backgroundColor: previewLayout.backgroundColor }}
+                className="w-full h-52 rounded-xl border border-slate-300/80 p-5 flex flex-col justify-between shadow-inner relative overflow-hidden"
+                style={{ backgroundColor: previewLayout.backgroundColor || '#0f172a' }}
               >
+                {/* Background image if present */}
+                {bgImg?.src && (
+                  <img
+                    src={bgImg.src}
+                    alt="Background preview"
+                    className="absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none"
+                  />
+                )}
+
                 {/* Simulated Badge */}
-                <div className="px-3 py-0.5 rounded-full text-[10px] font-bold shadow-xs border border-black/10" style={{ backgroundColor: previewLayout.objects[0]?.fill, color: previewLayout.objects[1]?.fill }}>
-                  {previewLayout.objects[1]?.text || 'SPECIAL'}
+                <div className="relative z-10 flex justify-center">
+                  <span 
+                    className="px-3.5 py-1 rounded-full text-[10px] font-black text-white shadow-md uppercase tracking-wider"
+                    style={{ backgroundColor: accentColor }}
+                  >
+                    {badgeText}
+                  </span>
                 </div>
 
                 {/* Simulated Heading & Subtitle */}
-                <div className="text-center my-auto px-4">
-                  <h4 className="font-bold text-base leading-tight" style={{ color: previewLayout.objects[2]?.fill }}>
-                    {previewLayout.objects[2]?.text}
+                <div className="relative z-10 text-center my-auto px-4 space-y-1">
+                  <h4 className="font-black text-base md:text-lg leading-tight text-white drop-shadow-md">
+                    {headline}
                   </h4>
-                  <p className="text-[10px] mt-1 line-clamp-1" style={{ color: previewLayout.objects[3]?.fill }}>
-                    {previewLayout.objects[3]?.text}
+                  <p className="text-[11px] text-slate-200 line-clamp-2 max-w-sm mx-auto drop-shadow-xs">
+                    {subtitle}
                   </p>
                 </div>
 
                 {/* Simulated CTA Button */}
-                <div className="px-5 py-1.5 rounded-full text-[11px] font-bold text-white shadow-md" style={{ backgroundColor: previewLayout.objects[4]?.fill }}>
-                  {previewLayout.objects[5]?.text || 'Action'}
+                <div className="relative z-10 flex justify-center">
+                  <span 
+                    className="px-5 py-1.5 rounded-full text-[11px] font-black text-white shadow-lg uppercase tracking-wider"
+                    style={{ backgroundColor: accentColor }}
+                  >
+                    {ctaText}
+                  </span>
                 </div>
               </div>
             </div>
@@ -157,20 +225,23 @@ export default function MagicDesignModal({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-end space-x-3">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800 rounded-lg hover:bg-slate-200 transition-colors"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={handleApplyToCanvas}
-            className="canva-btn-primary flex items-center space-x-1.5 px-5 py-2 rounded-xl font-bold text-xs shadow-md"
-          >
-            <Check size={14} />
-            <span>Apply to Artboard</span>
-          </button>
+        <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span className="text-[11px] text-slate-500">100% Free • Powered by Creativa Magic Studio</span>
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={onClose}
+              className="px-3 py-2 rounded-xl text-slate-600 hover:text-slate-800 hover:bg-slate-200 font-semibold transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleApplyToCanvas}
+              className="canva-btn-primary px-4 py-2 rounded-xl text-white font-bold flex items-center space-x-1.5 shadow-md hover:shadow-lg transition-all"
+            >
+              <span>Apply to Canvas Editor</span>
+              <ArrowRight size={14} />
+            </button>
+          </div>
         </div>
       </div>
     </div>
