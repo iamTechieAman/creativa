@@ -222,22 +222,63 @@ export default function Drawer({
   // Filtered Creators with 100% discovery and live dynamic synthesis
   const filteredCreators = searchCreators(creatorsSearchQuery);
 
+  const touchStartY = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStartY.current === null) return;
+    const currentY = e.touches[0].clientY;
+    if (currentY - touchStartY.current > 55) {
+      touchStartY.current = null;
+      onClose?.();
+    }
+  };
+
+  const handleTouchEnd = () => {
+    touchStartY.current = null;
+  };
+
+  const autoCloseMobile = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      onClose?.();
+    }
+  };
+
   if (!activeTab) return null;
 
   return (
     <>
       {/* Mobile Drawer Backdrop */}
       <div 
-        className="md:hidden fixed inset-0 bg-black/40 z-35 backdrop-blur-2xs animate-in fade-in duration-150" 
+        className="md:hidden fixed inset-0 bg-black/50 z-45 backdrop-blur-2xs animate-in fade-in duration-150" 
         onClick={onClose} 
       />
 
-      <div className="fixed inset-x-0 bottom-14 top-14 md:static md:inset-auto w-full md:w-80 lg:w-88 bg-white border-t md:border-t-0 md:border-r border-slate-200 rounded-t-3xl md:rounded-none flex flex-col z-40 select-none shadow-2xl md:shadow-none transition-all text-slate-800 animate-in slide-in-from-bottom-5 md:animate-none h-auto md:h-full">
-        {/* Mobile Drag Indicator */}
-        <div className="md:hidden w-12 h-1 bg-slate-300 rounded-full mx-auto mt-2.5 mb-0.5 shrink-0" />
+      <div 
+        className="fixed inset-x-0 bottom-14 md:static md:inset-auto max-h-[82vh] h-[78vh] md:h-full w-full md:w-80 lg:w-88 bg-white border-t md:border-t-0 md:border-r border-slate-200 rounded-t-3xl md:rounded-none flex flex-col z-50 select-none shadow-2xl md:shadow-none transition-all text-slate-800 animate-in slide-in-from-bottom-5 md:animate-none"
+      >
+        {/* Mobile Drag Indicator & Swipe-Down Handle */}
+        <div 
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onClick={onClose}
+          className="md:hidden pt-3 pb-1 cursor-pointer flex justify-center items-center w-full touch-pan-y shrink-0"
+          title="Swipe down or tap to dismiss"
+        >
+          <div className="w-12 h-1.5 bg-slate-300 active:bg-purple-600 rounded-full transition-colors" />
+        </div>
 
         {/* Top Header of Drawer */}
-        <div className="h-13 md:h-14 border-b border-slate-100 flex items-center justify-between px-4 shrink-0 bg-white">
+        <div 
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="h-12 md:h-14 border-b border-slate-100 flex items-center justify-between px-4 shrink-0 bg-white"
+        >
           <h2 className="font-extrabold text-slate-900 capitalize text-sm tracking-wide flex items-center space-x-1.5">
             {activeTab === 'templates' ? (
               <span>Design Templates</span>
@@ -305,7 +346,7 @@ export default function Drawer({
               <Search size={15} className="absolute left-3 top-2.5 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search templates or creators (e.g. Elena, sale, minimal)..."
+                placeholder="Search templates or creators..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-xs transition-all"
@@ -353,9 +394,7 @@ export default function Drawer({
                     key={tpl.id}
                     onClick={() => {
                       onLoadTemplate(tpl);
-                      if (typeof window !== 'undefined' && window.innerWidth < 768) {
-                        onClose();
-                      }
+                      autoCloseMobile();
                     }}
                     className="group cursor-pointer rounded-xl overflow-hidden border border-slate-200 hover:border-purple-500 transition-all bg-white hover:shadow-md shadow-xs flex flex-col justify-between"
                   >
@@ -488,7 +527,10 @@ export default function Drawer({
                   {filteredShapes.map(shape => (
                     <button
                       key={shape.id}
-                      onClick={() => onAddShape(shape)}
+                      onClick={() => {
+                        onAddShape(shape);
+                        autoCloseMobile();
+                      }}
                       className="h-16 rounded-xl bg-slate-50 border border-slate-200 hover:border-purple-500 hover:bg-purple-50/40 flex flex-col items-center justify-center p-2 group transition-all shadow-xs"
                     >
                       <div 
@@ -519,7 +561,10 @@ export default function Drawer({
                   {filteredMockups.map(frame => (
                     <button
                       key={frame.id}
-                      onClick={() => onAddMockup?.(frame.type)}
+                      onClick={() => {
+                        onAddMockup?.(frame.type);
+                        autoCloseMobile();
+                      }}
                       className="h-20 rounded-xl bg-slate-50 border border-slate-200 hover:border-purple-500 hover:bg-purple-50/40 flex flex-col items-center justify-center p-2 transition-all group shadow-xs"
                       title={frame.description}
                     >
@@ -548,7 +593,10 @@ export default function Drawer({
                   {filteredIcons.map(icon => (
                     <button
                       key={icon.id}
-                      onClick={() => onAddSocialIcon?.(icon.platform, icon.fill)}
+                      onClick={() => {
+                        onAddSocialIcon?.(icon.platform, icon.fill);
+                        autoCloseMobile();
+                      }}
                       className="py-2 px-2 rounded-xl bg-slate-50 border border-slate-200 hover:border-purple-500 flex items-center justify-center space-x-1.5 transition-all hover:bg-purple-50/30 shadow-xs"
                     >
                       <div className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: icon.fill }} />
@@ -569,7 +617,10 @@ export default function Drawer({
                   {filteredLines.map(line => (
                     <button
                       key={line.id}
-                      onClick={() => onAddLine(line)}
+                      onClick={() => {
+                        onAddLine(line);
+                        autoCloseMobile();
+                      }}
                       className="h-11 rounded-xl bg-slate-50 border border-slate-200 hover:border-purple-500 flex items-center justify-center px-3 group transition-all shadow-xs"
                     >
                       <div 
@@ -595,7 +646,10 @@ export default function Drawer({
                   {filteredBadges.map(badge => (
                     <button
                       key={badge.id}
-                      onClick={() => onAddSticker(badge)}
+                      onClick={() => {
+                        onAddSticker(badge);
+                        autoCloseMobile();
+                      }}
                       className="py-2.5 px-3 rounded-xl font-bold text-xs shadow-xs hover:scale-105 transition-all text-center"
                       style={{ backgroundColor: badge.bg, color: badge.textColor }}
                     >
@@ -660,7 +714,10 @@ export default function Drawer({
                 {filteredPhotos.map(photo => (
                   <div
                     key={photo.id}
-                    onClick={() => onAddImage(photo.url)}
+                    onClick={() => {
+                      onAddImage(photo.url);
+                      autoCloseMobile();
+                    }}
                     className="group relative cursor-pointer rounded-xl overflow-hidden border border-slate-200 hover:border-purple-500 transition-all h-28 shadow-xs"
                   >
                     <img 
@@ -701,13 +758,16 @@ export default function Drawer({
           <div className="space-y-5">
             {/* Canva Primary Add a Text Box Button */}
             <button
-              onClick={() => onAddText({
-                text: 'Your paragraph text',
-                fontSize: 24,
-                fontWeight: 'normal',
-                fontFamily: 'Inter',
-                fill: '#1e293b'
-              })}
+              onClick={() => {
+                onAddText({
+                  text: 'Your paragraph text',
+                  fontSize: 24,
+                  fontWeight: 'normal',
+                  fontFamily: 'Inter',
+                  fill: '#1e293b'
+                });
+                autoCloseMobile();
+              }}
               className="canva-btn-primary w-full py-2.5 rounded-xl font-bold text-xs flex items-center justify-center space-x-2 shadow-md text-white"
             >
               <Type size={16} />
@@ -737,7 +797,10 @@ export default function Drawer({
               {PRESET_TEXT_STYLES.slice(0, 3).map((style, idx) => (
                 <button
                   key={idx}
-                  onClick={() => onAddText(style)}
+                  onClick={() => {
+                    onAddText(style);
+                    autoCloseMobile();
+                  }}
                   className="w-full bg-slate-50 hover:bg-purple-50/50 border border-slate-200 hover:border-purple-400 rounded-xl p-3 text-left transition-all group shadow-xs"
                 >
                   <p 
@@ -762,7 +825,10 @@ export default function Drawer({
                 {CANVA_FONT_PAIRINGS.map((pair, idx) => (
                   <button
                     key={idx}
-                    onClick={() => onAddFontPairing?.(pair)}
+                    onClick={() => {
+                      onAddFontPairing?.(pair);
+                      autoCloseMobile();
+                    }}
                     className="w-full bg-slate-50 hover:bg-white border border-slate-200 hover:border-purple-400 rounded-2xl p-3 text-left transition-all group shadow-xs hover:shadow-md"
                   >
                     <div className="flex items-center justify-between mb-1">

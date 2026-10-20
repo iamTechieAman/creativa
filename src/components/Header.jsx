@@ -308,7 +308,7 @@ export default function Header({
       </div>
 
       {/* ================= CENTER SECTION: PROJECT TITLE ================= */}
-      <div className="flex-1 min-w-0 max-w-[85px] xs:max-w-[130px] sm:max-w-xs md:max-w-md mx-1 sm:mx-2 flex justify-center">
+      <div className="hidden sm:flex flex-1 min-w-0 max-w-xs md:max-w-md mx-2 justify-center">
         {isEditingTitle ? (
           <input 
             type="text"
@@ -317,12 +317,12 @@ export default function Header({
             onBlur={() => setIsEditingTitle(false)}
             onKeyDown={(e) => e.key === 'Enter' && setIsEditingTitle(false)}
             autoFocus
-            className="bg-white border border-purple-500 rounded-lg px-2 sm:px-3 py-1 text-xs text-center font-semibold text-slate-800 focus:outline-none w-full shadow-inner"
+            className="bg-white border border-purple-500 rounded-lg px-3 py-1 text-xs text-center font-semibold text-slate-800 focus:outline-none w-full shadow-inner"
           />
         ) : (
           <div 
             onClick={() => setIsEditingTitle(true)}
-            className="flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-3 py-1 rounded-lg hover:bg-slate-100 cursor-pointer text-xs font-semibold text-slate-800 transition-colors truncate max-w-full group"
+            className="flex items-center space-x-1.5 px-3 py-1 rounded-lg hover:bg-slate-100 cursor-pointer text-xs font-semibold text-slate-800 transition-colors truncate max-w-full group"
             title="Click to rename design"
           >
             <span className="truncate">{projectTitle || 'Untitled design'}</span>
