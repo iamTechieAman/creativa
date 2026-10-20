@@ -116,38 +116,74 @@ export const createPhoneMockup = ({ left = 400, top = 400 }) => {
   });
 
   const screen = new Rect({
-    width: 200,
-    height: 418,
-    rx: 26,
-    ry: 26,
-    fill: '#f8fafc',
+    width: 204,
+    height: 422,
+    rx: 28,
+    ry: 28,
+    fill: '#1e1b4b',
     originX: 'center',
     originY: 'center'
   });
 
   const island = new Rect({
-    width: 60,
-    height: 16,
-    rx: 8,
-    ry: 8,
+    width: 66,
+    height: 18,
+    rx: 9,
+    ry: 9,
     fill: '#0f172a',
     originX: 'center',
     originY: 'center',
-    top: -190
+    top: -192
   });
 
-  const placeholderText = new Textbox('📱 Place Screenshot Here', {
-    fontSize: 13,
-    fontWeight: '600',
+  const timeLabel = new Textbox('9:41', {
+    fontSize: 11,
+    fontWeight: 'bold',
     fontFamily: 'Inter',
-    fill: '#94a3b8',
+    fill: '#ffffff',
+    textAlign: 'left',
+    originX: 'center',
+    originY: 'center',
+    top: -192,
+    left: -58,
+    width: 40
+  });
+
+  const cardMockup = new Rect({
+    width: 172,
+    height: 100,
+    rx: 16,
+    ry: 16,
+    fill: '#7D2AE8',
+    originX: 'center',
+    originY: 'center',
+    top: -80
+  });
+
+  const cardTitle = new Textbox('Creativa Mobile', {
+    fontSize: 13,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat',
+    fill: '#ffffff',
     textAlign: 'center',
     originX: 'center',
     originY: 'center',
-    width: 170
+    top: -80,
+    width: 160
   });
 
-  return new Group([bezel, screen, island, placeholderText], {
+  const uiFeed = new Rect({
+    width: 172,
+    height: 160,
+    rx: 14,
+    ry: 14,
+    fill: '#312e81',
+    originX: 'center',
+    originY: 'center',
+    top: 65
+  });
+
+  return new Group([bezel, screen, island, timeLabel, cardMockup, cardTitle, uiFeed], {
     left,
     top,
     originX: 'center',
@@ -176,7 +212,7 @@ export const createLaptopMockup = ({ left = 400, top = 400 }) => {
     height: 200,
     rx: 4,
     ry: 4,
-    fill: '#f1f5f9',
+    fill: '#0f172a',
     originX: 'center',
     originY: 'center',
     top: -15
@@ -212,19 +248,39 @@ export const createLaptopMockup = ({ left = 400, top = 400 }) => {
     top: 100
   });
 
-  const label = new Textbox('💻 Drop App Mockup', {
+  const appHeader = new Rect({
+    width: 336,
+    height: 28,
+    fill: '#1e293b',
+    originX: 'center',
+    originY: 'center',
+    top: -101
+  });
+
+  const heroGraphic = new Rect({
+    width: 290,
+    height: 120,
+    rx: 10,
+    ry: 10,
+    fill: '#7D2AE8',
+    originX: 'center',
+    originY: 'center',
+    top: -10
+  });
+
+  const heroLabel = new Textbox('Creative Workspace Dashboard', {
     fontSize: 14,
-    fontWeight: '600',
-    fontFamily: 'Inter',
-    fill: '#94a3b8',
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat',
+    fill: '#ffffff',
     textAlign: 'center',
     originX: 'center',
     originY: 'center',
-    top: -15,
-    width: 250
+    top: -10,
+    width: 260
   });
 
-  return new Group([screenBezel, screenDisplay, cameraDot, baseTop, baseLip, label], {
+  return new Group([screenBezel, screenDisplay, cameraDot, baseTop, baseLip, appHeader, heroGraphic, heroLabel], {
     left,
     top,
     originX: 'center',
@@ -254,10 +310,22 @@ export const createPolaroidFrame = ({ left = 400, top = 400, caption = 'Golden M
     height: 210,
     rx: 4,
     ry: 4,
-    fill: '#e2e8f0',
+    fill: '#7D2AE8',
     originX: 'center',
     originY: 'center',
     top: -20
+  });
+
+  const photoArt = new Textbox('Sunset Horizon', {
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat',
+    fill: '#ffffff',
+    textAlign: 'center',
+    originX: 'center',
+    originY: 'center',
+    top: -20,
+    width: 190
   });
 
   const textObj = new Textbox(caption, {
@@ -271,7 +339,7 @@ export const createPolaroidFrame = ({ left = 400, top = 400, caption = 'Golden M
     width: 200
   });
 
-  return new Group([card, photoArea, textObj], {
+  return new Group([card, photoArea, photoArt, textObj], {
     left,
     top,
     originX: 'center',
