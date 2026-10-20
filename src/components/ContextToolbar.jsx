@@ -46,6 +46,7 @@ export default function ContextToolbar({
   const [isSpacingOpen, setIsSpacingOpen] = useState(false);
   const [isDurationOpen, setIsDurationOpen] = useState(false);
   const [isAnimateOpen, setIsAnimateOpen] = useState(false);
+  const [pageAnimation, setPageAnimation] = useState('None');
 
   const closeAllPopovers = () => {
     setIsFontMenuOpen(false);
@@ -98,30 +99,50 @@ export default function ContextToolbar({
           {/* Animate Page Button */}
           <div className="relative">
             <button
-              onClick={() => setIsAnimateOpen(!isAnimateOpen)}
-              className="flex items-center space-x-1 px-2.5 py-1 rounded-lg hover:bg-slate-100 border border-slate-300 font-semibold text-slate-700 transition-colors shadow-xs"
+              onClick={() => {
+                const next = !isAnimateOpen;
+                closeAllPopovers();
+                if (next) setIsAnimateOpen(true);
+              }}
+              className={`flex items-center space-x-1 px-2.5 py-1 rounded-lg border font-semibold text-xs transition-colors shadow-xs ${
+                pageAnimation !== 'None' 
+                  ? 'bg-purple-50 border-purple-300 text-purple-700' 
+                  : 'hover:bg-slate-100 border-slate-300 text-slate-700'
+              }`}
               title="Page Transitions"
             >
               <Sparkles size={13} className="text-purple-600" />
-              <span>Animate</span>
+              <span>{pageAnimation !== 'None' ? `Anim: ${pageAnimation}` : 'Animate'}</span>
             </button>
 
             {isAnimateOpen && (
               <div className="absolute left-0 top-full mt-1 bg-white border border-slate-200 rounded-xl shadow-2xl p-2.5 z-50 w-52 space-y-1 animate-in fade-in duration-150">
                 <p className="font-bold text-slate-800 text-xs px-2 py-1">Page Transitions</p>
-                {['None', 'Fade', 'Pan', 'Rise', 'Pop', 'Breathe', 'Drift'].map(anim => (
-                  <button
-                    key={anim}
-                    onClick={() => {
-                      alert(`Page animation set to: ${anim}`);
-                      setIsAnimateOpen(false);
-                    }}
-                    className="w-full text-left px-2.5 py-1.5 hover:bg-purple-50 text-slate-700 hover:text-purple-700 rounded-lg text-xs font-semibold flex items-center justify-between transition-colors"
-                  >
-                    <span>{anim}</span>
-                    <Sparkles size={11} className="text-purple-400" />
-                  </button>
-                ))}
+                {['None', 'Fade', 'Pan', 'Rise', 'Pop', 'Breathe', 'Drift'].map(anim => {
+                  const isSelected = pageAnimation === anim;
+                  return (
+                    <button
+                      key={anim}
+                      onClick={() => {
+                        setPageAnimation(anim);
+                        onUpdateProp?.('pageAnimation', anim);
+                        setIsAnimateOpen(false);
+                      }}
+                      className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-between transition-colors ${
+                        isSelected 
+                          ? 'bg-purple-100 text-purple-900 font-bold' 
+                          : 'hover:bg-purple-50 text-slate-700 hover:text-purple-700'
+                      }`}
+                    >
+                      <span>{anim}</span>
+                      {isSelected ? (
+                        <Check size={12} className="text-purple-700" />
+                      ) : (
+                        <Sparkles size={11} className="text-purple-400" />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             )}
           </div>

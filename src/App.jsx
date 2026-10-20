@@ -565,7 +565,6 @@ export default function App() {
     setProjectId(newId);
     setProjectTitle(newTitle);
     handleSaveProject(newTitle);
-    alert(`Created copy: "${newTitle}"`);
   };
 
   // Update Page Title

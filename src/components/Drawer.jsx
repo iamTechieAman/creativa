@@ -29,6 +29,7 @@ import {
 } from '../utils/userSession';
 import AppsPanel from './AppsPanel';
 import MagicStudioPanel from './MagicStudioPanel';
+import BrandKitPanel from './BrandKitPanel';
 
 export default function Drawer({
   activeTab,
@@ -96,7 +97,6 @@ export default function Drawer({
 
   const fileInputRef = useRef(null);
   const paletteExtractInputRef = useRef(null);
-  const brandPdfInputRef = useRef(null);
 
   // QR Code generator state
   const [qrText, setQrText] = useState('https://creativa.toonplayer.in');
@@ -107,68 +107,6 @@ export default function Drawer({
   // Charts generator state
   const [chartTitle, setChartTitle] = useState('Q3 Sales Growth');
   const [donutPercentage, setDonutPercentage] = useState(82);
-
-  // Brand Kit custom state (Matching Screenshot 5)
-  const [brandWebsiteUrl, setBrandWebsiteUrl] = useState('');
-  const [isExtractingBrand, setIsExtractingBrand] = useState(false);
-  const [customPalette, setCustomPalette] = useState(['#7D2AE8', '#00C4CC', '#f59e0b', '#ec4899', '#10b981']);
-  const [newColorHex, setNewColorHex] = useState('#6366f1');
-
-  const handleAddCustomColor = () => {
-    if (newColorHex && !customPalette.includes(newColorHex)) {
-      setCustomPalette([...customPalette, newColorHex]);
-    }
-  };
-
-  const handleExtractBrandWebsite = () => {
-    if (!brandWebsiteUrl) return;
-    setIsExtractingBrand(true);
-    const cleanDomain = brandWebsiteUrl.replace(/^https?:\/\//i, '').replace(/\/.*$/, '').toLowerCase().trim();
-
-    setTimeout(() => {
-      let extractedColors = [];
-      const brandName = cleanDomain.split('.')[0] || 'Brand';
-
-      if (cleanDomain.includes('google')) {
-        extractedColors = ['#4285F4', '#EA4335', '#FBBC05', '#34A853', '#1A73E8'];
-      } else if (cleanDomain.includes('spotify')) {
-        extractedColors = ['#1DB954', '#191414', '#121212', '#282828', '#FFFFFF'];
-      } else if (cleanDomain.includes('netflix')) {
-        extractedColors = ['#E50914', '#141414', '#221F1F', '#F5F5F1', '#B81D24'];
-      } else if (cleanDomain.includes('apple')) {
-        extractedColors = ['#000000', '#1D1D1F', '#86868B', '#F5F5F7', '#0071E3'];
-      } else if (cleanDomain.includes('canva')) {
-        extractedColors = ['#7D2AE8', '#00C4CC', '#2563EB', '#FF4F00', '#0D0C22'];
-      } else if (cleanDomain.includes('nike')) {
-        extractedColors = ['#111111', '#FA5400', '#FFFFFF', '#707072', '#F5F5F5'];
-      } else if (cleanDomain.includes('microsoft')) {
-        extractedColors = ['#F25022', '#7FBA00', '#00A4EF', '#FFB900', '#737373'];
-      } else if (cleanDomain.includes('amazon')) {
-        extractedColors = ['#FF9900', '#146EB4', '#232F3E', '#FFFFFF', '#37475A'];
-      } else if (cleanDomain.includes('airbnb')) {
-        extractedColors = ['#FF5A5F', '#00A699', '#FC642D', '#484848', '#767676'];
-      } else {
-        const hash = cleanDomain.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-        const hue1 = hash % 360;
-        const hue2 = (hue1 + 45) % 360;
-        const hue3 = (hue1 + 180) % 360;
-        extractedColors = [
-          `hsl(${hue1}, 75%, 50%)`,
-          `hsl(${hue2}, 85%, 45%)`,
-          `hsl(${hue3}, 70%, 40%)`,
-          '#1e293b',
-          '#f8fafc'
-        ];
-      }
-
-      setCustomPalette(extractedColors);
-      setIsExtractingBrand(false);
-
-      const logoFaviconUrl = `https://www.google.com/s2/favicons?domain=${cleanDomain}&sz=128`;
-      onAddImage(logoFaviconUrl);
-      alert(`Extracted ${brandName.toUpperCase()} Brand Kit! 5 palette colors loaded and brand logo placed on canvas.`);
-    }, 700);
-  };
 
   // Generate QR preview on tab open or change
   const handleGenerateQR = async () => {
@@ -755,176 +693,14 @@ export default function Drawer({
           </div>
         )}
 
-        {/* ===================== TAB: BRAND KIT (SCREENSHOT 5) ===================== */}
+        {/* ===================== TAB: BRAND KIT ===================== */}
         {activeTab === 'brand' && (
-          <div className="space-y-5">
-            {/* Hero Setup Card matching Screenshot 5 */}
-            <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-50 via-indigo-50 to-cyan-50 border border-purple-200 shadow-xs space-y-3">
-              <div>
-                <h3 className="text-xs font-extrabold text-slate-900">
-                  Get your Brand Kit started <span className="text-purple-600">in seconds</span>
-                </h3>
-                <p className="text-[11px] text-slate-600 mt-0.5">
-                  Share your website or guidelines in PDF, and we'll begin your setup quickly.
-                </p>
-              </div>
-
-              {/* Website Input */}
-              <div className="flex items-center space-x-1.5">
-                <div className="relative flex-1">
-                  <Globe size={13} className="absolute left-2.5 top-2.5 text-slate-400" />
-                  <input
-                    type="text"
-                    value={brandWebsiteUrl}
-                    onChange={(e) => setBrandWebsiteUrl(e.target.value)}
-                    placeholder="https://brand.example.com"
-                    className="w-full pl-8 pr-2 py-1.5 text-xs bg-white border border-slate-300 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-purple-600"
-                  />
-                </div>
-                <button
-                  onClick={handleExtractBrandWebsite}
-                  disabled={isExtractingBrand || !brandWebsiteUrl}
-                  className="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-colors shadow-xs"
-                >
-                  {isExtractingBrand ? 'Extracting...' : '→'}
-                </button>
-              </div>
-
-              {/* PDF Upload */}
-              <div className="flex items-center justify-between pt-1">
-                <span className="text-[11px] text-slate-500 font-medium">or</span>
-                <button
-                  onClick={() => brandPdfInputRef.current?.click()}
-                  className="flex items-center space-x-1.5 px-3 py-1 rounded-xl bg-white border border-purple-300 text-purple-700 hover:bg-purple-50 text-xs font-bold transition-colors shadow-xs"
-                >
-                  <FileText size={12} />
-                  <span>Upload PDF</span>
-                </button>
-                <input
-                  type="file"
-                  ref={brandPdfInputRef}
-                  accept=".pdf"
-                  onChange={() => alert('Brand guideline PDF uploaded! Assets parsed into Brand Kit.')}
-                  className="hidden"
-                />
-              </div>
-            </div>
-
-            {/* Active Palette with Custom Add & Shuffle */}
-            <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-slate-800">Active Brand Palette</span>
-                <button
-                  onClick={() => onShuffleCanvasColors(customPalette)}
-                  className="flex items-center space-x-1 text-[11px] font-bold text-purple-700 hover:text-purple-800 bg-purple-100 px-2 py-1 rounded-lg transition-colors"
-                  title="Shuffle canvas element colors with this palette"
-                >
-                  <Shuffle size={12} />
-                  <span>Shuffle</span>
-                </button>
-              </div>
-
-              <div className="flex items-center space-x-2">
-                {customPalette.map((col, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => onSetBackground(col)}
-                    className="flex-1 h-8 rounded-xl shadow-xs hover:scale-105 transition-transform border border-black/10"
-                    style={{ backgroundColor: col }}
-                    title={`Click to set as background: ${col}`}
-                  />
-                ))}
-              </div>
-
-              {/* Add Custom Color Input */}
-              <div className="flex items-center space-x-2 pt-2 border-t border-slate-200">
-                <input
-                  type="color"
-                  value={newColorHex}
-                  onChange={(e) => setNewColorHex(e.target.value)}
-                  className="w-7 h-7 rounded-lg cursor-pointer bg-transparent border-0"
-                />
-                <input
-                  type="text"
-                  value={newColorHex}
-                  onChange={(e) => setNewColorHex(e.target.value)}
-                  className="w-24 bg-white border border-slate-300 rounded-lg px-2 py-1 text-xs text-slate-800 font-mono"
-                  placeholder="#000000"
-                />
-                <button
-                  onClick={handleAddCustomColor}
-                  className="flex-1 py-1 px-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center justify-center space-x-1 shadow-xs"
-                >
-                  <Plus size={12} />
-                  <span>Add Color</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Brand Font Pairings */}
-            <div className="space-y-2.5">
-              <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Curated Font Pairings
-              </h3>
-              {BRAND_FONT_PAIRS.map((pair, idx) => (
-                <div 
-                  key={idx}
-                  className="p-3 rounded-2xl bg-slate-50 border border-slate-200 hover:border-purple-400 transition-all flex items-center justify-between"
-                >
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-800">{pair.name}</h4>
-                    <p className="text-[11px] text-purple-700 font-mono mt-0.5 font-bold">
-                      {pair.heading} + {pair.body}
-                    </p>
-                    <p className="text-[10px] text-slate-500 mt-0.5">{pair.desc}</p>
-                  </div>
-                  <button
-                    onClick={() => onApplyFontPair?.(pair.heading, pair.body)}
-                    className="px-3 py-1.5 rounded-xl bg-purple-100 hover:bg-purple-600 text-purple-700 hover:text-white text-xs font-bold transition-all shadow-xs"
-                  >
-                    Apply
-                  </button>
-                </div>
-              ))}
-            </div>
-
-            {/* Curated Brand Palettes */}
-            <div className="space-y-3">
-              <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Official Brand Palettes
-              </h3>
-              {BRAND_PALETTES.map((pal, i) => (
-                <div 
-                  key={i} 
-                  className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-purple-400 transition-all space-y-1.5"
-                >
-                  <div className="flex items-center justify-between text-xs text-slate-800 font-bold">
-                    <span>{pal.name}</span>
-                    <button
-                      onClick={() => {
-                        setCustomPalette(pal.colors);
-                        onShuffleCanvasColors(pal.colors);
-                      }}
-                      className="text-[10px] text-purple-700 hover:text-purple-800 font-bold flex items-center space-x-1"
-                    >
-                      <Shuffle size={10} />
-                      <span>Apply</span>
-                    </button>
-                  </div>
-                  <div className="flex items-center space-x-1.5">
-                    {pal.colors.map((c, idx) => (
-                      <div 
-                        key={idx}
-                        className="flex-1 h-6 rounded-lg shadow-xs border border-black/5"
-                        style={{ backgroundColor: c }}
-                        title={c}
-                      />
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <BrandKitPanel
+            onAddImage={onAddImage}
+            onSetBackground={onSetBackground}
+            onShuffleCanvasColors={onShuffleCanvasColors}
+            onApplyFontPair={onApplyFontPair}
+          />
         )}
 
         {/* ===================== TAB: TEXT ===================== */}
