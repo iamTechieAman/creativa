@@ -84,14 +84,14 @@ export default function CreatorsDirectoryView({
             return (
               <div 
                 key={creator.id}
-                className="bg-white rounded-2xl border border-slate-200 hover:border-purple-400 p-5 space-y-3.5 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                onClick={() => onOpenCreatorProfile?.(creator)}
+                className="bg-white rounded-2xl border border-slate-200 hover:border-purple-400 p-5 space-y-3.5 shadow-xs hover:shadow-md transition-all flex flex-col justify-between cursor-pointer group/card"
+                title="Click anywhere to view full verified creator profile"
               >
                 {/* Author Info */}
                 <div className="flex items-center justify-between">
                   <div 
-                    onClick={() => onOpenCreatorProfile?.(creator)}
-                    className="flex items-center space-x-3 cursor-pointer group/author"
-                    title="View Full Creator Profile & All Templates"
+                    className="flex items-center space-x-3 group/author"
                   >
                     <img 
                       src={creator.avatar} 
@@ -101,11 +101,11 @@ export default function CreatorsDirectoryView({
                         e.currentTarget.onerror = null; 
                         e.currentTarget.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80'; 
                       }}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-purple-200 shadow-xs group-hover/author:scale-105 transition-transform shrink-0"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-purple-200 shadow-xs group-hover/card:scale-105 transition-transform shrink-0"
                     />
                     <div className="truncate">
                       <div className="flex items-center space-x-1">
-                        <h4 className="font-bold text-xs text-slate-900 group-hover/author:text-purple-600 transition-colors truncate">
+                        <h4 className="font-bold text-xs text-slate-900 group-hover/card:text-purple-600 transition-colors truncate">
                           {creator.name}
                         </h4>
                         <span className="w-3.5 h-3.5 rounded-full bg-blue-500 text-white flex items-center justify-center text-[8px] shrink-0" title="Verified Creator">
@@ -113,14 +113,17 @@ export default function CreatorsDirectoryView({
                         </span>
                       </div>
                       <p className="text-[10px] text-slate-500 truncate">{creator.handle} • {creator.followers}</p>
-                      <span className="text-[9px] font-bold text-purple-600 group-hover/author:underline flex items-center pt-0.5">
+                      <span className="text-[9px] font-bold text-purple-600 group-hover/card:underline flex items-center pt-0.5">
                         {creator.specialty || 'Verified Designer'}
                       </span>
                     </div>
                   </div>
 
                   <button
-                    onClick={() => onToggleFollow?.(creator.id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onToggleFollow?.(creator.id);
+                    }}
                     className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-xs flex items-center space-x-1 shrink-0 ${
                       isFollowed 
                         ? 'bg-purple-100 text-purple-700 hover:bg-purple-200' 
@@ -152,7 +155,10 @@ export default function CreatorsDirectoryView({
                     {creator.designs.slice(0, 2).map((design) => (
                       <div
                         key={design.id}
-                        onClick={() => onLoadTemplate(design)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onLoadTemplate(design);
+                        }}
                         className="group cursor-pointer rounded-xl overflow-hidden border border-slate-200 hover:border-purple-500 bg-white shadow-xs transition-all flex flex-col justify-between"
                       >
                         {design.previewUrl ? (

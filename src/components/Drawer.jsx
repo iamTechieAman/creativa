@@ -8,7 +8,7 @@ import {
   Users, UserPlus, UserCheck
 } from 'lucide-react';
 import { PREMADE_TEMPLATES } from '../data/templates';
-import { searchCanvaTemplates } from '../utils/canvaTemplateEngine';
+import { searchCanvaTemplates, searchCreators } from '../utils/canvaTemplateEngine';
 import { 
   SHAPE_ELEMENTS, LINE_ELEMENTS, STICKERS_AND_BADGES, 
   CURATED_STOCK_PHOTOS, MOCKUP_FRAMES, SOCIAL_MEDIA_ICONS,
@@ -219,15 +219,8 @@ export default function Drawer({
 
   const filteredPhotos = [...matchedPhotos, ...dynamicPhotos];
 
-  // Filtered Creators
-  const cq = creatorsSearchQuery.toLowerCase().trim();
-  const filteredCreators = allCreatorsList.filter(c => {
-    if (!cq) return true;
-    return c.name.toLowerCase().includes(cq) ||
-           c.handle.toLowerCase().includes(cq) ||
-           c.specialty.toLowerCase().includes(cq) ||
-           c.bio.toLowerCase().includes(cq);
-  });
+  // Filtered Creators with 100% discovery and live dynamic synthesis
+  const filteredCreators = searchCreators(creatorsSearchQuery);
 
   if (!activeTab) return null;
 
@@ -1338,25 +1331,25 @@ export default function Drawer({
                 return (
                   <div 
                     key={creator.id}
-                    className="p-3.5 rounded-2xl bg-slate-50/70 border border-slate-200 hover:border-purple-300 transition-all space-y-3"
+                    onClick={() => onOpenCreatorProfile?.(creator)}
+                    className="p-3.5 rounded-2xl bg-slate-50/70 border border-slate-200 hover:border-purple-400 transition-all space-y-3 cursor-pointer group/creator-card"
+                    title="Click to view full creator profile"
                   >
                     {/* Creator Profile Header */}
                     <div className="flex items-center justify-between">
                       <div 
-                        onClick={() => onOpenCreatorProfile?.(creator)}
-                        className="flex items-center space-x-2.5 cursor-pointer group/creator"
-                        title="View Full Creator Profile"
+                        className="flex items-center space-x-2.5 group/creator"
                       >
                         <img 
                           src={creator.avatar} 
                           alt={creator.name} 
                           referrerPolicy="no-referrer"
                           onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80'; }}
-                          className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-xs group-hover/creator:scale-105 transition-transform"
+                          className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-xs group-hover/creator-card:scale-105 transition-transform"
                         />
                         <div>
                           <div className="flex items-center space-x-1">
-                            <h4 className="font-bold text-xs text-slate-900 group-hover/creator:text-purple-600 transition-colors">
+                            <h4 className="font-bold text-xs text-slate-900 group-hover/creator-card:text-purple-600 transition-colors">
                               {creator.name}
                             </h4>
                             {creator.verified && (
@@ -1366,7 +1359,7 @@ export default function Drawer({
                             )}
                           </div>
                           <p className="text-[10px] text-slate-500">{creator.handle} • {creator.followers}</p>
-                          <span className="text-[9px] font-bold text-purple-600 group-hover/creator:underline">
+                          <span className="text-[9px] font-bold text-purple-600 group-hover/creator-card:underline">
                             Profile ➔
                           </span>
                         </div>
@@ -1374,7 +1367,8 @@ export default function Drawer({
 
                       {/* Follow Toggle Button */}
                       <button
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           setFollowedCreators(prev => 
                             prev.includes(creator.id) 
                               ? prev.filter(id => id !== creator.id) 
@@ -1418,7 +1412,8 @@ export default function Drawer({
                         {creator.designs.map((design) => (
                           <div
                             key={design.id}
-                            onClick={() => {
+                            onClick={(e) => {
+                              e.stopPropagation();
                               onLoadTemplate(design);
                               if (typeof window !== 'undefined' && window.innerWidth < 768) {
                                 onClose();

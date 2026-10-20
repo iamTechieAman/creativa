@@ -985,16 +985,15 @@ export default function App() {
       rawObjects = syn.objects || [];
     }
 
-    // 2. Safe image loader with timeout & resilient CDN fallback
+    // 2. Safe image loader with resilient fallback
     const loadFabricImageSafe = async (src, options = {}) => {
-      const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 2800));
+      const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 1800));
       try {
         return await Promise.race([
           FabricImage.fromURL(src, { crossOrigin: 'anonymous', ...options }),
           timeoutPromise
         ]);
       } catch (err) {
-        console.warn('Image timed out or failed, using CDN fallback:', src);
         try {
           const fallbackUrl = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80';
           return await FabricImage.fromURL(fallbackUrl, { crossOrigin: 'anonymous', ...options });
@@ -1004,10 +1003,17 @@ export default function App() {
       }
     };
 
-    // 3. Process and add each object
+    // 3. Process immediate vector & text objects synchronously (<10ms instant layout)
+    const imageDefs = [];
+
     for (const objDef of rawObjects) {
       const { type, text, ...cleanProps } = objDef;
       let fObj;
+
+      if (type === 'image' && cleanProps.src) {
+        imageDefs.push(objDef);
+        continue;
+      }
 
       if (type === 'rect') {
         fObj = new Rect({
@@ -1089,64 +1095,80 @@ export default function App() {
             offsetY: 2
           }
         });
-      } else if (type === 'image' && cleanProps.src) {
-        try {
-          fObj = await loadFabricImageSafe(cleanProps.src);
-          if (fObj) {
-            const isBgImage = rawObjects.indexOf(objDef) === 0 || 
-                              (cleanProps.left === 0 && cleanProps.top === 0) || 
-                              (!cleanProps.width || cleanProps.width >= canvasW * 0.6);
-
-            if (isBgImage) {
-              // Scale to cover 100% of canvas artboard without awkward cutoffs
-              const scale = Math.max(canvasW / (fObj.width || 1), canvasH / (fObj.height || 1));
-              fObj.set({
-                scaleX: scale,
-                scaleY: scale,
-                left: canvasW / 2,
-                top: canvasH / 2,
-                originX: 'center',
-                originY: 'center',
-                selectable: false,
-                evented: false,
-                lockMovementX: true,
-                lockMovementY: true
-              });
-            } else {
-              const targetW = cleanProps.width || canvasW * 0.5;
-              const { scaleX: _sx, scaleY: _sy, width: _w, height: _h, ...imgProps } = cleanProps;
-              fObj.set(imgProps);
-              if (targetW && fObj.width) {
-                fObj.scaleToWidth(targetW);
-              }
-              fObj.set({
-                selectable: true,
-                hasControls: true,
-                lockMovementX: false,
-                lockMovementY: false
-              });
-            }
-          }
-        } catch (e) {
-          console.warn('Failed to load image in template:', e);
-        }
       }
 
       if (fObj) {
         canvas.add(fObj);
-        // If image is background, keep at back so text is immediately selectable
-        if (type === 'image') {
-          canvas.sendObjectToBack(fObj);
-        }
       }
     }
 
-    // 4. Automatically bring main headline textbox to front and select it
+    // 4. Automatically bring main headline textbox to front and select it immediately
     const allFinalObjs = canvas.getObjects();
     const primaryTextbox = allFinalObjs.find(o => o.type === 'textbox' || o.type === 'i-text');
     if (primaryTextbox) {
       canvas.bringObjectToFront(primaryTextbox);
       canvas.setActiveObject(primaryTextbox);
+    }
+
+    // 5. Instantly render the initial vector/text artboard (<16ms 1-click response)
+    canvas.requestRenderAll();
+    syncObjectsList();
+    isHistoryLockedRef.current = false;
+    pushHistoryState();
+
+    // 6. Asynchronously load images in the background and insert seamlessly without blocking UI
+    if (imageDefs.length > 0) {
+      imageDefs.forEach(async (objDef) => {
+        const { type, text, ...cleanProps } = objDef;
+        try {
+          const fObj = await loadFabricImageSafe(cleanProps.src);
+          if (!fObj || !fabricRef.current) return;
+          const currentCanvas = fabricRef.current;
+
+          const isBgImage = rawObjects.indexOf(objDef) === 0 || 
+                            (cleanProps.left === 0 && cleanProps.top === 0) || 
+                            (!cleanProps.width || cleanProps.width >= canvasW * 0.6);
+
+          if (isBgImage) {
+            // Scale to cover 100% of canvas artboard without awkward cutoffs
+            const scale = Math.max(canvasW / (fObj.width || 1), canvasH / (fObj.height || 1));
+            fObj.set({
+              scaleX: scale,
+              scaleY: scale,
+              left: canvasW / 2,
+              top: canvasH / 2,
+              originX: 'center',
+              originY: 'center',
+              selectable: false,
+              evented: false,
+              lockMovementX: true,
+              lockMovementY: true
+            });
+            currentCanvas.add(fObj);
+            currentCanvas.sendObjectToBack(fObj);
+          } else {
+            const targetW = cleanProps.width || canvasW * 0.5;
+            const { scaleX: _sx, scaleY: _sy, width: _w, height: _h, ...imgProps } = cleanProps;
+            fObj.set(imgProps);
+            if (targetW && fObj.width) {
+              fObj.scaleToWidth(targetW);
+            }
+            fObj.set({
+              selectable: true,
+              hasControls: true,
+              lockMovementX: false,
+              lockMovementY: false
+            });
+            currentCanvas.add(fObj);
+            const headline = currentCanvas.getObjects().find(o => o.type === 'textbox');
+            if (headline) currentCanvas.bringObjectToFront(headline);
+          }
+          currentCanvas.requestRenderAll();
+          syncObjectsList();
+        } catch (e) {
+          console.warn('Non-blocking image load error:', e);
+        }
+      });
     }
 
     // 6. Refresh font rendering once web fonts are fully loaded
