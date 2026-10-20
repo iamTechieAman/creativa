@@ -284,6 +284,18 @@ export default function App() {
       }
     });
 
+    // Tap or click on already-active text instantly enters editing mode (ideal for mobile touch)
+    canvas.on('mouse:down', (opt) => {
+      const target = opt.target;
+      if (!target) return;
+      if ((target.type === 'textbox' || target.type === 'i-text') && canvas.getActiveObject() === target) {
+        if (!target.isEditing) {
+          target.enterEditing();
+          canvas.requestRenderAll();
+        }
+      }
+    });
+
     pushHistoryState();
     syncObjectsList();
 
@@ -957,6 +969,11 @@ export default function App() {
 
     // Auto-fit artboard to viewport so no text or graphics are pushed offscreen
     autoFitCanvas(canvasW, canvasH);
+    setTimeout(() => autoFitCanvas(canvasW, canvasH), 60);
+
+    // Reset pages to Page 1 for this template
+    setPages([{ id: 'page-1', title: template.title || 'Page 1', duration: 5 }]);
+    setActivePageIndex(0);
 
     // 1. Ensure template has rich objects
     let rawObjects = template.objects;
@@ -1125,150 +1142,9 @@ export default function App() {
       }
     }
 
-    // 4. If template has fewer than 3 objects, enrich it into a complete Canva design!
-    const currentObjs = canvas.getObjects();
-    const existingTextboxes = currentObjs.filter(o => o.type === 'textbox');
-    
-    if (currentObjs.length < 3) {
-      // Add subtle dark readability backdrop (non-interactive so clicks pass through to text)
-      const readabilityCard = new Rect({
-        left: Math.round(canvasW / 2),
-        top: Math.round(canvasH * 0.50),
-        width: Math.round(canvasW * 0.84),
-        height: Math.round(canvasH * 0.58),
-        fill: 'rgba(15, 23, 42, 0.55)',
-        rx: 24,
-        ry: 24,
-        originX: 'center',
-        originY: 'center',
-        selectable: false,
-        evented: false
-      });
-      canvas.add(readabilityCard);
-
-      // Re-position and format existing headline text for razor-sharp readability
-      if (existingTextboxes.length > 0) {
-        const headline = existingTextboxes[0];
-        headline.set({
-          left: Math.round(canvasW / 2),
-          top: Math.round(canvasH * 0.42),
-          originX: 'center',
-          originY: 'center',
-          textAlign: 'center',
-          fill: '#ffffff',
-          width: Math.round(canvasW * 0.78),
-          fontSize: Math.min(headline.fontSize || 36, Math.round(canvasW * 0.045)),
-          shadow: { color: 'rgba(0,0,0,0.7)', blur: 8, offsetX: 0, offsetY: 2 },
-          selectable: true,
-          editable: true,
-          cursorColor: '#7D2AE8'
-        });
-        canvas.bringObjectToFront(headline);
-      }
-
-      // Add Category Pill Badge (Grouped so rectangle and text move together seamlessly)
-      const badgeW = Math.min(240, Math.round(canvasW * 0.30));
-      const catBadge = new Rect({
-        left: 0,
-        top: 0,
-        width: badgeW,
-        height: 38,
-        fill: '#7D2AE8',
-        rx: 19,
-        ry: 19,
-        originX: 'center',
-        originY: 'center',
-      });
-      const catText = new Textbox((template.category || 'OFFICIAL TEMPLATE').toUpperCase(), {
-        left: 0,
-        top: 0,
-        fontSize: 12,
-        fontWeight: 'bold',
-        fontFamily: 'Montserrat',
-        fill: '#ffffff',
-        textAlign: 'center',
-        originX: 'center',
-        originY: 'center',
-        width: badgeW - 20,
-        editable: true,
-        cursorColor: '#ffffff'
-      });
-      const badgeGroup = new Group([catBadge, catText], {
-        left: Math.round(canvasW / 2),
-        top: Math.round(canvasH * 0.28),
-        originX: 'center',
-        originY: 'center',
-        subTargetCheck: true,
-        interactive: true
-      });
-      canvas.add(badgeGroup);
-
-      // Add Subtitle Textbox
-      const subText = new Textbox(`Professional editable layout for ${template.title || 'your brand'}. Customize typography, colors & vectors.`, {
-        left: Math.round(canvasW / 2),
-        top: Math.round(canvasH * 0.56),
-        fontSize: Math.max(15, Math.round(canvasW * 0.020)),
-        fontFamily: 'Inter',
-        fill: '#e2e8f0',
-        textAlign: 'center',
-        originX: 'center',
-        originY: 'center',
-        width: Math.round(canvasW * 0.74),
-        shadow: { color: 'rgba(0,0,0,0.6)', blur: 6, offsetX: 0, offsetY: 2 },
-        selectable: true,
-        editable: true,
-        cursorColor: '#7D2AE8'
-      });
-      canvas.add(subText);
-
-      // Add Call To Action Button (Grouped so button and text move together)
-      const ctaW = Math.min(240, Math.round(canvasW * 0.30));
-      const ctaBtn = new Rect({
-        left: 0,
-        top: 0,
-        width: ctaW,
-        height: 48,
-        fill: '#f59e0b',
-        rx: 24,
-        ry: 24,
-        originX: 'center',
-        originY: 'center',
-      });
-      const ctaLabel = new Textbox('CUSTOMIZE NOW', {
-        left: 0,
-        top: 0,
-        fontSize: 14,
-        fontWeight: 'bold',
-        fontFamily: 'Montserrat',
-        fill: '#0f172a',
-        textAlign: 'center',
-        originX: 'center',
-        originY: 'center',
-        width: ctaW - 20,
-        editable: true,
-        cursorColor: '#7D2AE8'
-      });
-      const ctaGroup = new Group([ctaBtn, ctaLabel], {
-        left: Math.round(canvasW / 2),
-        top: Math.round(canvasH * 0.68),
-        originX: 'center',
-        originY: 'center',
-        subTargetCheck: true,
-        interactive: true
-      });
-      canvas.add(ctaGroup);
-
-      // Ensure card is behind text and buttons, but in front of background image
-      const bgImg = canvas.getObjects().find(o => o.type === 'image');
-      if (bgImg) {
-        canvas.sendObjectToBack(readabilityCard);
-        canvas.sendObjectToBack(bgImg);
-      }
-    }
-
-    // 5. Automatically bring main headline textbox to front and select it
+    // 4. Automatically bring main headline textbox to front and select it
     const allFinalObjs = canvas.getObjects();
-    const primaryTextbox = allFinalObjs.find(o => o.type === 'textbox');
+    const primaryTextbox = allFinalObjs.find(o => o.type === 'textbox' || o.type === 'i-text');
     if (primaryTextbox) {
       canvas.bringObjectToFront(primaryTextbox);
       canvas.setActiveObject(primaryTextbox);
@@ -1774,7 +1650,7 @@ export default function App() {
   const isGroup = activeObject?.type === 'group';
 
   return (
-    <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#f0f2f5] select-none text-slate-800">
+    <div className="flex flex-col h-[100dvh] w-full max-w-full overflow-hidden bg-[#f0f2f5] select-none text-slate-800 fixed inset-0">
       {/* 1. Header Bar */}
       <Header
         projectTitle={projectTitle}

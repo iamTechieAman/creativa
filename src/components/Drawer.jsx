@@ -420,7 +420,12 @@ export default function Drawer({
               {filteredTemplates.map(tpl => (
                   <div
                     key={tpl.id}
-                    onClick={() => onLoadTemplate(tpl)}
+                    onClick={() => {
+                      onLoadTemplate(tpl);
+                      if (typeof window !== 'undefined' && window.innerWidth < 768) {
+                        onClose();
+                      }
+                    }}
                     className="group cursor-pointer rounded-xl overflow-hidden border border-slate-200 hover:border-purple-500 transition-all bg-white hover:shadow-md shadow-xs flex flex-col justify-between"
                   >
                     {tpl.previewUrl ? (
@@ -1637,7 +1642,12 @@ export default function Drawer({
                         {creator.designs.map((design) => (
                           <div
                             key={design.id}
-                            onClick={() => onLoadTemplate(design)}
+                            onClick={() => {
+                              onLoadTemplate(design);
+                              if (typeof window !== 'undefined' && window.innerWidth < 768) {
+                                onClose();
+                              }
+                            }}
                             className="group cursor-pointer rounded-xl overflow-hidden border border-slate-200 hover:border-purple-500 bg-white shadow-xs transition-all flex flex-col justify-between"
                           >
                             {design.previewUrl ? (

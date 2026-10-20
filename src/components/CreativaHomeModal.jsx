@@ -1349,7 +1349,10 @@ export default function CreativaHomeModal({
               {filteredTemplates.map((template) => (
                 <div
                   key={template.id}
-                  onClick={() => onLoadTemplate(template)}
+                  onClick={() => {
+                    onLoadTemplate(template);
+                    onClose();
+                  }}
                   className="bg-white rounded-2xl border border-slate-200 hover:border-purple-500 overflow-hidden shadow-xs hover:shadow-xl transition-all cursor-pointer group flex flex-col justify-between"
                 >
                   {/* Template Visual Thumbnail */}
@@ -1533,7 +1536,10 @@ export default function CreativaHomeModal({
                       {creator.designs.slice(0, 2).map((design) => (
                         <div
                           key={design.id}
-                          onClick={() => onLoadTemplate(design)}
+                          onClick={() => {
+                            onLoadTemplate(design);
+                            onClose();
+                          }}
                           className="group cursor-pointer rounded-xl overflow-hidden border border-slate-200 hover:border-purple-500 bg-white shadow-xs transition-all flex flex-col justify-between"
                         >
                           {design.previewUrl ? (

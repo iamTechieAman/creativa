@@ -6,7 +6,7 @@ import {
   ChevronsUp, ChevronsDown, Palette, ChevronDown, Sparkles,
   Wand2, Move, Group as GroupIcon, Ungroup as UngroupIcon,
   AlignJustify, SlidersHorizontal, Clock, FileText, X,
-  Paintbrush, List, Crop, Search
+  Paintbrush, List, Crop, Search, Type
 } from 'lucide-react';
 import { AVAILABLE_FONTS } from '../data/fonts';
 import { SOLID_COLORS, GRADIENT_PRESETS } from '../data/backgrounds';
@@ -222,6 +222,22 @@ export default function ContextToolbar({
         {/* ================= TEXT CONTROLS ================= */}
         {isText && (
           <>
+            {/* Direct Edit Button for Instant Mobile / Desktop Editing */}
+            <button
+              onClick={() => {
+                if (activeObject && typeof activeObject.enterEditing === 'function') {
+                  activeObject.enterEditing();
+                  activeObject.selectAll?.();
+                  canvas?.requestRenderAll();
+                }
+              }}
+              className="flex items-center space-x-1 px-2.5 py-1 bg-purple-600 hover:bg-purple-700 active:scale-95 text-white rounded-lg font-bold text-xs shadow-xs transition-all shrink-0"
+              title="Edit text content"
+            >
+              <Type size={13} className="shrink-0" />
+              <span>Edit Text</span>
+            </button>
+
             {/* Font Family Picker */}
             <div className="relative">
               <button

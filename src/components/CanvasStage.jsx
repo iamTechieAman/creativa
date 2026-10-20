@@ -341,7 +341,7 @@ export default function CanvasStage({
 
             {/* Artboard Stage with Drop Shadow */}
             <div 
-              className="origin-top-left relative"
+              className="origin-top-left relative overflow-hidden rounded-md shadow-2xl"
               onMouseMove={handleMouseMove}
               style={{
                 width: `${dimensions.width * zoom}px`,
