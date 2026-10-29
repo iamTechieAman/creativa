@@ -54,12 +54,34 @@ export function getAllTemplates() {
     });
 
     const map = new Map();
+    const seenSignatures = new Set();
+
     [...autoData.templates, ...enrichedScraped, ...creatorDesigns, ...PREMADE_TEMPLATES].forEach(t => {
-      if (t && t.id) map.set(t.id, t);
+      if (!t || !t.id) return;
+      // Deduplication signature: normalized alphanumeric title + category
+      const normTitle = (t.title || '').trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      const normCat = (t.category || '').trim().toLowerCase();
+      const sig = `${normTitle}::${normCat}`;
+
+      if (map.has(t.id) || (normTitle && seenSignatures.has(sig))) {
+        return; // Skip duplicate template
+      }
+      if (normTitle) seenSignatures.add(sig);
+      map.set(t.id, t);
     });
     return Array.from(map.values());
   } catch (e) {
-    return [...SCRAPED_CANVA_TEMPLATES, ...PREMADE_TEMPLATES];
+    const fallbackMap = new Map();
+    const fallbackSeen = new Set();
+    [...SCRAPED_CANVA_TEMPLATES, ...PREMADE_TEMPLATES].forEach(t => {
+      if (!t || !t.id) return;
+      const sig = `${(t.title || '').toLowerCase()}::${(t.category || '').toLowerCase()}`;
+      if (!fallbackMap.has(t.id) && !fallbackSeen.has(sig)) {
+        fallbackSeen.add(sig);
+        fallbackMap.set(t.id, t);
+      }
+    });
+    return Array.from(fallbackMap.values());
   }
 }
 
@@ -563,8 +585,14 @@ export function searchCanvaTemplates(query = '', category = 'All') {
       synthesizeCanvaTemplate(`${query} Showcase`, { category: category !== 'All' ? category : 'Presentation', width: 1920, height: 1080 })
     ];
 
+    const existingIds = new Set(matched.map(m => m.id));
+    const existingTitles = new Set(matched.map(m => (m.title || '').toLowerCase().trim()));
+    const uniqueDynamic = dynamicItems.filter(item => 
+      !existingIds.has(item.id) && !existingTitles.has((item.title || '').toLowerCase().trim())
+    );
+
     // Combine matched templates with dynamically synthesized templates
-    return [...matched, ...dynamicItems];
+    return [...matched, ...uniqueDynamic];
   }
 
   return matched;

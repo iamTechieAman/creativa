@@ -34,6 +34,7 @@ import MagicDesignModal from './components/MagicDesignModal';
 import VersionHistoryModal from './components/VersionHistoryModal';
 import CreativaHomeModal from './components/CreativaHomeModal';
 import CreatorProfileModal from './components/CreatorProfileModal';
+import CanvaConnectModal from './components/CanvaConnectModal';
 import { getAllCreators } from './data/creators';
 import { synthesizeCanvaTemplate } from './utils/canvaTemplateEngine';
 
@@ -84,6 +85,7 @@ export default function App() {
   const [isMagicWriteOpen, setIsMagicWriteOpen] = useState(false);
   const [isMagicDesignOpen, setIsMagicDesignOpen] = useState(false);
   const [isVersionHistoryOpen, setIsVersionHistoryOpen] = useState(false);
+  const [isCanvaConnectOpen, setIsCanvaConnectOpen] = useState(false);
   const [selectedCreatorForProfile, setSelectedCreatorForProfile] = useState(null);
   const [isCanvaHomeOpen, setIsCanvaHomeOpen] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -99,6 +101,7 @@ export default function App() {
   // Lock body scroll when any modal or drawer overlay is active
   const isAnyModalOpen = isCanvaHomeOpen || 
     !!selectedCreatorForProfile || 
+    isCanvaConnectOpen ||
     isExportModalOpen || 
     isResizeModalOpen || 
     isSaveModalOpen || 
@@ -1709,6 +1712,7 @@ export default function App() {
         onOpenExport={() => setIsExportModalOpen(true)}
         onOpenPresent={handleOpenPresentation}
         onOpenVersionHistory={() => setIsVersionHistoryOpen(true)}
+        onOpenCanvaConnect={() => setIsCanvaConnectOpen(true)}
         onOpenHome={() => setIsCanvaHomeOpen(true)}
         onExportJSON={handleExportJSON}
         onImportJSON={handleImportJSON}
@@ -1914,6 +1918,17 @@ export default function App() {
         onRestoreSnapshot={handleRestoreSnapshot}
       />
 
+      {/* Canva Connect Official APIs & Share Link Importer */}
+      <CanvaConnectModal
+        isOpen={isCanvaConnectOpen}
+        onClose={() => setIsCanvaConnectOpen(false)}
+        onLoadTemplate={(template) => {
+          handleLoadTemplate(template);
+          setIsCanvaConnectOpen(false);
+        }}
+        showToast={showToast}
+      />
+
       {/* Creativa Main Home Screen & Dashboard */}
       <CreativaHomeModal
         isOpen={isCanvaHomeOpen}
@@ -1949,6 +1964,7 @@ export default function App() {
           setIsCanvaHomeOpen(false);
         }}
         canvasDimensions={canvasDimensions}
+        onOpenCanvaConnect={() => setIsCanvaConnectOpen(true)}
         onOpenCreatorProfile={(creator) => {
           setSelectedCreatorForProfile(creator);
         }}

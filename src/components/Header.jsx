@@ -33,7 +33,8 @@ export default function Header({
   showBleed,
   setShowBleed,
   onOpenVersionHistory,
-  onOpenHome
+  onOpenHome,
+  onOpenCanvaConnect
 }) {
   const [isFileMenuOpen, setIsFileMenuOpen] = useState(false);
   const [isShareMenuOpen, setIsShareMenuOpen] = useState(false);
@@ -341,6 +342,17 @@ export default function Header({
         >
           <Play size={13} className="text-emerald-600 fill-emerald-600" />
           <span>Present</span>
+        </button>
+
+        {/* Canva Connect Official Integration & Share Link Import */}
+        <button
+          onClick={onOpenCanvaConnect}
+          className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-teal-500/10 via-purple-500/10 to-indigo-500/10 hover:from-teal-500/20 hover:to-indigo-500/20 border border-purple-200/80 text-purple-800 text-xs font-bold transition-all shadow-xs group"
+          title="Canva Connect Official APIs & Share Link Importer"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse"></span>
+          <Sparkles size={13} className="text-purple-600 group-hover:scale-110 transition-transform" />
+          <span className="hidden sm:inline">Canva Connect</span>
         </button>
 
         {/* Quick 1-Tap Download Button */}

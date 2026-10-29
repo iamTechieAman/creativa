@@ -123,7 +123,8 @@ export default function CreativaHomeModal({
   onApplyMagicDesign,
   onApplyAiImage,
   canvasDimensions = { width: 1080, height: 1080 },
-  onOpenCreatorProfile
+  onOpenCreatorProfile,
+  onOpenCanvaConnect
 }) {
   const [activeTab, setActiveTab] = useState('home'); // 'home' | 'templates' | 'creators' | 'projects' | 'magic'
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -918,16 +919,27 @@ export default function CreativaHomeModal({
                 What will you design today?
               </h1>
 
-              {/* Giant Hero Search Bar */}
-              <div className="relative max-w-2xl pt-1">
-                <Search size={18} className="absolute left-4 top-5 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Search thousands of official templates, verified creators, or describe for AI..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-white rounded-2xl pl-12 pr-4 py-3.5 text-slate-900 text-xs md:text-sm font-medium shadow-2xl focus:outline-none focus:ring-4 focus:ring-purple-300 placeholder-slate-400 transition-all"
-                />
+              {/* Giant Hero Search Bar & Canva Connect Action */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 max-w-2xl pt-1">
+                <div className="relative flex-1">
+                  <Search size={18} className="absolute left-4 top-4 text-slate-400" />
+                  <input
+                    type="text"
+                    placeholder="Search thousands of official templates, verified creators, or describe for AI..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full bg-white rounded-2xl pl-12 pr-4 py-3.5 text-slate-900 text-xs md:text-sm font-medium shadow-2xl focus:outline-none focus:ring-4 focus:ring-purple-300 placeholder-slate-400 transition-all"
+                  />
+                </div>
+                <button
+                  onClick={() => onOpenCanvaConnect?.()}
+                  className="flex items-center justify-center space-x-2 px-4 py-3.5 rounded-2xl bg-slate-900/80 hover:bg-slate-950 backdrop-blur-md text-white border border-white/20 text-xs font-bold transition-all shadow-xl group shrink-0"
+                  title="Import Canva Share Links or Connect Official APIs"
+                >
+                  <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                  <Sparkles size={14} className="text-amber-300 group-hover:scale-110 transition-transform" />
+                  <span>Canva Connect</span>
+                </button>
               </div>
 
               {/* Canva Authentic Circular Workflow Category Tabs */}
