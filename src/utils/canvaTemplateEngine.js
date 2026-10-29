@@ -243,45 +243,165 @@ const getThemeForQuery = (query = '') => {
 
 /**
  * Dynamically synthesizes an authentic Creativa multi-layer template for any query
+ * Supports all Canva categories: Resumes, Certificates, Business Cards, Invoices, 
+ * YouTube Thumbnails, Instagram Stories/Reels, Menus, Infographics, Presentations, Logos, and Posters.
  */
 export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
   const cleanQ = query.trim() || 'Modern Design';
   const theme = getThemeForQuery(cleanQ);
   const qLower = cleanQ.toLowerCase();
-  
-  // Choose format & aspect ratio
-  let width = options.width || 1080;
-  let height = options.height || 1080;
-  let category = options.category || 'Marketing';
-  
-  if (qLower.includes('youtube') || qLower.includes('thumbnail')) {
-    width = 1280;
-    height = 720;
-    category = 'Video';
-  } else if (qLower.includes('story') || qLower.includes('reel') || qLower.includes('tiktok') || qLower.includes('flyer')) {
-    width = 1080;
-    height = 1920;
-    category = 'Social Media';
-  } else if (qLower.includes('deck') || qLower.includes('present') || qLower.includes('slide')) {
-    width = 1920;
-    height = 1080;
-    category = 'Presentation';
-  } else if (qLower.includes('logo')) {
-    width = 800;
-    height = 800;
-    category = 'Logo';
-  } else if (qLower.includes('invitation') || qLower.includes('card')) {
-    width = 1080;
-    height = 1920;
-    category = 'Invitation';
-  } else if (qLower.includes('poster')) {
-    width = 1080;
-    height = 1350;
-    category = 'Poster';
-  }
-
   const capitalizedTitle = cleanQ.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   const id = `dynamic-${cleanQ.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${Date.now().toString(36).slice(-4)}`;
+
+  // Determine specific Canva template archetype
+  const isResume = qLower.includes('resume') || qLower.includes('cv') || options.category === 'Resume';
+  const isCertificate = qLower.includes('cert') || qLower.includes('award') || qLower.includes('diploma');
+  const isBusinessCard = qLower.includes('business card') || qLower.includes('visiting card');
+  const isInvoice = qLower.includes('invoice') || qLower.includes('bill') || qLower.includes('receipt');
+  const isYouTube = qLower.includes('youtube') || qLower.includes('thumbnail');
+  const isStory = qLower.includes('story') || qLower.includes('reel') || qLower.includes('tiktok');
+  const isLogo = qLower.includes('logo') || options.category === 'Logo';
+  const isMenu = qLower.includes('menu') || qLower.includes('food') || qLower.includes('restaurant');
+  const isInfographic = qLower.includes('infographic');
+  const isPresentation = qLower.includes('deck') || qLower.includes('present') || qLower.includes('slide') || options.category === 'Presentation';
+
+  // 1. RESUME / CV (A4 standard: 794 × 1123 px)
+  if (isResume) {
+    const width = 794;
+    const height = 1123;
+    const objects = [
+      // Top header banner
+      { type: 'rect', left: width / 2, top: 90, width: width, height: 180, fill: theme.primary, originX: 'center', originY: 'center', selectable: true },
+      { type: 'textbox', left: width / 2, top: 70, text: capitalizedTitle.toUpperCase(), fontSize: 34, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#ffffff', textAlign: 'center', originX: 'center', originY: 'center', width: 700 },
+      { type: 'textbox', left: width / 2, top: 125, text: 'SENIOR PRODUCT DESIGNER & UI/UX ARCHITECT', fontSize: 13, fontWeight: 'bold', fontFamily: 'Inter', fill: '#e2e8f0', textAlign: 'center', originX: 'center', originY: 'center', width: 600 },
+      // Contact Bar
+      { type: 'rect', left: width / 2, top: 195, width: width, height: 32, fill: '#0f172a', originX: 'center', originY: 'center' },
+      { type: 'textbox', left: width / 2, top: 195, text: 'portfolio.creativa.design  •  contact@creativa.com  •  +1 (555) 019-2834  •  San Francisco, CA', fontSize: 11, fontFamily: 'Inter', fill: '#94a3b8', textAlign: 'center', originX: 'center', originY: 'center', width: 740 },
+      // Left Sidebar Column
+      { type: 'rect', left: 140, top: 660, width: 240, height: 860, fill: '#f8fafc', stroke: '#e2e8f0', strokeWidth: 1, rx: 12, ry: 12, originX: 'center', originY: 'center' },
+      // Profile Summary
+      { type: 'textbox', left: 140, top: 260, text: 'PROFILE', fontSize: 14, fontWeight: 'bold', fontFamily: 'Montserrat', fill: theme.primary, textAlign: 'left', originX: 'center', originY: 'center', width: 210 },
+      { type: 'textbox', left: 140, top: 320, text: 'Award-winning designer with 8+ years crafting scalable design systems, multi-platform mobile apps, and enterprise SaaS solutions.', fontSize: 11, fontFamily: 'Inter', fill: '#475569', textAlign: 'left', originX: 'center', originY: 'center', width: 210 },
+      // Core Skills
+      { type: 'textbox', left: 140, top: 410, text: 'CORE SKILLS', fontSize: 14, fontWeight: 'bold', fontFamily: 'Montserrat', fill: theme.primary, textAlign: 'left', originX: 'center', originY: 'center', width: 210 },
+      { type: 'rect', left: 140, top: 460, width: 210, height: 28, fill: '#ede9fe', rx: 6, ry: 6, originX: 'center', originY: 'center' },
+      { type: 'textbox', left: 140, top: 460, text: 'Design Systems & Tokens', fontSize: 11, fontWeight: 'bold', fontFamily: 'Inter', fill: '#6b21a8', textAlign: 'center', originX: 'center', originY: 'center', width: 200 },
+      { type: 'rect', left: 140, top: 500, width: 210, height: 28, fill: '#ede9fe', rx: 6, ry: 6, originX: 'center', originY: 'center' },
+      { type: 'textbox', left: 140, top: 500, text: 'Figma, Fabric.js & Canvas', fontSize: 11, fontWeight: 'bold', fontFamily: 'Inter', fill: '#6b21a8', textAlign: 'center', originX: 'center', originY: 'center', width: 200 },
+      { type: 'rect', left: 140, top: 540, width: 210, height: 28, fill: '#ede9fe', rx: 6, ry: 6, originX: 'center', originY: 'center' },
+      { type: 'textbox', left: 140, top: 540, text: 'User Research & Prototyping', fontSize: 11, fontWeight: 'bold', fontFamily: 'Inter', fill: '#6b21a8', textAlign: 'center', originX: 'center', originY: 'center', width: 200 },
+      // Education
+      { type: 'textbox', left: 140, top: 620, text: 'EDUCATION', fontSize: 14, fontWeight: 'bold', fontFamily: 'Montserrat', fill: theme.primary, textAlign: 'left', originX: 'center', originY: 'center', width: 210 },
+      { type: 'textbox', left: 140, top: 670, text: 'B.S. in Interaction Design\nCalifornia Institute of Arts\n2015 – 2019 (Summa Cum Laude)', fontSize: 11, fontFamily: 'Inter', fill: '#475569', textAlign: 'left', originX: 'center', originY: 'center', width: 210 },
+      // Right Column: Experience
+      { type: 'textbox', left: 510, top: 260, text: 'WORK EXPERIENCE', fontSize: 16, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#0f172a', textAlign: 'left', originX: 'center', originY: 'center', width: 460 },
+      { type: 'textbox', left: 510, top: 310, text: 'Lead UI/UX Architect  •  Creativa Global', fontSize: 13, fontWeight: 'bold', fontFamily: 'Montserrat', fill: theme.primary, textAlign: 'left', originX: 'center', originY: 'center', width: 460 },
+      { type: 'textbox', left: 510, top: 335, text: '2022 – Present  •  San Francisco, CA', fontSize: 10, fontFamily: 'Inter', fill: '#64748b', textAlign: 'left', originX: 'center', originY: 'center', width: 460 },
+      { type: 'textbox', left: 510, top: 385, text: '• Directed design of high-converting web applications with 4.5M+ active users.\n• Reduced design-to-engineering handoff latency by 45% using design token architecture.\n• Led a multidisciplinary team of 14 visual designers, animators and researchers.', fontSize: 11, fontFamily: 'Inter', fill: '#334155', textAlign: 'left', originX: 'center', originY: 'center', width: 460 },
+      { type: 'textbox', left: 510, top: 480, text: 'Senior Product Designer  •  Studio Canvas Labs', fontSize: 13, fontWeight: 'bold', fontFamily: 'Montserrat', fill: theme.primary, textAlign: 'left', originX: 'center', originY: 'center', width: 460 },
+      { type: 'textbox', left: 510, top: 505, text: '2019 – 2022  •  New York, NY', fontSize: 10, fontFamily: 'Inter', fill: '#64748b', textAlign: 'left', originX: 'center', originY: 'center', width: 460 },
+      { type: 'textbox', left: 510, top: 555, text: '• Built component libraries adopted across 8 distinct web and mobile products.\n• Executed 120+ usability studies, increasing onboarding conversion by 28%.\n• Designed interactive micro-animations and responsive mobile layout systems.', fontSize: 11, fontFamily: 'Inter', fill: '#334155', textAlign: 'left', originX: 'center', originY: 'center', width: 460 }
+    ];
+    return { id, title: `${capitalizedTitle} Professional Resume`, category: 'Resume', width, height, backgroundColor: '#ffffff', previewGradient: 'linear-gradient(135deg, #f8fafc 0%, #ede9fe 100%)', keywords: ['resume', 'cv', 'job', 'career', 'canva'], objects };
+  }
+
+  // 2. CERTIFICATE OF ACHIEVEMENT (1920 × 1080 px)
+  if (isCertificate) {
+    const width = 1920;
+    const height = 1080;
+    const objects = [
+      // Outer Gold Frame
+      { type: 'rect', left: width / 2, top: height / 2, width: width - 80, height: height - 80, fill: '#fffdfa', stroke: '#d97706', strokeWidth: 4, rx: 16, ry: 16, originX: 'center', originY: 'center' },
+      // Inner Border
+      { type: 'rect', left: width / 2, top: height / 2, width: width - 130, height: height - 130, fill: 'transparent', stroke: '#b45309', strokeWidth: 1.5, rx: 10, ry: 10, originX: 'center', originY: 'center' },
+      // Certificate Title
+      { type: 'textbox', left: width / 2, top: 200, text: 'CERTIFICATE OF ACHIEVEMENT', fontSize: 48, fontWeight: 'bold', fontFamily: 'Cinzel', fill: '#78350f', textAlign: 'center', originX: 'center', originY: 'center', width: 1400 },
+      { type: 'textbox', left: width / 2, top: 270, text: 'THIS HONOR IS PROUDLY PRESENTED TO', fontSize: 18, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#92400e', textAlign: 'center', originX: 'center', originY: 'center', width: 1000 },
+      // Recipient Name
+      { type: 'textbox', left: width / 2, top: 400, text: capitalizedTitle.toUpperCase(), fontSize: 62, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#1e1b4b', textAlign: 'center', originX: 'center', originY: 'center', width: 1400 },
+      // Divider
+      { type: 'rect', left: width / 2, top: 470, width: 600, height: 4, fill: '#d97706', originX: 'center', originY: 'center' },
+      // Description
+      { type: 'textbox', left: width / 2, top: 570, text: 'For exemplary dedication, creative innovation, and exceptional leadership demonstrated throughout the international design masterclass.', fontSize: 22, fontFamily: 'Lora', fill: '#451a03', textAlign: 'center', originX: 'center', originY: 'center', width: 1300 },
+      // Signatures
+      { type: 'rect', left: 520, top: 820, width: 360, height: 2, fill: '#92400e', originX: 'center', originY: 'center' },
+      { type: 'textbox', left: 520, top: 855, text: 'Elena Rostova\nExecutive Design Director', fontSize: 16, fontFamily: 'Inter', fill: '#78350f', textAlign: 'center', originX: 'center', originY: 'center', width: 360 },
+      // Gold Seal Badge
+      { type: 'circle', left: width / 2, top: 810, radius: 65, fill: '#f59e0b', stroke: '#b45309', strokeWidth: 4, originX: 'center', originY: 'center' },
+      { type: 'textbox', left: width / 2, top: 810, text: 'OFFICIAL\nSEAL\n★ 2026 ★', fontSize: 13, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#ffffff', textAlign: 'center', originX: 'center', originY: 'center', width: 120 },
+      { type: 'rect', left: 1400, top: 820, width: 360, height: 2, fill: '#92400e', originX: 'center', originY: 'center' },
+      { type: 'textbox', left: 1400, top: 855, text: 'Marcus Sterling\nDean of Academic Excellence', fontSize: 16, fontFamily: 'Inter', fill: '#78350f', textAlign: 'center', originX: 'center', originY: 'center', width: 360 }
+    ];
+    return { id, title: `${capitalizedTitle} Certificate of Achievement`, category: 'Business', width, height, backgroundColor: '#fffdfa', previewGradient: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)', keywords: ['certificate', 'award', 'diploma', 'canva'], objects };
+  }
+
+  // 3. BUSINESS CARD (Standard 1050 × 600 px)
+  if (isBusinessCard) {
+    const width = 1050;
+    const height = 600;
+    const objects = [
+      // Left diagonal / vertical accent banner
+      { type: 'rect', left: 180, top: height / 2, width: 360, height: height, fill: '#1e1b4b', originX: 'center', originY: 'center' },
+      // Monogram logo
+      { type: 'circle', left: 180, top: height / 2, radius: 70, fill: theme.accent, originX: 'center', originY: 'center' },
+      { type: 'textbox', left: 180, top: height / 2, text: cleanQ.slice(0, 2).toUpperCase(), fontSize: 44, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#ffffff', textAlign: 'center', originX: 'center', originY: 'center', width: 120 },
+      // Name & Title
+      { type: 'textbox', left: 660, top: 190, text: capitalizedTitle.toUpperCase(), fontSize: 36, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#0f172a', textAlign: 'left', originX: 'center', originY: 'center', width: 540 },
+      { type: 'textbox', left: 660, top: 245, text: 'MANAGING PARTNER & CREATIVE LEAD', fontSize: 13, fontWeight: 'bold', fontFamily: 'Inter', fill: theme.primary, textAlign: 'left', originX: 'center', originY: 'center', width: 540 },
+      // Divider line
+      { type: 'rect', left: 660, top: 285, width: 540, height: 3, fill: theme.accent, originX: 'center', originY: 'center' },
+      // Contact Info Block
+      { type: 'textbox', left: 660, top: 350, text: '📞  +1 (555) 982-3401\n✉️  hello@creativastudio.com\n🌐  www.creativadesign.io\n📍  101 Market Street, Suite 500, San Francisco', fontSize: 15, fontFamily: 'Inter', fill: '#475569', textAlign: 'left', originX: 'center', originY: 'center', width: 540 }
+    ];
+    return { id, title: `${capitalizedTitle} Premium Business Card`, category: 'Business', width, height, backgroundColor: '#ffffff', previewGradient: 'linear-gradient(135deg, #1e1b4b 0%, #7c3aed 100%)', keywords: ['business', 'card', 'branding', 'visiting'], objects };
+  }
+
+  // 4. YOUTUBE THUMBNAIL (1280 × 720 px)
+  if (isYouTube) {
+    const width = 1280;
+    const height = 720;
+    const objects = [
+      // High contrast dark background container
+      { type: 'rect', left: width / 2, top: height / 2, width: width, height: height, fill: '#090d16', originX: 'center', originY: 'center' },
+      // Highlight Pill Badge
+      { type: 'rect', left: 320, top: 140, width: 340, height: 60, fill: '#e11d48', rx: 30, ry: 30, originX: 'center', originY: 'center' },
+      { type: 'textbox', left: 320, top: 140, text: '★ 100% VIRAL GUIDE ★', fontSize: 20, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#ffffff', textAlign: 'center', originX: 'center', originY: 'center', width: 320 },
+      // Giant Clickable Headline
+      { type: 'textbox', left: width / 2, top: 320, text: capitalizedTitle.toUpperCase(), fontSize: 72, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#ffffff', textAlign: 'center', originX: 'center', originY: 'center', width: 1140, shadow: { color: 'rgba(0,0,0,0.8)', blur: 14, offsetX: 0, offsetY: 4 } },
+      // Action Callout Banner Box
+      { type: 'rect', left: width / 2, top: 480, width: 880, height: 80, fill: '#f59e0b', rx: 16, ry: 16, originX: 'center', originY: 'center' },
+      { type: 'textbox', left: width / 2, top: 480, text: 'WATCH BEFORE YOU START • ZERO TO PRO', fontSize: 30, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#0f172a', textAlign: 'center', originX: 'center', originY: 'center', width: 840 },
+      // Subtext
+      { type: 'textbox', left: width / 2, top: 620, text: '4K Full Masterclass  •  Official Creativa Studio  •  No Experience Needed', fontSize: 18, fontWeight: 'bold', fontFamily: 'Inter', fill: '#cbd5e1', textAlign: 'center', originX: 'center', originY: 'center', width: 1000 }
+    ];
+    return { id, title: `${capitalizedTitle} High-CTR YouTube Thumbnail`, category: 'Video', width, height, backgroundColor: '#090d16', previewGradient: 'linear-gradient(135deg, #e11d48 0%, #f59e0b 100%)', keywords: ['youtube', 'thumbnail', 'video', 'ctr'], objects };
+  }
+
+  // 5. INSTAGRAM STORY / REEL (1080 × 1920 px)
+  if (isStory) {
+    const width = 1080;
+    const height = 1920;
+    const objects = [
+      // Top Handle Banner
+      { type: 'rect', left: width / 2, top: 140, width: 420, height: 50, fill: 'rgba(255, 255, 255, 0.15)', rx: 25, ry: 25, originX: 'center', originY: 'center' },
+      { type: 'textbox', left: width / 2, top: 140, text: `@creativa • Official Design`, fontSize: 16, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#ffffff', textAlign: 'center', originX: 'center', originY: 'center', width: 400 },
+      // Central Hero Card
+      { type: 'rect', left: width / 2, top: height / 2 - 80, width: 920, height: 1100, fill: 'rgba(255, 255, 255, 0.95)', rx: 36, ry: 36, originX: 'center', originY: 'center' },
+      { type: 'rect', left: width / 2, top: height / 2 - 440, width: 340, height: 48, fill: theme.primary, rx: 24, ry: 24, originX: 'center', originY: 'center' },
+      { type: 'textbox', left: width / 2, top: height / 2 - 440, text: 'EXCLUSIVE DROP', fontSize: 15, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#ffffff', textAlign: 'center', originX: 'center', originY: 'center', width: 320 },
+      { type: 'textbox', left: width / 2, top: height / 2 - 180, text: capitalizedTitle.toUpperCase(), fontSize: 56, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#0f172a', textAlign: 'center', originX: 'center', originY: 'center', width: 800 },
+      { type: 'textbox', left: width / 2, top: height / 2 + 120, text: 'Discover hand-crafted typography, bespoke aesthetics, and visual clarity designed to elevate your brand presence.', fontSize: 24, fontFamily: 'Inter', fill: '#475569', textAlign: 'center', originX: 'center', originY: 'center', width: 740 },
+      // Bottom CTA Swipe Pill
+      { type: 'rect', left: width / 2, top: 1680, width: 540, height: 76, fill: theme.primary, rx: 38, ry: 38, originX: 'center', originY: 'center' },
+      { type: 'textbox', left: width / 2, top: 1680, text: 'TAP LINK IN BIO  ➔', fontSize: 22, fontWeight: 'bold', fontFamily: 'Montserrat', fill: '#ffffff', textAlign: 'center', originX: 'center', originY: 'center', width: 500 }
+    ];
+    return { id, title: `${capitalizedTitle} Viral Story & Reel`, category: 'Social Media', width, height, backgroundColor: '#0f172a', previewGradient: 'linear-gradient(135deg, #7c3aed 0%, #ec4899 100%)', keywords: ['story', 'reel', 'tiktok', 'instagram'], objects };
+  }
+
+  // 6. GENERAL MULTI-ELEMENT CANVA DESIGN (Default High-End Vector Stage)
+  const width = isPresentation ? 1920 : (options.width || (isLogo ? 800 : 1080));
+  const height = isPresentation ? 1080 : (options.height || (isLogo ? 800 : 1080));
+  const category = isPresentation ? 'Presentation' : (isLogo ? 'Logo' : (options.category || 'Marketing'));
 
   const objects = [
     // Top border accent or background card
@@ -289,8 +409,8 @@ export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
       type: 'rect',
       left: width / 2,
       top: height / 2,
-      width: width * 0.92,
-      height: height * 0.92,
+      width: Math.round(width * 0.92),
+      height: Math.round(height * 0.92),
       fill: 'transparent',
       stroke: theme.primary,
       strokeWidth: 3,
@@ -304,8 +424,8 @@ export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
     {
       type: 'rect',
       left: width / 2,
-      top: height * 0.22,
-      width: Math.min(320, width * 0.4),
+      top: Math.round(height * 0.22),
+      width: Math.min(320, Math.round(width * 0.38)),
       height: 48,
       fill: theme.primary,
       rx: 24,
@@ -316,8 +436,8 @@ export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
     {
       type: 'textbox',
       left: width / 2,
-      top: height * 0.22,
-      text: (options.badge || 'OFFICIAL CANVA TEMPLATE').toUpperCase(),
+      top: Math.round(height * 0.22),
+      text: (options.badge || `${category} TEMPLATE`).toUpperCase(),
       fontSize: Math.max(12, Math.round(width * 0.016)),
       fontWeight: 'bold',
       fontFamily: 'Montserrat',
@@ -325,13 +445,13 @@ export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
       textAlign: 'center',
       originX: 'center',
       originY: 'center',
-      width: Math.min(300, width * 0.38)
+      width: Math.min(300, Math.round(width * 0.36))
     },
     // Main Hero Headline
     {
       type: 'textbox',
       left: width / 2,
-      top: height * 0.42,
+      top: Math.round(height * 0.42),
       text: capitalizedTitle.toUpperCase(),
       fontSize: Math.max(24, Math.round(Math.min(68, width * 0.055) * (capitalizedTitle.length > 30 ? 0.75 : 1))),
       fontWeight: 'bold',
@@ -340,13 +460,13 @@ export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
       textAlign: 'center',
       originX: 'center',
       originY: 'center',
-      width: width * 0.82
+      width: Math.round(width * 0.82)
     },
     // Decorative underline / divider
     {
       type: 'rect',
       left: width / 2,
-      top: height * 0.54,
+      top: Math.round(height * 0.54),
       width: 140,
       height: 6,
       fill: theme.accent,
@@ -359,7 +479,7 @@ export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
     {
       type: 'textbox',
       left: width / 2,
-      top: height * 0.65,
+      top: Math.round(height * 0.65),
       text: `Professional high-impact design for ${capitalizedTitle}. Fully customizable typography, colors & vectors.`,
       fontSize: Math.min(22, Math.max(14, Math.round(width * 0.022))),
       fontFamily: 'Inter',
@@ -367,14 +487,14 @@ export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
       textAlign: 'center',
       originX: 'center',
       originY: 'center',
-      width: width * 0.72
+      width: Math.round(width * 0.72)
     },
     // CTA Action Button
     {
       type: 'rect',
       left: width / 2,
-      top: height * 0.78,
-      width: Math.min(260, width * 0.35),
+      top: Math.round(height * 0.78),
+      width: Math.min(260, Math.round(width * 0.35)),
       height: 52,
       fill: theme.accent,
       rx: 16,
@@ -385,7 +505,7 @@ export function synthesizeCanvaTemplate(query = 'Modern Design', options = {}) {
     {
       type: 'textbox',
       left: width / 2,
-      top: height * 0.78,
+      top: Math.round(height * 0.78),
       text: 'EXPLORE NOW',
       fontSize: 16,
       fontWeight: 'bold',

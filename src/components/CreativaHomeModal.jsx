@@ -204,10 +204,13 @@ export default function CreativaHomeModal({
     { label: 'Instagram Post', icon: Smartphone, width: 1080, height: 1080, bg: 'from-pink-500 to-purple-600' },
     { label: 'YouTube Thumbnail', icon: Video, width: 1280, height: 720, bg: 'from-red-500 to-rose-600' },
     { label: 'Resume / CV', icon: FileText, width: 794, height: 1123, bg: 'from-blue-400 to-indigo-500' },
+    { label: 'Business Card', icon: Briefcase, width: 1050, height: 600, bg: 'from-slate-700 to-indigo-900' },
+    { label: 'Certificate', icon: ShieldCheck, width: 1920, height: 1080, bg: 'from-amber-500 to-yellow-600' },
+    { label: 'Invoice / Doc', icon: FileText, width: 794, height: 1123, bg: 'from-teal-500 to-emerald-600' },
     { label: 'Invitation', icon: Heart, width: 1080, height: 1920, bg: 'from-purple-500 to-pink-500' },
     { label: 'Logo', icon: Award, width: 800, height: 800, bg: 'from-emerald-400 to-teal-500' },
-    { label: 'Reel / Video', icon: Video, width: 1080, height: 1920, bg: 'from-fuchsia-500 to-purple-600' },
-    { label: 'Poster', icon: Image, width: 1080, height: 1350, bg: 'from-cyan-400 to-blue-500' }
+    { label: 'Reel / Story', icon: Video, width: 1080, height: 1920, bg: 'from-fuchsia-500 to-purple-600' },
+    { label: 'Flyer / Poster', icon: Image, width: 1080, height: 1350, bg: 'from-cyan-400 to-blue-500' }
   ];
 
   const allTemplates = getAllTemplates();
