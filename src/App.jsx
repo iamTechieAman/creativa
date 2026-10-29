@@ -329,6 +329,7 @@ export default function App() {
     }
 
     fabricRef.current.requestRenderAll();
+    autoFitCanvas(w, h);
     pushHistoryState();
   };
 
@@ -361,6 +362,7 @@ export default function App() {
     }
 
     fabricRef.current.requestRenderAll();
+    autoFitCanvas(newW, newH);
     pushHistoryState();
     handleSaveProject(newTitle);
   };
@@ -685,6 +687,25 @@ export default function App() {
         if (!isInput && !isEditingFabricText && activeObject) {
           e.preventDefault();
           handleDuplicate();
+        }
+      } else if ((e.ctrlKey || e.metaKey) && e.key === ']') {
+        if (!isInput && !isEditingFabricText && activeObject) {
+          e.preventDefault();
+          handleMoveLayer(e.shiftKey ? 'front' : 'forward');
+        }
+      } else if ((e.ctrlKey || e.metaKey) && e.key === '[') {
+        if (!isInput && !isEditingFabricText && activeObject) {
+          e.preventDefault();
+          handleMoveLayer(e.shiftKey ? 'back' : 'backward');
+        }
+      } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'g') {
+        if (!isInput && !isEditingFabricText) {
+          e.preventDefault();
+          if (e.shiftKey) {
+            handleUngroup();
+          } else {
+            handleGroup();
+          }
         }
       } else if (e.key === 'Delete' || e.key === 'Backspace') {
         if (!isInput && !isEditingFabricText && activeObject) {
@@ -1275,7 +1296,7 @@ export default function App() {
     setActiveObject(null);
   };
 
-  // Layer Reordering
+  // Layer Reordering (Canva Pro Arrange: Front, Back, Forward, Backward)
   const handleMoveLayer = (directionOrObj, dir) => {
     const canvas = fabricRef.current;
     if (!canvas) return;
@@ -1284,14 +1305,14 @@ export default function App() {
     const action = typeof directionOrObj === 'string' ? directionOrObj : dir;
     if (!target) return;
 
-    if (action === 'front' || action === 'up') {
-      canvas.bringObjectForward(target);
-    } else if (action === 'back' || action === 'down') {
-      canvas.sendObjectBackwards(target);
-    } else if (action === 'top') {
+    if (action === 'front' || action === 'top') {
       canvas.bringObjectToFront(target);
-    } else if (action === 'bottom') {
+    } else if (action === 'back' || action === 'bottom') {
       canvas.sendObjectToBack(target);
+    } else if (action === 'forward' || action === 'up') {
+      canvas.bringObjectForward(target);
+    } else if (action === 'backward' || action === 'down') {
+      canvas.sendObjectBackwards(target);
     }
     canvas.requestRenderAll();
     syncObjectsList();

@@ -176,10 +176,23 @@ export default function BrandKitPanel({
     }, 600);
   };
 
+  // Helper: HSL to Hex
+  const hslToHex = (h, s, l) => {
+    l /= 100;
+    const a = (s * Math.min(l, 1 - l)) / 100;
+    const f = (n) => {
+      const k = (n + h / 30) % 12;
+      const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+      return Math.round(255 * color).toString(16).padStart(2, '0');
+    };
+    return `#${f(0)}${f(8)}${f(4)}`.toUpperCase();
+  };
+
   // 2. Document & Guidelines Parser (PDF, Text, JSON, Images)
   const handleDocumentUpload = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    if (e.target) e.target.value = '';
 
     setIsParsingDoc(true);
     const fileName = file.name;
@@ -220,6 +233,7 @@ export default function BrandKitPanel({
             setBrandLogos(nextLogos);
             setCustomPalette(nextPalette);
             setUploadedDocuments(nextDocs);
+            setBrandSubTab('documents');
             saveBrandKitState({
               brandLogos: nextLogos,
               customPalette: nextPalette,
@@ -261,9 +275,9 @@ export default function BrandKitPanel({
             const hash = (fileName + text.slice(0, 100)).split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
             const baseHue = Math.abs(hash) % 360;
             const derived = [
-              `hsl(${baseHue}, 75%, 48%)`,
-              `hsl(${(baseHue + 40) % 360}, 82%, 52%)`,
-              `hsl(${(baseHue + 180) % 360}, 70%, 42%)`,
+              hslToHex(baseHue, 75, 48),
+              hslToHex((baseHue + 40) % 360, 82, 52),
+              hslToHex((baseHue + 180) % 360, 70, 42),
               '#1E293B',
               '#F8FAFC'
             ];
@@ -283,6 +297,7 @@ export default function BrandKitPanel({
           const nextDocs = [newDoc, ...uploadedDocuments];
           setCustomPalette(finalColors);
           setUploadedDocuments(nextDocs);
+          setBrandSubTab('documents');
           if (detectedFont) {
             setHeadingFont(detectedFont);
           }
@@ -309,6 +324,7 @@ export default function BrandKitPanel({
   const handleLogoUpload = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    if (e.target) e.target.value = '';
 
     const reader = new FileReader();
     reader.onload = (event) => {
